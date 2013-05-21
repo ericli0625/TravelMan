@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<!--     <item
+        android:id="@+id/item_favor"
+        android:title="我的最愛">
+    </item> -->
+    <item
+        android:id="@+id/item1"
+        android:title="關於">
+    </item>
+    <item
+        android:id="@+id/item2"
+        android:title="建議">
+    </item>
+    <item
+        android:id="@+id/item3"
+        android:title="離開">
+    </item>
+
+</menu>

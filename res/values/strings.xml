@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">台灣旅遊景點</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="button_Search_Local">地區搜尋</string>
+    <string name="button_Search_Spot">類別搜尋</string>
+    <string name="button_Search_Keyword">關鍵字搜尋</string>
+    
+    <string name="str_no">取消</string>
+    <string name="str_ok">確定</string>
+    
+    <string name="str_ok_mail">回報</string>
+    <string name="str_no_mail">返回</string>
+    
+    <string name="app_about">關於</string>
+    <string name="app_exit">離開</string>
+    <string name="app_email">建議</string>
+    
+    <string name="app_about_msg">希望本系統能夠提供大眾快速的查詢景點</string>
+    <string name="app_exit_msg">確定離開系統?</string>
+    <string name="app_email_msg">回報問題及改善建議</string>
+    
+    <string name="app_connect">警告</string>
+    <string name="app_connect_msg">偵測不到網路,請開啟網路</string>
+
+    <string name="app_none_result">提示</string>
+    <string name="app_none_result_msg">尚無景點資料</string>
+    
+    <string name="title_activity_main">首頁</string>
+    
+    <string name="name">景點名稱:</string>
+    <string name="telephone">聯絡電話:</string>
+    <string name="address">景點地址:</string>
+    <string name="category">景點類型:</string>
+    <string name="content">景點內容:</string>
+    
+</resources>
