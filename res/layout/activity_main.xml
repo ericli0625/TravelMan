@@ -1,19 +1,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cover"
+    android:background="@drawable/paper"
     android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:text="台灣旅遊景點"
+        android:textColor="@color/brown_deep" 
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/button_Search_Local"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="123dp"
-        android:layout_marginTop="189dp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
         android:background="@drawable/image_btn_press"
         android:text="@string/button_Search_Local"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/button_Search_Keyword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_Search_Local"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/image_btn_press"
+        android:text="@string/button_Search_Keyword"
         android:textColor="@color/white" />
 
 </RelativeLayout>

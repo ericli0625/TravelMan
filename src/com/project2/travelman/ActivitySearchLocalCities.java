@@ -1,5 +1,6 @@
 package com.project2.travelman;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,6 +25,9 @@ public class ActivitySearchLocalCities extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 
+		ActionBar actionBar =getActionBar();
+		actionBar.hide();
+		
 		myListView = (ListView) findViewById(R.id.myListView);
 
 		Bundle bundle = getIntent().getExtras();
@@ -130,7 +134,8 @@ public class ActivitySearchLocalCities extends Activity {
 			engname = "lianjiang_county";
 		}
 
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cities_init);
+		adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, cities_init);
 		myListView.setAdapter(adapter);
 
 		myListView
@@ -147,20 +152,22 @@ public class ActivitySearchLocalCities extends Activity {
 
 						Intent intent = new Intent();
 						intent.setClass(ActivitySearchLocalCities.this,
-								ActivitySearchLocalCitiesSpot.class);
+								ActivitySearchLocalCitiesSpotCategory.class);
 
 						Bundle bundle = new Bundle();
 						bundle.putString("name", name);// 鄉鎮縣市區
 						bundle.putString("engname", engname);// 縣市
 
-//						Toast.makeText(arg1.getContext(), engname + name,Toast.LENGTH_SHORT).show();
+						// Toast.makeText(arg1.getContext(), engname +
+						// name,Toast.LENGTH_SHORT).show();
 
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
 
 						// Activity (ActivityMenu)
 						startActivity(intent);
-
+						overridePendingTransition(R.anim.in_from_right,
+								R.anim.out_to_left);
 					}
 
 				});

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="spot_category">
+        <item>所有類型</item>
+        <item>公園休憩</item>
+        <item>主題農場</item>
+        <item>主題樂園</item>
+        <item>古蹟寺廟</item>
+        <item>地標建築</item>
+        <item>自然景觀</item>
+        <item>步道古道</item>
+        <item>林場森林</item>
+        <item>美食購物</item>
+        <item>風景休憩</item>
+        <item>展示中心</item>
+        <item>旅客服務</item>
+        <item>都會人文</item>
+        <item>港口濱海</item>
+        <item>溫泉冷泉</item>
+        <item>藝術人文</item>
+    </string-array>
+    
+</resources>

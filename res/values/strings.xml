@@ -37,4 +37,14 @@
     <string name="category">景點類型:</string>
     <string name="content">景點內容:</string>
     
+    <string name="app_call">撥打電話</string>
+    <string name="app_call_msg">確定撥打?</string>
+    
+    <string name="input_title">請輸入關鍵字:</string>
+    <string name="button_Search_Reset">重置</string>
+    <string name="button_Search_Submit">查詢</string>
+    
+    <string name="app_no_context">提示</string>
+    <string name="app_no_context_msg">請輸入搜尋內容</string>
+    
 </resources>

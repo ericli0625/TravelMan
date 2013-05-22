@@ -1,5 +1,6 @@
 package com.project2.travelman;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,9 @@ public class ActivitySearchLocal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 
+		ActionBar actionBar =getActionBar();
+		actionBar.hide();
+		
 		myListView = (ListView) findViewById(R.id.myListView);
 
 		cities_init = getResources().getStringArray(R.array.cities_init);
@@ -48,15 +52,17 @@ public class ActivitySearchLocal extends Activity {
 						Bundle bundle = new Bundle();
 						bundle.putString("name", name);
 
-//						Toast.makeText(arg1.getContext(), name, Toast.LENGTH_SHORT)
-//						.show();
-						
+						// Toast.makeText(arg1.getContext(), name,
+						// Toast.LENGTH_SHORT)
+						// .show();
+
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
 
-//						 Activity (ActivityMenu)
+						// Activity (ActivityMenu)
 						startActivity(intent);
-
+						overridePendingTransition(R.anim.in_from_right,
+								R.anim.out_to_left);
 					}
 
 				});

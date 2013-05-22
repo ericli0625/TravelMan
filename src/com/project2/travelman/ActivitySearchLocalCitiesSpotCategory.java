@@ -8,63 +8,124 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
-public class ActivitySearchLocalCitiesSpot extends Activity {
+public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 	private ListView myListView;
 	private TextView myTextView;
-
+	private Spinner mySpinner;
 	private SimpleAdapter adapterHTTP;
 	protected List<Traveler> Travelers;
 	private Traveler Traveler;
 
+	String[] spotCategoryArray;
+	Resources res;
+
+	private String spotname, spotengname;
+	private String spotCategory = new String("所有類型");
+	private String strText = new String("全部地區");
 	private String result = new String();
+	private ArrayAdapter<CharSequence> adapterTemp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_search);
+		setContentView(R.layout.activity_menu_category);
 
-//		myTextView = (TextView) findViewById(R.id.myTextView);
+		ActionBar actionBar = getActionBar();
+		actionBar.hide();
+
+		// myTextView = (TextView) findViewById(R.id.myTextView);
 		myListView = (ListView) findViewById(R.id.myListView);
+		mySpinner = (Spinner) findViewById(R.id.spinner1);
 
 		Bundle bundle = getIntent().getExtras();
-		String spotname = bundle.getString("name");// 鄉鎮縣市區(全區)
-		String spotengname = bundle.getString("engname");// 縣市
-		
+		spotname = bundle.getString("name");// 鄉鎮縣市區(全區)
+		spotengname = bundle.getString("engname");// 縣市
+
 		// 判斷是否有上網
 		if (AppStatus.getInstance(this).isOnline(this)) {
-
-			String sql;
-			String strText = new String("全部地區");
 
 			visitExternalLinks();
 
 			if (spotname.equals(strText)) {
-				sql = "SELECT * FROM " + spotengname + " ";
+				String sql = "SELECT * FROM " + spotengname + " ";
 				result = DBConnector.executeQuery(sql);
+				ShowListView(result);
 			} else {
-				sql = "SELECT * FROM " + spotengname + " where city like '"
-						+ spotname + "'";
+				String sql = "SELECT * FROM " + spotengname
+						+ " where city like '" + spotname + "'";
 				result = DBConnector.executeQuery(sql);
+				ShowListView(result);
 			}
-			
-//			myTextView.setText(result + "?");
-			
-			ShowListView(result);
+
+			// 讀取string array
+			res = getResources();
+			spotCategoryArray = res.getStringArray(R.array.spot_category);
+
+			adapterTemp = ArrayAdapter
+					.createFromResource(this, R.array.spot_category,
+							android.R.layout.simple_spinner_item);
+
+			adapterTemp
+					.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+			mySpinner.setAdapter(adapterTemp);
+
+			mySpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v,
+						int position, long id) {
+					spotCategory = spotCategoryArray[position];
+
+					if (!spotCategory.equals("所有類型") && !spotCategory.equals("")) {
+						String sql = "SELECT * FROM " + spotengname
+								+ " where city like '" + spotname
+								+ "' and category like '" + spotCategory + "'";
+						result = DBConnector.executeQuery(sql);
+					} else if (!spotCategory.equals("")) {
+						String sql = "SELECT * FROM " + spotengname + " where city like '" + spotname + "'";
+						result = DBConnector.executeQuery(sql);
+					}
+
+					if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
+						String sql = "SELECT * FROM " + spotengname
+								+ " where category like '" + spotCategory + "'";
+						result = DBConnector.executeQuery(sql);
+					} else if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
+						String sql = "SELECT * FROM " + spotengname +" ";
+						result = DBConnector.executeQuery(sql);
+					}
+					
+					ShowListView(result);
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+
+				}
+			});
+
+			// myTextView.setText(result + "?");
 
 		} else {
 			openOptionsDialogIsNetworkAvailable();
@@ -94,7 +155,7 @@ public class ActivitySearchLocalCitiesSpot extends Activity {
 		if (result.length() > 5) {
 			Travelers = JsonToList(result);
 			setInAdapter();
-			Toast.makeText(this, "讀取完成", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, spotCategory, Toast.LENGTH_SHORT).show();
 		} else {
 			List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
 			String[] from = { "name", "address" };
@@ -129,8 +190,9 @@ public class ActivitySearchLocalCitiesSpot extends Activity {
 						content = traveler.get("content");
 
 						Intent intent = new Intent();
-						intent.setClass(ActivitySearchLocalCitiesSpot.this,
-								ActivitySearchLocalCitiesSoptDetail.class);
+						intent.setClass(
+								ActivitySearchLocalCitiesSpotCategory.this,
+								ActivitySearchLocalCitiesSpotDetail.class);
 
 						Bundle bundle = new Bundle();
 
@@ -145,7 +207,8 @@ public class ActivitySearchLocalCitiesSpot extends Activity {
 
 						// Activity (ActivityMenu)
 						startActivity(intent);
-
+						overridePendingTransition(R.anim.in_from_right,
+								R.anim.out_to_left);
 					}
 
 				});
