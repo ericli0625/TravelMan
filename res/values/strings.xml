@@ -6,8 +6,9 @@
     <string name="menu_settings">Settings</string>
     
     <string name="button_Search_Local">地區搜尋</string>
-    <string name="button_Search_Spot">類別搜尋</string>
     <string name="button_Search_Keyword">關鍵字搜尋</string>
+    
+    <string name="button_favor">我的最愛</string>
     
     <string name="str_no">取消</string>
     <string name="str_ok">確定</string>
@@ -32,6 +33,7 @@
     <string name="title_activity_main">首頁</string>
     
     <string name="name">景點名稱:</string>
+    <string name="favor">加入我的最愛:</string>
     <string name="telephone">聯絡電話:</string>
     <string name="address">景點地址:</string>
     <string name="category">景點類型:</string>
@@ -40,7 +42,7 @@
     <string name="app_call">撥打電話</string>
     <string name="app_call_msg">確定撥打?</string>
     
-    <string name="input_title">請輸入關鍵字:</string>
+    <string name="input_title">輸入景點關鍵字:</string>
     <string name="button_Search_Reset">重置</string>
     <string name="button_Search_Submit">查詢</string>
     

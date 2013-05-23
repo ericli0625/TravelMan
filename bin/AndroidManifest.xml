@@ -32,21 +32,34 @@
         </activity>
         <activity
             android:name="ActivitySearchLocal"
-            android:label="@string/button_Search_Local" >
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="ActivitySearchLocalCities"
-            android:label="@string/button_Search_Local" >
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="ActivitySearchLocalCitiesSpotDetail"
-            android:label="@string/button_Search_Local" >
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
         <activity
             android:name="ActivitySearchLocalCitiesSpotCategory"
-            android:label="@string/button_Search_Local" >
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
         </activity>
-        <activity android:name="ActivitySearchLocalKeywords"></activity>
+        <activity
+            android:name="ActivitySearchLocalKeywords"
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="ActivitySearchLocalCitiesFavor"
+            android:label="@string/button_Search_Local"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

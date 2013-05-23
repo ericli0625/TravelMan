@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<!--     <item
+   <item
         android:id="@+id/item_favor"
         android:title="我的最愛">
-    </item> -->
+    </item>
     <item
         android:id="@+id/item1"
         android:title="關於">

@@ -10,11 +10,9 @@ package com.project2.travelman;
 public final class R {
     public static final class anim {
         public static final int in_from_right=0x7f040000;
-        public static final int my_alpha_action=0x7f040001;
-        public static final int my_scale_action=0x7f040002;
-        public static final int out_to_left=0x7f040003;
-        public static final int push_up_in=0x7f040004;
-        public static final int push_up_out=0x7f040005;
+        public static final int out_to_left=0x7f040001;
+        public static final int slide_in_left=0x7f040002;
+        public static final int slide_out_right=0x7f040003;
     }
     public static final class array {
         public static final int changhua_county=0x7f050009;
@@ -62,36 +60,38 @@ public final class R {
         public static final int next=0x7f020004;
         public static final int paper=0x7f020005;
         public static final int phone=0x7f020006;
+        public static final int star=0x7f020007;
     }
     public static final class id {
-        public static final int ScrollView=0x7f0a0005;
+        public static final int ScrollView=0x7f0a0006;
         public static final int button_Search_Keyword=0x7f0a0004;
         public static final int button_Search_Local=0x7f0a0003;
         public static final int button_Search_Reset=0x7f0a0015;
-        public static final int button_Search_Submit=0x7f0a0016;
-        public static final int editText_Search=0x7f0a0014;
+        public static final int button_Search_Submit=0x7f0a0017;
+        public static final int button_favor=0x7f0a0005;
+        public static final int editText_Search=0x7f0a0016;
+        public static final int favorButton=0x7f0a0008;
         public static final int item1=0x7f0a0019;
         public static final int item2=0x7f0a001a;
         public static final int item3=0x7f0a001b;
+        public static final int item_favor=0x7f0a001c;
         public static final int listTextView1=0x7f0a0000;
-        public static final int listTextView1_1=0x7f0a0006;
+        public static final int listTextView1_1=0x7f0a0007;
         public static final int listTextView2=0x7f0a0001;
-        public static final int listTextView2_2=0x7f0a0007;
-        public static final int listTextView3=0x7f0a0008;
-        public static final int listTextView3_3=0x7f0a000a;
-        public static final int listTextView4=0x7f0a000b;
-        public static final int listTextView4_4=0x7f0a000d;
-        public static final int listTextView5=0x7f0a000e;
-        public static final int listTextView5_5=0x7f0a000f;
-        public static final int mapButton=0x7f0a0009;
-        public static final int menu_settings=0x7f0a0018;
-        public static final int myListView=0x7f0a0012;
-        public static final int phoneButton=0x7f0a000c;
-        public static final int spinner1=0x7f0a0011;
-        public static final int spinner4=0x7f0a0017;
-        public static final int tableRow1=0x7f0a0010;
+        public static final int listTextView2_2=0x7f0a0009;
+        public static final int listTextView3=0x7f0a000a;
+        public static final int listTextView3_3=0x7f0a000b;
+        public static final int listTextView4=0x7f0a000d;
+        public static final int listTextView4_4=0x7f0a000e;
+        public static final int listTextView5=0x7f0a0010;
+        public static final int listTextView5_5=0x7f0a0011;
+        public static final int mapButton=0x7f0a000c;
+        public static final int myListView=0x7f0a0014;
+        public static final int phoneButton=0x7f0a000f;
+        public static final int spinner1=0x7f0a0013;
+        public static final int tableRow1=0x7f0a0012;
         public static final int textView1=0x7f0a0002;
-        public static final int textView2_search=0x7f0a0013;
+        public static final int textView2_search=0x7f0a0018;
     }
     public static final class layout {
         public static final int activity_list=0x7f030000;
@@ -100,17 +100,19 @@ public final class R {
         public static final int activity_menu_category=0x7f030003;
         public static final int activity_search=0x7f030004;
         public static final int activity_search_keyword=0x7f030005;
+        public static final int item1=0x7f030006;
+        public static final int item2=0x7f030007;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
         public static final int activity_search=0x7f090001;
     }
     public static final class string {
-        public static final int address=0x7f070017;
+        public static final int address=0x7f070018;
         public static final int app_about=0x7f07000a;
         public static final int app_about_msg=0x7f07000d;
-        public static final int app_call=0x7f07001a;
-        public static final int app_call_msg=0x7f07001b;
+        public static final int app_call=0x7f07001b;
+        public static final int app_call_msg=0x7f07001c;
         public static final int app_connect=0x7f070010;
         public static final int app_connect_msg=0x7f070011;
         public static final int app_email=0x7f07000c;
@@ -118,26 +120,27 @@ public final class R {
         public static final int app_exit=0x7f07000b;
         public static final int app_exit_msg=0x7f07000e;
         public static final int app_name=0x7f070000;
-        public static final int app_no_context=0x7f07001f;
-        public static final int app_no_context_msg=0x7f070020;
+        public static final int app_no_context=0x7f070020;
+        public static final int app_no_context_msg=0x7f070021;
         public static final int app_none_result=0x7f070012;
         public static final int app_none_result_msg=0x7f070013;
-        public static final int button_Search_Keyword=0x7f070005;
+        public static final int button_Search_Keyword=0x7f070004;
         public static final int button_Search_Local=0x7f070003;
-        public static final int button_Search_Reset=0x7f07001d;
-        public static final int button_Search_Spot=0x7f070004;
-        public static final int button_Search_Submit=0x7f07001e;
-        public static final int category=0x7f070018;
-        public static final int content=0x7f070019;
+        public static final int button_Search_Reset=0x7f07001e;
+        public static final int button_Search_Submit=0x7f07001f;
+        public static final int button_favor=0x7f070005;
+        public static final int category=0x7f070019;
+        public static final int content=0x7f07001a;
+        public static final int favor=0x7f070016;
         public static final int hello_world=0x7f070001;
-        public static final int input_title=0x7f07001c;
+        public static final int input_title=0x7f07001d;
         public static final int menu_settings=0x7f070002;
         public static final int name=0x7f070015;
         public static final int str_no=0x7f070006;
         public static final int str_no_mail=0x7f070009;
         public static final int str_ok=0x7f070007;
         public static final int str_ok_mail=0x7f070008;
-        public static final int telephone=0x7f070016;
+        public static final int telephone=0x7f070017;
         public static final int title_activity_main=0x7f070014;
     }
     public static final class style {

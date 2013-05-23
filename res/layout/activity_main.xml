@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/paper"
     android:orientation="vertical" >
-    
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -11,9 +11,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
-        android:text="台灣旅遊景點"
-        android:textColor="@color/brown_deep" 
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/brown_deep" />
 
     <Button
         android:id="@+id/button_Search_Local"
@@ -30,11 +30,22 @@
         android:id="@+id/button_Search_Keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_Search_Local"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
         android:background="@drawable/image_btn_press"
         android:text="@string/button_Search_Keyword"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/button_Search_Local"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_favor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/image_btn_press"
+        android:text="@string/button_favor"
+        android:textColor="@color/white"
+        android:layout_below="@+id/button_Search_Keyword"
+        android:layout_alignLeft="@+id/button_Search_Local"
+        android:layout_marginTop="19dp"/>
 
 </RelativeLayout>

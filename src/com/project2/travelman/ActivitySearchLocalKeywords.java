@@ -1,40 +1,29 @@
 package com.project2.travelman;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
-
 public class ActivitySearchLocalKeywords extends Activity {
 
-	private String selectedCities;
+	private String spottable = "total_spot";
 	private Button myButtonSubmit, myButtonReset;
 	private EditText editText_Search;
-	private TextView myTextView;
-	private Spinner mySpinner;
 	private ListView myListView_Search;
 	private Traveler Traveler;
 	
@@ -51,37 +40,12 @@ public class ActivitySearchLocalKeywords extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_keyword);
 
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
-
 		visitExternalLinks();
-		
+
 		myButtonSubmit = (Button) findViewById(R.id.button_Search_Submit);
 		myButtonReset = (Button) findViewById(R.id.button_Search_Reset);
 		editText_Search = (EditText) findViewById(R.id.editText_Search);
-		mySpinner = (Spinner) findViewById(R.id.spinner4);
 		myListView_Search = (ListView) findViewById(R.id.myListView);
-
-		// 設定下拉選單
-		adapterTemp = ArrayAdapter.createFromResource(this,
-				R.array.cities_init, android.R.layout.simple_spinner_item);
-		adapterTemp
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		mySpinner.setAdapter(adapterTemp);
-
-		mySpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View v,
-					int position, long id) {
-				int pos = mySpinner.getSelectedItemPosition();
-				choeseCities(pos);
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-
-			}
-		});
 
 		if (AppStatus.getInstance(this).isOnline(this)) {
 
@@ -91,7 +55,7 @@ public class ActivitySearchLocalKeywords extends Activity {
 					String str1 = editText_Search.getText().toString();
 
 					if (!str1.equals("")) {
-						String sql = "SELECT * FROM " + selectedCities
+						String sql = "SELECT * FROM " + spottable
 								+ " where name like '%" + str1 + "%'";
 						result = DBConnector.executeQuery(sql);
 
@@ -120,7 +84,7 @@ public class ActivitySearchLocalKeywords extends Activity {
 		if (result.length() > 5) {
 			Travelers = JsonToList(result);
 			setInAdapter();
-			Toast.makeText(this, "搜尋完成", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "搜尋完成", Toast.LENGTH_SHORT).show();
 		} else {
 			List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
 			String[] from = { "name", "address" };
@@ -155,8 +119,7 @@ public class ActivitySearchLocalKeywords extends Activity {
 						content = traveler.get("content");
 
 						Intent intent = new Intent();
-						intent.setClass(
-								ActivitySearchLocalKeywords.this,
+						intent.setClass(ActivitySearchLocalKeywords.this,
 								ActivitySearchLocalCitiesSpotDetail.class);
 
 						Bundle bundle = new Bundle();
@@ -211,7 +174,7 @@ public class ActivitySearchLocalKeywords extends Activity {
 						}).show();
 
 	}
-	
+
 	private void openOptionsDialogIsNoneResult() {
 		new AlertDialog.Builder(this)
 				.setTitle(R.string.app_none_result)
@@ -226,81 +189,6 @@ public class ActivitySearchLocalKeywords extends Activity {
 
 							}
 						}).show();
-
-	}
-	
-	private void choeseCities(int pos) {
-
-		switch (pos) {
-		case 0:
-			selectedCities = new String("keelung_city");
-			break;
-		case 1:
-			selectedCities = new String("taipei_city");
-			break;
-		case 2:
-			selectedCities = new String("xinbei_city");
-			break;
-		case 3:
-			selectedCities = new String("taoyuan_county");
-			break;
-		case 4:
-			selectedCities = new String("hsinchu_city");
-			break;
-		case 5:
-			selectedCities = new String("hsinchu_county");
-			break;
-		case 6:
-			selectedCities = new String("miaoli_county");
-			break;
-		case 7:
-			selectedCities = new String("taichung_city");
-			break;
-		case 8:
-			selectedCities = new String("changhua_county");
-			break;
-		case 9:
-			selectedCities = new String("nantou_county");
-			break;
-		case 10:
-			selectedCities = new String("yunlin_county");
-			break;
-		case 11:
-			selectedCities = new String("chiayi_city");
-			break;
-		case 12:
-			selectedCities = new String("chiayi_county");
-			break;
-		case 13:
-			selectedCities = new String("tainan_city");
-			break;
-		case 14:
-			selectedCities = new String("kaohsiung_city");
-			break;
-		case 15:
-			selectedCities = new String("pingtung_county");
-			break;
-		case 16:
-			selectedCities = new String("yilan_county");
-			break;
-		case 17:
-			selectedCities = new String("hualien_county");
-			break;
-		case 18:
-			selectedCities = new String("taitung_county");
-			break;
-		case 19:
-			selectedCities = new String("penghu_county");
-			break;
-		case 20:
-			selectedCities = new String("kinmen_county");
-			break;
-		case 21:
-			selectedCities = new String("lianjiang_county");
-			break;
-		default:
-			break;
-		}
 
 	}
 
@@ -381,5 +269,115 @@ public class ActivitySearchLocalKeywords extends Activity {
 		getMenuInflater().inflate(R.menu.activity_search, menu);
 		return true;
 	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		super.onOptionsItemSelected(item);
+
+		switch (item.getItemId()) {
+		case R.id.item1:
+			openOptionsDialogAbout();
+			break;
+		case R.id.item2:
+			openOptionsDialogEmail();
+			break;
+		case R.id.item3:
+			openOptionsDialogExit();
+			break;
+		case R.id.item_favor:
+			Intent intent = new Intent();
+			intent.setClass(ActivitySearchLocalKeywords.this, ActivitySearchLocalCitiesFavor.class);
+			startActivity(intent);
+			return true;
+		default:
+			break;
+		}
+
+		return true;
+	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+		return;
+	}
+
+    private void openOptionsDialogEmail() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_email)
+                .setMessage(R.string.app_email_msg)
+                .setNegativeButton(R.string.str_no_mail,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        })
+                .setPositiveButton(R.string.str_ok_mail,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+                                Uri uri = Uri
+                                        .parse("mailto:ericli0625@gmail.com");
+                                Intent it = new Intent(Intent.ACTION_SENDTO,
+                                        uri);
+                                startActivity(it);
+
+                            }
+                        }).show();
+
+    }
+
+    private void openOptionsDialogAbout() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_about)
+                .setMessage(R.string.app_about_msg)
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        }).show();
+
+    }
+
+    private void openOptionsDialogExit() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_exit)
+                .setMessage(R.string.app_exit_msg)
+                .setNegativeButton(R.string.str_no,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        })
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+                                finish();
+                            }
+                        }).show();
+
+    }
 
 }

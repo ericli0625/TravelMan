@@ -1,32 +1,25 @@
 package com.project2.travelman;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import android.widget.AdapterView.OnItemSelectedListener;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
@@ -36,11 +29,10 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 	private SimpleAdapter adapterHTTP;
 	protected List<Traveler> Travelers;
 	private Traveler Traveler;
-
 	String[] spotCategoryArray;
 	Resources res;
 
-	private String spotname, spotengname;
+	private String spotname, spotengname, flag = "0";
 	private String spotCategory = new String("所有類型");
 	private String strText = new String("全部地區");
 	private String result = new String();
@@ -50,9 +42,6 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_category);
-
-		ActionBar actionBar = getActionBar();
-		actionBar.hide();
 
 		// myTextView = (TextView) findViewById(R.id.myTextView);
 		myListView = (ListView) findViewById(R.id.myListView);
@@ -82,10 +71,9 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 			res = getResources();
 			spotCategoryArray = res.getStringArray(R.array.spot_category);
 
-			adapterTemp = ArrayAdapter
-					.createFromResource(this, R.array.spot_category,
-							android.R.layout.simple_spinner_item);
-
+//			adapterTemp = ArrayAdapter.createFromResource(this, R.array.spot_category,android.R.layout.simple_spinner_item);
+			adapterTemp = ArrayAdapter.createFromResource(this, R.array.spot_category,R.layout.item2);
+			
 			adapterTemp
 					.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -97,25 +85,29 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						int position, long id) {
 					spotCategory = spotCategoryArray[position];
 
-					if (!spotCategory.equals("所有類型") && !spotCategory.equals("")) {
+					if (!spotCategory.equals("所有類型")
+							&& !spotCategory.equals("")) {
 						String sql = "SELECT * FROM " + spotengname
 								+ " where city like '" + spotname
 								+ "' and category like '" + spotCategory + "'";
 						result = DBConnector.executeQuery(sql);
 					} else if (!spotCategory.equals("")) {
-						String sql = "SELECT * FROM " + spotengname + " where city like '" + spotname + "'";
+						String sql = "SELECT * FROM " + spotengname
+								+ " where city like '" + spotname + "'";
 						result = DBConnector.executeQuery(sql);
 					}
 
-					if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
+					if (spotname.equals(strText)
+							&& !spotCategory.equals("所有類型")) {
 						String sql = "SELECT * FROM " + spotengname
 								+ " where category like '" + spotCategory + "'";
 						result = DBConnector.executeQuery(sql);
-					} else if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
-						String sql = "SELECT * FROM " + spotengname +" ";
+					} else if (spotname.equals(strText)
+							&& spotCategory.equals("所有類型")) {
+						String sql = "SELECT * FROM " + spotengname + " ";
 						result = DBConnector.executeQuery(sql);
 					}
-					
+
 					ShowListView(result);
 				}
 
@@ -196,6 +188,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 						Bundle bundle = new Bundle();
 
+						bundle.putString("flag", flag);// 標記搜尋頁進入
 						bundle.putString("name", name);
 						bundle.putString("address", address);
 						bundle.putString("telephone", telephone);
@@ -308,5 +301,115 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 				.detectLeakedSqlLiteObjects().penaltyLog().penaltyDeath()
 				.build());
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		super.onOptionsItemSelected(item);
+
+		switch (item.getItemId()) {
+		case R.id.item1:
+			openOptionsDialogAbout();
+			break;
+		case R.id.item2:
+			openOptionsDialogEmail();
+			break;
+		case R.id.item3:
+			openOptionsDialogExit();
+			break;
+		case R.id.item_favor:
+			Intent intent = new Intent();
+			intent.setClass(ActivitySearchLocalCitiesSpotCategory.this, ActivitySearchLocalCitiesFavor.class);
+			startActivity(intent);
+			return true;
+		default:
+			break;
+		}
+
+		return true;
+	}
+	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+		return;
+	}
+
+    private void openOptionsDialogEmail() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_email)
+                .setMessage(R.string.app_email_msg)
+                .setNegativeButton(R.string.str_no_mail,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        })
+                .setPositiveButton(R.string.str_ok_mail,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+                                Uri uri = Uri
+                                        .parse("mailto:ericli0625@gmail.com");
+                                Intent it = new Intent(Intent.ACTION_SENDTO,
+                                        uri);
+                                startActivity(it);
+
+                            }
+                        }).show();
+
+    }
+
+    private void openOptionsDialogAbout() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_about)
+                .setMessage(R.string.app_about_msg)
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        }).show();
+
+    }
+
+    private void openOptionsDialogExit() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_exit)
+                .setMessage(R.string.app_exit_msg)
+                .setNegativeButton(R.string.str_no,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        })
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+                                finish();
+                            }
+                        }).show();
+
+    }
 
 }

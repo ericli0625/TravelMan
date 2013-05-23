@@ -9,25 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textView2_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText_Search"
-            android:layout_alignParentTop="true"
-            android:text="@string/input_title" />
-
-        <EditText
-            android:id="@+id/editText_Search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:layout_below="@+id/textView2_search"
-            android:layout_marginRight="24dp"
-            android:ems="10" />
-
         <Button
             android:id="@+id/button_Search_Reset"
             android:layout_width="wrap_content"
@@ -50,13 +31,25 @@
             android:text="@string/button_Search_Submit"
             android:textColor="@color/white" />
 
-        <Spinner
-            android:id="@+id/spinner4"
+        <TextView
+            android:id="@+id/textView2_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="14dp"
+            android:text="@string/input_title" />
+
+        <EditText
+            android:id="@+id/editText_Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView2_search"
             android:layout_below="@+id/textView2_search"
-            android:gravity="center" />
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:singleLine="true" />
+
     </RelativeLayout>
 
     <include
