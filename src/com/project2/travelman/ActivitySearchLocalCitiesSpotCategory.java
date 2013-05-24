@@ -5,14 +5,17 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.net.Uri;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v4.widget.*;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.SimpleCursorAdapter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,11 +35,16 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 	String[] spotCategoryArray;
 	Resources res;
 
+    private DBHelper DH = null;
+
 	private String spotname, spotengname, flag = "0";
 	private String spotCategory = new String("所有類型");
 	private String strText = new String("全部地區");
 	private String result = new String();
 	private ArrayAdapter<CharSequence> adapterTemp;
+
+    private static final int ADD_ID = 0;
+    private static final int CAN_ADD_ID = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 		myListView = (ListView) findViewById(R.id.myListView);
 		mySpinner = (Spinner) findViewById(R.id.spinner1);
 
+        DH = new DBHelper(this);
+
 		Bundle bundle = getIntent().getExtras();
 		spotname = bundle.getString("name");// 鄉鎮縣市區(全區)
 		spotengname = bundle.getString("engname");// 縣市
@@ -56,22 +66,10 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 			visitExternalLinks();
 
-			if (spotname.equals(strText)) {
-				String sql = "SELECT * FROM " + spotengname + " ";
-				result = DBConnector.executeQuery(sql);
-				ShowListView(result);
-			} else {
-				String sql = "SELECT * FROM " + spotengname
-						+ " where city like '" + spotname + "'";
-				result = DBConnector.executeQuery(sql);
-				ShowListView(result);
-			}
-
 			// 讀取string array
 			res = getResources();
 			spotCategoryArray = res.getStringArray(R.array.spot_category);
 
-//			adapterTemp = ArrayAdapter.createFromResource(this, R.array.spot_category,android.R.layout.simple_spinner_item);
 			adapterTemp = ArrayAdapter.createFromResource(this, R.array.spot_category,R.layout.item2);
 			
 			adapterTemp
@@ -85,8 +83,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						int position, long id) {
 					spotCategory = spotCategoryArray[position];
 
-					if (!spotCategory.equals("所有類型")
-							&& !spotCategory.equals("")) {
+					if (!spotCategory.equals("所有類型") && !spotCategory.equals("")) {
 						String sql = "SELECT * FROM " + spotengname
 								+ " where city like '" + spotname
 								+ "' and category like '" + spotCategory + "'";
@@ -97,13 +94,11 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						result = DBConnector.executeQuery(sql);
 					}
 
-					if (spotname.equals(strText)
-							&& !spotCategory.equals("所有類型")) {
+                    if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
 						String sql = "SELECT * FROM " + spotengname
 								+ " where category like '" + spotCategory + "'";
 						result = DBConnector.executeQuery(sql);
-					} else if (spotname.equals(strText)
-							&& spotCategory.equals("所有類型")) {
+					} else if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
 						String sql = "SELECT * FROM " + spotengname + " ";
 						result = DBConnector.executeQuery(sql);
 					}
@@ -143,13 +138,13 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 	private void ShowListView(String result) {
 
-		// 判斷是否有搜尋到診所
+        // 判斷是否有搜尋到診所
 		if (result.length() > 5) {
 			Travelers = JsonToList(result);
 			setInAdapter();
 			Toast.makeText(this, spotCategory, Toast.LENGTH_SHORT).show();
 		} else {
-			List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+            List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
 			String[] from = { "name", "address" };
 			int[] to = { R.id.listTextView1, R.id.listTextView2 };
 			adapterHTTP = new SimpleAdapter(this, lists,
@@ -158,6 +153,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 			openOptionsDialogIsNoneResult();
 		}
 		myListView.setAdapter(adapterHTTP);
+
+        registerForContextMenu(myListView);//將ContextMenu註冊到視圖上
 
 		myListView
 				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -173,7 +170,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						HashMap<String, String> traveler = (HashMap<String, String>) lv
 								.getItemAtPosition(arg2);
 
-						String telephone, address, name, category, content;
+                        String telephone, address, name, category, content;
 
 						name = traveler.get("name");
 						address = traveler.get("address");
@@ -205,7 +202,55 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 					}
 
 				});
+
+        myListView
+                .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v,
+                                                    ContextMenu.ContextMenuInfo menuInfo) {
+                        menu.setHeaderTitle("加入我的最愛");
+                        menu.add(0, ADD_ID, 0, "確定");
+                        menu.add(0, CAN_ADD_ID, 0, "取消");
+                    }
+                });
 	}
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case ADD_ID:
+                AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+                        .getMenuInfo();
+                addFavor(menuInfo.position);
+                break;
+
+            case CAN_ADD_ID:
+                break;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
+    }
+
+    private void addFavor(int id) {
+
+        Traveler p = Travelers.get(id);
+
+        Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
+                p.getTelephone(), p.getContent());
+
+        int rows_num = cursor.getCount();
+
+        if (rows_num == 1) {
+            Toast.makeText(this, "您已經新增過了", Toast.LENGTH_SHORT)
+                    .show();
+        } else {
+            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getContent());
+            Toast.makeText(this, "新增至我的最愛", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+    }
 
 	private void openOptionsDialogIsNoneResult() {
 		new AlertDialog.Builder(this)
@@ -222,13 +267,6 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 							}
 						}).show();
 
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_search, menu);
-		return true;
 	}
 
 	protected void setInAdapter() {
@@ -251,9 +289,9 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 		}
 
 		// HashMap<String, String>中的key
-		String[] from = { "name", "address" };
+		String[] from = { "name", "address","category"};
 
-		int[] to = { R.id.listTextView1, R.id.listTextView2 };
+		int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3 };
 
 		adapterHTTP = new SimpleAdapter(this, lists, R.layout.activity_list,
 				from, to);
@@ -301,115 +339,12 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 				.detectLeakedSqlLiteObjects().penaltyLog().penaltyDeath()
 				.build());
 	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
 
-		super.onOptionsItemSelected(item);
-
-		switch (item.getItemId()) {
-		case R.id.item1:
-			openOptionsDialogAbout();
-			break;
-		case R.id.item2:
-			openOptionsDialogEmail();
-			break;
-		case R.id.item3:
-			openOptionsDialogExit();
-			break;
-		case R.id.item_favor:
-			Intent intent = new Intent();
-			intent.setClass(ActivitySearchLocalCitiesSpotCategory.this, ActivitySearchLocalCitiesFavor.class);
-			startActivity(intent);
-			return true;
-		default:
-			break;
-		}
-
-		return true;
-	}
-	
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-		return;
-	}
-
-    private void openOptionsDialogEmail() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_email)
-                .setMessage(R.string.app_email_msg)
-                .setNegativeButton(R.string.str_no_mail,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        })
-                .setPositiveButton(R.string.str_ok_mail,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-                                Uri uri = Uri
-                                        .parse("mailto:ericli0625@gmail.com");
-                                Intent it = new Intent(Intent.ACTION_SENDTO,
-                                        uri);
-                                startActivity(it);
-
-                            }
-                        }).show();
-
-    }
-
-    private void openOptionsDialogAbout() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_about)
-                .setMessage(R.string.app_about_msg)
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        }).show();
-
-    }
-
-    private void openOptionsDialogExit() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_exit)
-                .setMessage(R.string.app_exit_msg)
-                .setNegativeButton(R.string.str_no,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        })
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-                                finish();
-                            }
-                        }).show();
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        return;
     }
 
 }

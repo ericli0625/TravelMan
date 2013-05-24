@@ -9,23 +9,37 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <CheckedTextView
+        <TextView
             android:id="@+id/listTextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_deep"
             android:textSize="20sp" 
-            android:paddingLeft="6dip">
-        </CheckedTextView>
+            android:paddingLeft="6dip"
+            android:text="1">
+        </TextView>
 
-        <CheckedTextView
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="3"
+                android:paddingLeft="6dip"
+                android:id="@+id/listTextView3"
+                android:textColor="@color/green"
+                android:layout_below="@+id/imageView" android:layout_alignRight="@+id/listTextView1"/>
+
+        <TextView
             android:id="@+id/listTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brown"
-            android:textSize="15sp" 
-            android:paddingLeft="6dip">
-        </CheckedTextView>
+            android:textSize="13sp"
+            android:paddingLeft="6dip"
+            android:text="2"
+            android:layout_alignParentBottom="true" android:layout_alignRight="@+id/listTextView1">
+        </TextView>
+
     </LinearLayout>
 
 </LinearLayout>

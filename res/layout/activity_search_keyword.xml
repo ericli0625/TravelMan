@@ -16,7 +16,7 @@
             android:layout_alignRight="@+id/editText_Search"
             android:layout_below="@+id/editText_Search"
             android:layout_marginRight="23dp"
-            android:background="@drawable/image_btn_press"
+            android:background="@drawable/botton_small"
             android:text="@string/button_Search_Reset"
             android:textColor="@color/white" />
 
@@ -27,7 +27,7 @@
             android:layout_alignBaseline="@+id/button_Search_Reset"
             android:layout_alignBottom="@+id/button_Search_Reset"
             android:layout_alignRight="@+id/textView2_search"
-            android:background="@drawable/image_btn_press"
+            android:background="@drawable/botton_small"
             android:text="@string/button_Search_Submit"
             android:textColor="@color/white" />
 
@@ -38,6 +38,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="14dp"
+            android:textColor="@color/brown_deep"
             android:text="@string/input_title" />
 
         <EditText
@@ -47,6 +48,7 @@
             android:layout_alignLeft="@+id/textView2_search"
             android:layout_below="@+id/textView2_search"
             android:ems="10"
+            android:textColor="@color/dark"
             android:imeOptions="actionDone"
             android:singleLine="true" />
 

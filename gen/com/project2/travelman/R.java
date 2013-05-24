@@ -44,54 +44,60 @@ public final class R {
     }
     public static final class color {
         public static final int blue=0x7f060005;
-        public static final int brown=0x7f060006;
-        public static final int brown_deep=0x7f060007;
+        public static final int brown=0x7f060007;
+        public static final int brown_deep=0x7f060008;
         public static final int dark=0x7f060003;
         public static final int gray=0x7f060004;
+        public static final int green=0x7f060006;
         public static final int red=0x7f060000;
         public static final int white=0x7f060001;
         public static final int white_d=0x7f060002;
     }
     public static final class drawable {
-        public static final int cover=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int image_btn_press=0x7f020002;
-        public static final int maps=0x7f020003;
-        public static final int next=0x7f020004;
-        public static final int paper=0x7f020005;
-        public static final int phone=0x7f020006;
-        public static final int star=0x7f020007;
+        public static final int bar=0x7f020000;
+        public static final int botton=0x7f020001;
+        public static final int botton_small=0x7f020002;
+        public static final int cover=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int image_btn_press=0x7f020005;
+        public static final int maps=0x7f020006;
+        public static final int next=0x7f020007;
+        public static final int paper=0x7f020008;
+        public static final int phone=0x7f020009;
+        public static final int star=0x7f02000a;
     }
     public static final class id {
-        public static final int ScrollView=0x7f0a0006;
-        public static final int button_Search_Keyword=0x7f0a0004;
-        public static final int button_Search_Local=0x7f0a0003;
-        public static final int button_Search_Reset=0x7f0a0015;
-        public static final int button_Search_Submit=0x7f0a0017;
-        public static final int button_favor=0x7f0a0005;
-        public static final int editText_Search=0x7f0a0016;
-        public static final int favorButton=0x7f0a0008;
-        public static final int item1=0x7f0a0019;
-        public static final int item2=0x7f0a001a;
-        public static final int item3=0x7f0a001b;
-        public static final int item_favor=0x7f0a001c;
+        public static final int ScrollView=0x7f0a0008;
+        public static final int button_Search_Keyword=0x7f0a0006;
+        public static final int button_Search_Local=0x7f0a0005;
+        public static final int button_Search_Reset=0x7f0a0016;
+        public static final int button_Search_Submit=0x7f0a0018;
+        public static final int button_favor=0x7f0a0007;
+        public static final int editText_Search=0x7f0a0017;
+        public static final int favorButton=0x7f0a000a;
+        public static final int imageView=0x7f0a0002;
+        public static final int item1=0x7f0a001b;
+        public static final int item2=0x7f0a001c;
+        public static final int item3=0x7f0a001d;
+        public static final int item_favor=0x7f0a001e;
         public static final int listTextView1=0x7f0a0000;
-        public static final int listTextView1_1=0x7f0a0007;
-        public static final int listTextView2=0x7f0a0001;
-        public static final int listTextView2_2=0x7f0a0009;
-        public static final int listTextView3=0x7f0a000a;
-        public static final int listTextView3_3=0x7f0a000b;
-        public static final int listTextView4=0x7f0a000d;
-        public static final int listTextView4_4=0x7f0a000e;
-        public static final int listTextView5=0x7f0a0010;
-        public static final int listTextView5_5=0x7f0a0011;
-        public static final int mapButton=0x7f0a000c;
-        public static final int myListView=0x7f0a0014;
-        public static final int phoneButton=0x7f0a000f;
-        public static final int spinner1=0x7f0a0013;
-        public static final int tableRow1=0x7f0a0012;
-        public static final int textView1=0x7f0a0002;
-        public static final int textView2_search=0x7f0a0018;
+        public static final int listTextView1_1=0x7f0a0009;
+        public static final int listTextView2=0x7f0a0003;
+        public static final int listTextView2_2=0x7f0a000b;
+        public static final int listTextView3=0x7f0a0001;
+        public static final int listTextView3_3=0x7f0a000c;
+        public static final int listTextView4=0x7f0a000e;
+        public static final int listTextView4_4=0x7f0a000f;
+        public static final int listTextView5=0x7f0a0011;
+        public static final int listTextView5_5=0x7f0a0012;
+        public static final int mapButton=0x7f0a000d;
+        public static final int myListView=0x7f0a0015;
+        public static final int phoneButton=0x7f0a0010;
+        public static final int spinner1=0x7f0a0014;
+        public static final int tableRow1=0x7f0a0013;
+        public static final int text123=0x7f0a001a;
+        public static final int textView1=0x7f0a0004;
+        public static final int textView2_search=0x7f0a0019;
     }
     public static final class layout {
         public static final int activity_list=0x7f030000;
@@ -131,6 +137,7 @@ public final class R {
         public static final int button_favor=0x7f070005;
         public static final int category=0x7f070019;
         public static final int content=0x7f07001a;
+        public static final int dialog_body=0x7f070028;
         public static final int favor=0x7f070016;
         public static final int hello_world=0x7f070001;
         public static final int input_title=0x7f07001d;
@@ -142,6 +149,12 @@ public final class R {
         public static final int str_ok_mail=0x7f070008;
         public static final int telephone=0x7f070017;
         public static final int title_activity_main=0x7f070014;
+        public static final int title_category_1=0x7f070024;
+        public static final int title_category_2=0x7f070025;
+        public static final int title_category_3=0x7f070026;
+        public static final int title_content=0x7f070023;
+        public static final int title_dialog=0x7f070027;
+        public static final int title_keyword=0x7f070022;
     }
     public static final class style {
         /** 

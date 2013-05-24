@@ -18,9 +18,9 @@
     
     <string name="app_about">關於</string>
     <string name="app_exit">離開</string>
-    <string name="app_email">建議</string>
+    <string name="app_email">回報問題</string>
     
-    <string name="app_about_msg">希望本系統能夠提供大眾快速的查詢景點</string>
+    <string name="app_about_msg">提供大眾快速查詢景點</string>
     <string name="app_exit_msg">確定離開系統?</string>
     <string name="app_email_msg">回報問題及改善建議</string>
     
@@ -48,5 +48,14 @@
     
     <string name="app_no_context">提示</string>
     <string name="app_no_context_msg">請輸入搜尋內容</string>
-    
+
+    <string name="title_keyword">關鍵字查詢</string>
+    <string name="title_content">景點詳情</string>
+    <string name="title_category_1">選擇縣市</string>
+    <string name="title_category_2">選擇鄉鎮市區</string>
+    <string name="title_category_3">相關景點</string>
+
+    <string name="title_dialog">請稍後片刻</string>
+    <string name="dialog_body">正在搜尋景點</string>
+
 </resources>

@@ -2,9 +2,9 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -131,7 +131,7 @@ public class ActivitySearchLocalCities extends Activity {
 			engname = "lianjiang_county";
 		}
 
-		adapter = new ArrayAdapter<String>(this,R.layout.item1, cities_init);
+        adapter = new ArrayAdapter<String>(this,R.layout.item1,R.id.text123, cities_init);
 		myListView.setAdapter(adapter);
 
 		myListView
@@ -160,10 +160,10 @@ public class ActivitySearchLocalCities extends Activity {
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
 
-						// Activity (ActivityMenu)
-						startActivity(intent);
-						overridePendingTransition(R.anim.in_from_right,
-								R.anim.out_to_left);
+                        // Activity (ActivityMenu)
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
+
 					}
 
 				});
@@ -183,15 +183,6 @@ public class ActivitySearchLocalCities extends Activity {
 		super.onOptionsItemSelected(item);
 
 		switch (item.getItemId()) {
-		case R.id.item1:
-			openOptionsDialogAbout();
-			break;
-		case R.id.item2:
-			openOptionsDialogEmail();
-			break;
-		case R.id.item3:
-			openOptionsDialogExit();
-			break;
 		case R.id.item_favor:
 			Intent intent = new Intent();
 			intent.setClass(ActivitySearchLocalCities.this, ActivitySearchLocalCitiesFavor.class);
@@ -210,81 +201,5 @@ public class ActivitySearchLocalCities extends Activity {
 		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 		return;
 	}
-
-    private void openOptionsDialogEmail() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_email)
-                .setMessage(R.string.app_email_msg)
-                .setNegativeButton(R.string.str_no_mail,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        })
-                .setPositiveButton(R.string.str_ok_mail,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-                                Uri uri = Uri
-                                        .parse("mailto:ericli0625@gmail.com");
-                                Intent it = new Intent(Intent.ACTION_SENDTO,
-                                        uri);
-                                startActivity(it);
-
-                            }
-                        }).show();
-
-    }
-
-    private void openOptionsDialogAbout() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_about)
-                .setMessage(R.string.app_about_msg)
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        }).show();
-
-    }
-
-    private void openOptionsDialogExit() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_exit)
-                .setMessage(R.string.app_exit_msg)
-                .setNegativeButton(R.string.str_no,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        })
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-                                finish();
-                            }
-                        }).show();
-
-    }
 
 }
