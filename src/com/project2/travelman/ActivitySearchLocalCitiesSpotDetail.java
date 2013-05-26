@@ -179,7 +179,32 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 						}).show();
 
 	}
-	
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_search, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.item_favor:
+                Intent intent = new Intent();
+                intent.setClass(ActivitySearchLocalCitiesSpotDetail.this, ActivitySearchLocalCitiesFavor.class);
+                startActivity(intent);
+                return true;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();

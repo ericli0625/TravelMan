@@ -7,7 +7,7 @@
     
     <string name="button_Search_Local">地區搜尋</string>
     <string name="button_Search_Keyword">關鍵字搜尋</string>
-    
+    <string name="button_weather">天氣預報</string>
     <string name="button_favor">我的最愛</string>
     
     <string name="str_no">取消</string>
@@ -54,7 +54,8 @@
     <string name="title_category_1">選擇縣市</string>
     <string name="title_category_2">選擇鄉鎮市區</string>
     <string name="title_category_3">相關景點</string>
-
+	<string name="title_weather">天氣預報</string>
+    
     <string name="title_dialog">請稍後片刻</string>
     <string name="dialog_body">正在搜尋景點</string>
 

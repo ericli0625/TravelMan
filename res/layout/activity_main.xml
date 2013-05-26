@@ -1,30 +1,34 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/paper"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/brown_deep" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center"
+            >
 
     <Button
         android:id="@+id/button_Search_Local"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp"
         android:background="@drawable/botton"
         android:text="@string/button_Search_Local"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+         />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center"
+            >
 
     <Button
         android:id="@+id/button_Search_Keyword"
@@ -33,9 +37,14 @@
         android:background="@drawable/botton"
         android:text="@string/button_Search_Keyword"
         android:textColor="@color/white"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/button_Search_Local"
-        android:layout_centerHorizontal="true"/>
+        />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center"
+            >
 
     <Button
         android:id="@+id/button_favor"
@@ -44,8 +53,25 @@
         android:background="@drawable/botton"
         android:text="@string/button_favor"
         android:textColor="@color/white"
-        android:layout_below="@+id/button_Search_Keyword"
-        android:layout_alignLeft="@+id/button_Search_Local"
-        android:layout_marginTop="19dp"/>
+        />
 
-</RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center"
+             >
+
+    <Button
+        android:id="@+id/button_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botton"
+        android:textColor="@color/white"
+        android:text="@string/button_weather"
+        />
+
+</LinearLayout>
+
+</LinearLayout>

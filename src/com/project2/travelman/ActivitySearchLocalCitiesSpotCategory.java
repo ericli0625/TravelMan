@@ -8,14 +8,12 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.widget.*;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.SimpleCursorAdapter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,8 +30,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 	private SimpleAdapter adapterHTTP;
 	protected List<Traveler> Travelers;
 	private Traveler Traveler;
-	String[] spotCategoryArray;
-	Resources res;
+    private String[] spotCategoryArray;
+    private Resources res;
 
     private DBHelper DH = null;
 
@@ -329,6 +327,31 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 		}
 		return null;
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_search, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.item_favor:
+                Intent intent = new Intent();
+                intent.setClass(ActivitySearchLocalCitiesSpotCategory.this, ActivitySearchLocalCitiesFavor.class);
+                startActivity(intent);
+                return true;
+            default:
+                break;
+        }
+
+        return true;
+    }
 
 	private void visitExternalLinks() {
 		// 發送Http請求

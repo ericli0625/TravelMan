@@ -2,10 +2,13 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +16,8 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-	private Button myButtonSearchLocal, myButtonSearchKeyword, myButton_favor;
+	private Button myButtonSearchLocal, myButtonSearchKeyword, myButton_favor, myButton_weather;
+    private ProgressDialog dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class MainActivity extends Activity {
 		myButtonSearchLocal = (Button) findViewById(R.id.button_Search_Local);
 		myButtonSearchKeyword = (Button) findViewById(R.id.button_Search_Keyword);
 		myButton_favor = (Button) findViewById(R.id.button_favor);
+		myButton_weather = (Button) findViewById(R.id.button_weather);
 
 		myButtonSearchLocal.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -59,6 +64,19 @@ public class MainActivity extends Activity {
 			}
 		});
 
+		myButton_weather.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Perform action on click
+
+                Intent intent = new Intent();
+				intent.setClass(MainActivity.this,
+						ActivityWeather.class);
+				startActivity(intent);
+				overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
+
+			}
+		});
+		
 	}
 
 	@Override

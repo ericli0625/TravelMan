@@ -2,7 +2,6 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -55,7 +54,7 @@ public class ActivitySearchLocalCities extends Activity {
 
 	}
 
-	private void choeseCities(String name) {
+	public void choeseCities(String name) {
 
 		String[] cities_init = null;
 		String[] cities = getResources().getStringArray(R.array.cities_init);

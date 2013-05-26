@@ -24,112 +24,119 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Eric.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$anim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-hdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-hdpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-hdpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-ldpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-ldpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-mdpi/next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/cover.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/next.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocal.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCities.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesFavor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$3.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$4.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$5.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$3.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$4.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$5.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$6.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/ActivitySearchLocalKeywords.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$3.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$4.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$5.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$6.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$7.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$8.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity$8.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$array.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$array.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$attr.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$attr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$color.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$color.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$menu.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$style.class" afterPath="$PROJECT_DIR$/bin/classes/com/project2/travelman/R$style.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/TravelMan.apk" afterPath="$PROJECT_DIR$/bin/TravelMan.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/bar.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/bar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/bar.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/bar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/botton.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/botton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/botton.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/botton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/botton_small.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/botton_small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/botton_small.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/botton_small.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="$PROJECT_DIR$/bin/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/ic_launcher.png" afterPath="$PROJECT_DIR$/bin/res/drawable-ldpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/bin/res/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-hdpi/next.png" afterPath="$PROJECT_DIR$/bin/res/drawable-hdpi/next.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/next.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/next.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/next.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/next.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/next.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/next.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/next.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/next.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/maps.png" afterPath="$PROJECT_DIR$/bin/res/drawable-ldpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/maps.png" afterPath="$PROJECT_DIR$/bin/res/drawable-mdpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/maps.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/maps.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/maps.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/maps.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/maps.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/phone.png" afterPath="$PROJECT_DIR$/bin/res/drawable-ldpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/phone.png" afterPath="$PROJECT_DIR$/bin/res/drawable-mdpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/phone.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/phone.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/phone.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/phone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/phone.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/phone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="$PROJECT_DIR$/bin/resources.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocal.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-ldpi/star.png" afterPath="$PROJECT_DIR$/bin/res/drawable-ldpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-mdpi/star.png" afterPath="$PROJECT_DIR$/bin/res/drawable-mdpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable-xhdpi/star.png" afterPath="$PROJECT_DIR$/bin/res/drawable-xhdpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-ldpi/star.png" afterPath="$PROJECT_DIR$/res/drawable-ldpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-mdpi/star.png" afterPath="$PROJECT_DIR$/res/drawable-mdpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/star.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/star.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCities.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesFavor.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesFavor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/ArrayStringCities.xml" afterPath="$PROJECT_DIR$/res/values/ArrayStringCities.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/project2/travelman/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/project2/travelman/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/project2/travelman/R.java" afterPath="$PROJECT_DIR$/gen/com/project2/travelman/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_list.xml" afterPath="$PROJECT_DIR$/res/layout/activity_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/menu/activity_search.xml" afterPath="$PROJECT_DIR$/res/menu/activity_search.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_menu.xml" afterPath="$PROJECT_DIR$/res/layout/activity_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_menu_category.xml" afterPath="$PROJECT_DIR$/res/layout/activity_menu_category.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_search.xml" afterPath="$PROJECT_DIR$/res/layout/activity_search.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_search_keyword.xml" afterPath="$PROJECT_DIR$/res/layout/activity_search_keyword.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/color.xml" afterPath="$PROJECT_DIR$/res/values/color.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item1.xml" afterPath="$PROJECT_DIR$/res/layout/item1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item2.xml" afterPath="$PROJECT_DIR$/res/layout/item2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TravelMan.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369373293738" ignored="false" />
+    <file path="/Dummy.txt" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369577560427" ignored="false" />
     <file path="/ActivitySearchLocalCitiesFavor.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369378571009" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/misc.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369334228230" ignored="false" />
     <file path="/fragment.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369367292296" ignored="false" />
@@ -138,18 +145,24 @@
     <file path="/sample.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369334755150" ignored="false" />
     <file path="/a.html" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369334727344" ignored="false" />
     <file path="/a.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369369450129" ignored="false" />
-    <file path="/a.dummy" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369370944530" ignored="false" />
+    <file path="/a.dummy" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369423560556" ignored="false" />
     <file path="/activity_menu.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369337996983" ignored="false" />
-    <file path="/strings.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369379079157" ignored="false" />
-    <file path="/activity_main.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369367697683" ignored="false" />
+    <file path="/strings.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369539119148" ignored="false" />
+    <file path="/activity_main.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369539932949" ignored="false" />
     <file path="/activity_search.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369368184185" ignored="false" />
     <file path="/item1.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369375380426" ignored="false" />
     <file path="/activity_list.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369385697588" ignored="false" />
     <file path="/activity_search_keyword.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369376910694" ignored="false" />
     <file path="/ActivitySearchLocalCitiesSpotCategory.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369385111174" ignored="false" />
     <file path="/color.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369376661911" ignored="false" />
-    <file path="/ActivitySearchLocalKeywords.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369376847077" ignored="false" />
+    <file path="/ActivitySearchLocalKeywords.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369425642388" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369378217472" ignored="false" />
+    <file path="/ArrayStringCities.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369424625291" ignored="false" />
+    <file path="/ActivitySearchLocalCities.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369425284743" ignored="false" />
+    <file path="/activity_list_weather.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369538987210" ignored="false" />
+    <file path="/activity_weather.xml" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369534827291" ignored="false" />
+    <file path="/ActivityWeather.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369583768833" ignored="false" />
+    <file path="/MainActivity.java" changelist="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" time="1369582208413" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,37 +228,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActivitySearchLocalCitiesSpotCategory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="48" selection-start="8454" selection-end="8454" vertical-scroll-proportion="0.0">
+            <state line="29" column="70" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4379#4400#0" expanded="true" />
-                <element signature="e#4816#6193#0" expanded="true" />
-                <element signature="e#4862#4892#0" expanded="true" />
-                <element signature="e#6185#6186#0" expanded="true" />
-                <element signature="e#6264#6711#0" expanded="true" />
-                <element signature="e#6692#6693#0" expanded="true" />
-                <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-                <element signature="e#8329#8350#0" expanded="true" />
-                <element signature="method#JsonToList#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-                <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-                <element signature="method#onBackPressed#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
+                <element signature="e#2141#2458#0" expanded="true" />
+                <element signature="e#2453#2454#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_list.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+      <file leaf-file-name="ActivityWeather.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="379" selection-end="379" vertical-scroll-proportion="0.30674848">
-              <folding />
+            <state line="217" column="13" selection-start="6727" selection-end="6727" vertical-scroll-proportion="0.7637795">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1628#1643#0" expanded="true" />
+                <element signature="e#2035#2050#0" expanded="true" />
+                <element signature="e#2243#2251#0" expanded="true" />
+                <element signature="e#2298#2306#0" expanded="true" />
+                <element signature="e#3548#3563#0" expanded="true" />
+                <element signature="e#5730#5751#0" expanded="true" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -267,22 +275,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_search.xml" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/MycustomAdapter.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocal.java" />
-        <option value="$PROJECT_DIR$/res/values/color.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_search_keyword.xml" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCities.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesFavor.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
-        <option value="$PROJECT_DIR$/res/layout/item1.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_list.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_menu.xml" />
+        <option value="$PROJECT_DIR$/res/values/ArrayStringCities.xml" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCities.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_search_keyword.xml" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_weather.xml" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/dataWeather.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/doubleWeather.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_list_weather.xml" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
       </list>
     </option>
   </component>
@@ -383,42 +391,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,11 +596,17 @@
       <workItem from="1369334809544" duration="4828000" />
       <workItem from="1369364781593" duration="8470000" />
       <workItem from="1369373289923" duration="11473000" />
+      <workItem from="1369423346626" duration="105000" />
+      <workItem from="1369423489810" duration="84000" />
+      <workItem from="1369423600242" duration="2599000" />
+      <workItem from="1369455556150" duration="59000" />
+      <workItem from="1369533287016" duration="10178000" />
+      <workItem from="1369577556465" duration="6367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26242000" />
+    <option name="totallyTimeSpent" value="45634000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -654,8 +632,6 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28200972" sideWeight="0.77492875" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29902756" sideWeight="0.77492875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -670,9 +646,11 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24797407" sideWeight="0.77492875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.77350426" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24350649" sideWeight="0.77492875" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22507122" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24068071" sideWeight="0.78205127" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21794872" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24068071" sideWeight="0.7806268" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27191558" sideWeight="0.7806268" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -741,166 +719,150 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_search_keyword.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="49" selection-start="445" selection-end="445" vertical-scroll-proportion="0.38793105">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="51" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.75581396">
-          <folding>
-            <element signature="e#859#877#0" expanded="true" />
-            <element signature="e#1027#1045#0" expanded="true" />
-            <element signature="e#1376#1402#0" expanded="true" />
-            <element signature="e#1534#1560#0" expanded="true" />
-            <element signature="e#1703#1726#0" expanded="true" />
-            <element signature="e#2031#2054#0" expanded="true" />
-            <element signature="e#2191#2213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_menu_category.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/DBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="569" selection-end="583" vertical-scroll-proportion="0.31976745">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="29" selection-start="2017" selection-end="2028" vertical-scroll-proportion="0.85465115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="41" selection-start="539" selection-end="539" vertical-scroll-proportion="-3.8255813">
-          <folding>
-            <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalCities#0" expanded="false" />
-          </folding>
+        <state line="18" column="0" selection-start="505" selection-end="505" vertical-scroll-proportion="0.17751479">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="3585" selection-end="3585" vertical-scroll-proportion="1.5717055">
+        <state line="32" column="13" selection-start="949" selection-end="949" vertical-scroll-proportion="0.34615386">
           <folding>
+            <element signature="e#3233#3365#0" expanded="true" />
+            <element signature="e#3360#3361#0" expanded="true" />
             <element signature="e#3400#3903#0" expanded="true" />
             <element signature="e#3898#3899#0" expanded="true" />
+            <element signature="e#4487#4678#0" expanded="true" />
+            <element signature="e#4669#4670#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesFavor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="8" selection-start="1046" selection-end="1069" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/item2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_weather.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_search.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="392" selection-end="392" vertical-scroll-proportion="0.36809817">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
+        <state line="7" column="0" selection-start="269" selection-end="476" vertical-scroll-proportion="-3.8888888" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="6" column="29" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="45" selection-start="720" selection-end="720" vertical-scroll-proportion="0.5521472">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
+        <state line="9" column="34" selection-start="348" selection-end="348" vertical-scroll-proportion="0.2596154" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_menu.xml">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="45" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.59615386">
+          <folding>
+            <element signature="e#2237#2260#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/item1.xml">
-      <provider editor-type-id="text-editor">
-        <state line="5" column="17" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="48" selection-start="8454" selection-end="8454" vertical-scroll-proportion="0.0">
+        <state line="87" column="30" selection-start="2721" selection-end="2727" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4379#4400#0" expanded="true" />
-            <element signature="e#4816#6193#0" expanded="true" />
-            <element signature="e#4862#4892#0" expanded="true" />
-            <element signature="e#6185#6186#0" expanded="true" />
-            <element signature="e#6264#6711#0" expanded="true" />
-            <element signature="e#6692#6693#0" expanded="true" />
-            <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-            <element signature="e#8329#8350#0" expanded="true" />
-            <element signature="method#JsonToList#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-            <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#ActivitySearchLocalCitiesSpotCategory#0" expanded="false" />
+            <element signature="e#4322#4343#0" expanded="true" />
+            <element signature="e#4759#6136#0" expanded="true" />
+            <element signature="e#6128#6129#0" expanded="true" />
+            <element signature="e#8272#8293#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="379" selection-end="379" vertical-scroll-proportion="0.30674848">
+        <state line="66" column="85" selection-start="2037" selection-end="2037" vertical-scroll-proportion="-0.62115383">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ShowListView#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="e#4072#4093#0" expanded="true" />
+            <element signature="e#10936#10957#0" expanded="true" />
+            <element signature="e#11731#11741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="57" selection-start="713" selection-end="725" vertical-scroll-proportion="-0.6057692">
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/dataWeather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="32" selection-start="3158" selection-end="3158" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/doubleWeather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="4" selection-start="252" selection-end="252" vertical-scroll-proportion="0.2596154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/AndroidStudioPreview/compile-server/travelman_69982db3/targets/java-production/TravelMan/android/generated_sources/aapt/com/project2/travelman/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="31" selection-start="2617" selection-end="2617" vertical-scroll-proportion="0.33182845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_list_weather.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="33" selection-start="3568" selection-end="3568" vertical-scroll-proportion="-10.555555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/Handler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="485" selection-end="485" vertical-scroll-proportion="0.33267716">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="70" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#2141#2458#0" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="217" column="13" selection-start="6727" selection-end="6727" vertical-scroll-proportion="0.7637795">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1628#1643#0" expanded="true" />
+            <element signature="e#2035#2050#0" expanded="true" />
+            <element signature="e#2243#2251#0" expanded="true" />
+            <element signature="e#2298#2306#0" expanded="true" />
+            <element signature="e#3548#3563#0" expanded="true" />
+            <element signature="e#5730#5751#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

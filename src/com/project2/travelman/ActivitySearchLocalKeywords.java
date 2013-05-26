@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,19 +23,26 @@ import java.util.Map;
 
 public class ActivitySearchLocalKeywords extends Activity {
 
-	private String spottable = "total_spot", flag = "0";
+	private String spottable = "total_spot", flag = "0",selectedCity = new String("所有區域");;
 	private Button myButtonSubmit, myButtonReset;
 	private EditText editText_Search;
 	private ListView myListView_Search;
 	private Traveler Traveler;
-	
+
+    private ArrayAdapter<CharSequence> adapterTemp;
+    private String[] citysArray;
+    private Resources res;
+
 	protected List<Traveler> Travelers;
 	private String result = new String();
 
-	ArrayAdapter<String> adapter;
 	private SimpleAdapter adapterHTTP;
 
-	ArrayAdapter<CharSequence> adapterTemp;
+    private DBHelper DH = null;
+
+    private Spinner mySpinner;
+    private static final int ADD_ID = 0;
+    private static final int CAN_ADD_ID = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,12 @@ public class ActivitySearchLocalKeywords extends Activity {
 
 		visitExternalLinks();
 
+        DH = new DBHelper(this);
+
+        res = getResources();
+        citysArray = res.getStringArray(R.array.cities_init_2);
+
+        mySpinner = (Spinner) findViewById(R.id.spinner);
 		myButtonSubmit = (Button) findViewById(R.id.button_Search_Submit);
 		myButtonReset = (Button) findViewById(R.id.button_Search_Reset);
 		editText_Search = (EditText) findViewById(R.id.editText_Search);
@@ -48,15 +64,43 @@ public class ActivitySearchLocalKeywords extends Activity {
 
 		if (AppStatus.getInstance(this).isOnline(this)) {
 
+            adapterTemp = ArrayAdapter.createFromResource(this, R.array.cities_init_2,R.layout.item2);
+
+            adapterTemp
+                    .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            mySpinner.setAdapter(adapterTemp);
+
+            mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View v,
+                                           int position, long id) {
+                    selectedCity = citysArray[position];
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
+
+                }
+            });
+
 			myButtonSubmit.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					// Perform action on click
 					String str1 = editText_Search.getText().toString();
 
 					if (!str1.equals("")) {
-						String sql = "SELECT * FROM " + spottable
-								+ " where name like '%" + str1 + "%'";
-						result = DBConnector.executeQuery(sql);
+
+                        if(selectedCity.equals("所有區域")){
+                            String sql = "SELECT * FROM " + spottable
+                                    + " where name like '%" + str1 + "%'";
+                            result = DBConnector.executeQuery(sql);
+                        }else{
+
+                            String sql = "SELECT * FROM " + selectCity(selectedCity)
+                                    + " where name like '%" + str1 + "%'";
+                            result = DBConnector.executeQuery(sql);
+                        }
 
 						ShowListView(result);
 					} else {
@@ -94,6 +138,8 @@ public class ActivitySearchLocalKeywords extends Activity {
 			openOptionsDialogIsNoneResult();
 		}
 		myListView_Search.setAdapter(adapterHTTP);
+
+        registerForContextMenu(myListView_Search);//將ContextMenu註冊到視圖上
 
 		myListView_Search
 				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -140,7 +186,108 @@ public class ActivitySearchLocalKeywords extends Activity {
 					}
 
 				});
+        myListView_Search
+                .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v,
+                                                    ContextMenu.ContextMenuInfo menuInfo) {
+                        menu.setHeaderTitle("加入我的最愛");
+                        menu.add(0, ADD_ID, 0, "確定");
+                        menu.add(0, CAN_ADD_ID, 0, "取消");
+                    }
+                });
+
 	}
+
+    public String selectCity(String name){
+        String engname = new String();
+        String[] cities = getResources().getStringArray(R.array.cities_init);
+
+        if (cities[0].equals(name)) {
+            engname = "keelung_city";
+        } else if (cities[1].equals(name)) {
+            engname = "taipei_city";
+        } else if (cities[2].equals(name)) {
+            engname = "xinbei_city";
+        } else if (cities[3].equals(name)) {
+            engname = "taoyuan_county";
+        } else if (cities[4].equals(name)) {
+            engname = "hsinchu_city";
+        } else if (cities[5].equals(name)) {
+            engname = "hsinchu_county";
+        } else if (cities[6].equals(name)) {
+            engname = "miaoli_county";
+        } else if (cities[7].equals(name)) {
+            engname = "taichung_city";
+        } else if (cities[8].equals(name)) {
+            engname = "changhua_county";
+        } else if (cities[9].equals(name)) {
+            engname = "nantou_county";
+        } else if (cities[10].equals(name)) {
+            engname = "yunlin_county";
+        } else if (cities[11].equals(name)) {
+            engname = "chiayi_city";
+        } else if (cities[12].equals(name)) {
+            engname = "chiayi_county";
+        } else if (cities[13].equals(name)) {
+            engname = "tainan_city";
+        } else if (cities[14].equals(name)) {
+            engname = "kaohsiung_city";
+        } else if (cities[15].equals(name)) {
+            engname = "pingtung_county";
+        } else if (cities[16].equals(name)) {
+            engname = "yilan_county";
+        } else if (cities[17].equals(name)) {
+            engname = "hualien_county";
+        } else if (cities[18].equals(name)) {
+            engname = "taitung_county";
+        } else if (cities[19].equals(name)) {
+            engname = "penghu_county";
+        } else if (cities[20].equals(name)) {
+            engname = "kinmen_county";
+        } else if (cities[21].equals(name)) {
+            engname = "lianjiang_county";
+        }
+
+        return engname;
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case ADD_ID:
+                AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+                        .getMenuInfo();
+                addFavor(menuInfo.position);
+                break;
+
+            case CAN_ADD_ID:
+                break;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
+    }
+
+    private void addFavor(int id) {
+
+        Traveler p = Travelers.get(id);
+
+        Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
+                p.getTelephone(), p.getContent());
+
+        int rows_num = cursor.getCount();
+
+        if (rows_num == 1) {
+            Toast.makeText(this, "您已經新增過了", Toast.LENGTH_SHORT)
+                    .show();
+        } else {
+            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getContent());
+            Toast.makeText(this, "新增至我的最愛", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+    }
 
 	private void openOptionsDialogIsNetworkAvailable() {
 		new AlertDialog.Builder(this)

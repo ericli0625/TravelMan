@@ -9,17 +9,16 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="6dip"
         android:paddingLeft="6dip"
         android:paddingRight="6dip"
         android:paddingTop="6dip" >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+            android:layout_height="wrap_content" >
 
             <TextView
                 android:id="@+id/listTextView1"
@@ -27,66 +26,65 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 android:textColor="@color/brown_deep"
-                android:textSize="18sp" >
+                android:textSize="20sp" >
             </TextView>
+
+            <ImageButton
+                android:id="@+id/favorButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="36dp"
+                android:adjustViewBounds="true"
+                android:padding="0dip"
+                android:src="@drawable/star" />
 
             <TextView
                 android:id="@+id/listTextView1_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/listTextView1"
+                android:text="sssss"
                 android:textColor="@color/brown"
-                android:textSize="15sp" >
-            </TextView>
-        </LinearLayout>
+                android:textSize="18sp" />
 
-        <ImageButton
-            android:id="@+id/favorButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:padding="0dip"
-            android:src="@drawable/star" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/listTextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/category"
-                android:textColor="@color/brown_deep"
-                android:textSize="18sp" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/listTextView2_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/brown"
-                android:textSize="15sp" >
-            </TextView>
-        </LinearLayout>
-
-            <TextView
-                android:id="@+id/listTextView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/address"
-                android:textColor="@color/brown_deep"
-                android:textSize="18sp" >
-            </TextView>
+        </RelativeLayout>
 
         <TextView
-                android:id="@+id/listTextView3_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/brown"
-                android:textSize="15sp" >
+            android:id="@+id/listTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:textColor="@color/brown_deep"
+            android:textSize="20sp" >
         </TextView>
 
+        <TextView
+            android:id="@+id/listTextView2_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown"
+            android:textSize="18sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/listTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textColor="@color/brown_deep"
+            android:textSize="20sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/listTextView3_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown"
+            android:textSize="18sp" >
+        </TextView>
 
         <ImageButton
             android:id="@+id/mapButton"
@@ -96,28 +94,22 @@
             android:padding="0dip"
             android:src="@drawable/maps" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/listTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/telephone"
+            android:textColor="@color/brown_deep"
+            android:textSize="20sp" >
+        </TextView>
 
-            <TextView
-                android:id="@+id/listTextView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/telephone"
-                android:textColor="@color/brown_deep"
-                android:textSize="18sp" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/listTextView4_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/brown"
-                android:textSize="15sp" >
-            </TextView>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/listTextView4_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown"
+            android:textSize="18sp" >
+        </TextView>
 
         <ImageButton
             android:id="@+id/phoneButton"
@@ -133,7 +125,7 @@
             android:layout_height="wrap_content"
             android:text="@string/content"
             android:textColor="@color/brown_deep"
-            android:textSize="18sp" >
+            android:textSize="20sp" >
         </TextView>
 
         <TextView
@@ -141,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brown"
-            android:textSize="15sp" >
+            android:textSize="18sp" >
         </TextView>
     </LinearLayout>
 
