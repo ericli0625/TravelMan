@@ -21,9 +21,9 @@
         <item>宜蘭縣</item>
         <item>花蓮縣</item>
         <item>台東縣</item>
-        <item>澎湖縣</item>
-        <item>金門縣</item>
         <item>連江縣</item>
+        <item>金門縣</item>
+        <item>澎湖縣</item>
     </string-array>
 
     <string-array name="cities_init_2">

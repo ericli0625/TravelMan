@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:background="@drawable/paper">
 
-    <!--<TextView-->
-        <!--android:id="@+id/textView123"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="TextView" />-->
-
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/weatherCityName" android:layout_gravity="center"
+            android:textColor="@color/brown_deep"/>
     <ListView
         android:id="@+id/myListView123"
         android:layout_width="fill_parent"

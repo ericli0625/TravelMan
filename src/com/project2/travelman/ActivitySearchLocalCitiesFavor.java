@@ -79,8 +79,10 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
 
 						// Activity (ActivityMenu)
 						startActivity(intent);
-						overridePendingTransition(R.anim.in_from_right,
-								R.anim.out_to_left);
+//						overridePendingTransition(R.anim.in_from_right,
+//								R.anim.out_to_left);
+						overridePendingTransition(R.anim.my_scale_action,
+								R.anim.my_alpha_action);
 					}
 
 				});

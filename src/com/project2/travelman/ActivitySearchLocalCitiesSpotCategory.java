@@ -165,8 +165,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 						ListView lv = (ListView) arg0;
 						// SimpleAdapter返回Map
-						HashMap<String, String> traveler = (HashMap<String, String>) lv
-								.getItemAtPosition(arg2);
+						HashMap<String, String> traveler = (HashMap<String, String>) lv.getItemAtPosition(arg2);
 
                         String telephone, address, name, category, content;
 
@@ -195,8 +194,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 						// Activity (ActivityMenu)
 						startActivity(intent);
-						overridePendingTransition(R.anim.in_from_right,
-								R.anim.out_to_left);
+						overridePendingTransition(R.anim.my_scale_action,
+								R.anim.my_alpha_action);
 					}
 
 				});
