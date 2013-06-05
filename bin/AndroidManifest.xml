@@ -56,6 +56,10 @@
         <activity android:name="ActivityWeather" 
             android:label="@string/title_weather" >
         </activity>
+        <activity android:name="ActivityWeatherDetail"
+                  android:label="@string/title_weather" >
+        </activity>
+
     </application>
 
 </manifest>

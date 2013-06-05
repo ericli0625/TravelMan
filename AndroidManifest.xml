@@ -56,7 +56,7 @@
         <activity android:name="ActivityWeather" 
             android:label="@string/title_weather" >
         </activity>
-        <activity android:name=".ActivityWeatherDetail"
+        <activity android:name="ActivityWeatherDetail"
                   android:label="@string/title_weather" >
         </activity>
 

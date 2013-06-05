@@ -1,24 +1,17 @@
 package com.project2.travelman;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
-import java.util.*;
 
 public class ActivityWeatherDetail extends Activity {
 
@@ -35,7 +28,6 @@ public class ActivityWeatherDetail extends Activity {
         myTextView = (TextView) findViewById(R.id.weatherCityName);
 
 
-		// 判斷是否有上網
 		if (AppStatus.getInstance(this).isOnline(this)) {
 
             Bundle bundle = getIntent().getExtras();
@@ -82,7 +74,7 @@ public class ActivityWeatherDetail extends Activity {
                 lists.add(map);
             }
 
-            //HashMap<String, String>中的key
+            //HashMap<String, String>‰∏≠ÁöÑkey
             String[] from = { "nameCity", "Day_temp",
                     "Night_temp","Day_image","Night_image"};
 

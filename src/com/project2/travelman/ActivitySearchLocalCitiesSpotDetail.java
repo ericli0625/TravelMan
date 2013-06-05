@@ -1,5 +1,7 @@
 package com.project2.travelman;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,8 +16,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
 
 public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 
