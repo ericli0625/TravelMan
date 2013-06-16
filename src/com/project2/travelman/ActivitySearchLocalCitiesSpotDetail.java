@@ -1,9 +1,8 @@
 package com.project2.travelman;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 
 	private TextView myTextView1, myTextView2, myTextView3, myTextView4,
@@ -25,10 +26,11 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 			myTextView4_4, myTextView5_5;
 	protected List<Traveler> Travelers;
 	private ImageButton myButton1, myButton2, myButton3;
+    private Button myButton4;
 	
 	Intent myintent;
 	private DBHelper DH = null;
-	private String flag, name, address, telephone, category, content;
+	private String flag, name, address, telephone, category, content,latitude,longitude;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +54,7 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 		myButton1 = (ImageButton) findViewById(R.id.mapButton);
 		myButton2 = (ImageButton) findViewById(R.id.phoneButton);
 		myButton3 = (ImageButton) findViewById(R.id.favorButton);
-
-		// 判斷是否有上網
+        myButton4 = (Button) findViewById(R.id.imageButtonWeb);
 
 		mainRush();
 
@@ -68,6 +69,9 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 		telephone = bundle.getString("telephone");
 		category = bundle.getString("category");
 		content = bundle.getString("content");
+
+        longitude = bundle.getString("longitude");
+        latitude = bundle.getString("latitude");
 
 		if (telephone.equals("") || telephone == null) {
 			myTextView4.setVisibility(View.GONE);
@@ -95,16 +99,16 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 		myTextView3_3.setText(address);
 		myTextView5_5.setText(content);
 
-		myButton1.setOnClickListener(new Button.OnClickListener() {
+		myButton1.setOnClickListener(new ImageButton.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
-				String mapUri = "geo:0,0?q=" + name + "," + address + "";
+				String mapUri = "geo:0,0?q=" + latitude +","+longitude+ "("+name+")";
 				myintent = new Intent(Intent.ACTION_VIEW, Uri.parse(mapUri));
 				startActivity(myintent);
 			}
 		});
 
-		myButton2.setOnClickListener(new Button.OnClickListener() {
+		myButton2.setOnClickListener(new ImageButton.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
 				openOptionsDialogCall();
@@ -114,22 +118,30 @@ public class ActivitySearchLocalCitiesSpotDetail extends Activity {
 		myButton3.setOnClickListener(new ImageButton.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
-				Cursor cursor = DH.matchData(name, category, address,
-						telephone, content);
+				Cursor cursor = DH.matchData(name, category, address, telephone,longitude,latitude, content);
 
 				int rows_num = cursor.getCount();
 
 				if (rows_num == 1) {
-					Toast.makeText(v.getContext(), "您已經新增過了", Toast.LENGTH_LONG)
+					Toast.makeText(v.getContext(), "您已經新增過了", Toast.LENGTH_SHORT)
 							.show();
 				} else {
-					DH.insert(name, category, address, telephone, content);
-					Toast.makeText(v.getContext(), "新增至我的最愛", Toast.LENGTH_LONG)
+					DH.insert(name, category, address, telephone, longitude, latitude, content);
+					Toast.makeText(v.getContext(), "新增至我的最愛", Toast.LENGTH_SHORT)
 							.show();
 				}
 
 			}
 		});
+
+        myButton4.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, name);
+                startActivity(intent);
+            }
+        });
 
 	}
 

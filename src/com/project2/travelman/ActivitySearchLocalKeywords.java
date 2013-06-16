@@ -1,21 +1,17 @@
 package com.project2.travelman;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +25,17 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class ActivitySearchLocalKeywords extends Activity {
 
-	private String spottable = "total_spot", flag = "0",selectedCity = new String("所有區域");;
+	private String spottable = "total_spot", flag = "0",selectedCity = new String("所有區域");
 	private Button myButtonSubmit, myButtonReset;
 	private EditText editText_Search;
 	private ListView myListView_Search;
@@ -47,6 +51,9 @@ public class ActivitySearchLocalKeywords extends Activity {
 	private SimpleAdapter adapterHTTP;
 
     private DBHelper DH = null;
+
+    private LocationManager status;
+    private Location mostRecentLocation;
 
     private Spinner mySpinner;
     private static final int ADD_ID = 0;
@@ -110,7 +117,22 @@ public class ActivitySearchLocalKeywords extends Activity {
                             result = DBConnector.executeQuery(sql);
                         }
 
-						ShowListView(result);
+                        status = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+                        if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+
+                            Criteria criteria = new Criteria();
+                            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+                            String best = status.getBestProvider(criteria, true);
+                            mostRecentLocation = status.getLastKnownLocation(best);
+
+						    ShowListView(result);
+
+                        } else {
+                            Toast.makeText(ActivitySearchLocalKeywords.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//開啟設定頁面
+                        }
+
 					} else {
 						openOptionsDialogIsNotContext();
 					}
@@ -163,13 +185,16 @@ public class ActivitySearchLocalKeywords extends Activity {
 						HashMap<String, String> traveler = (HashMap<String, String>) lv
 								.getItemAtPosition(arg2);
 
-						String telephone, address, name, category, content;
+						String telephone, address, name, category, content,longitude,latitude;
 
 						name = traveler.get("name");
 						address = traveler.get("address");
 						telephone = traveler.get("telephone");
 						category = traveler.get("category");
 						content = traveler.get("content");
+
+                        longitude = traveler.get("longitude");
+                        latitude = traveler.get("latitude");
 
 						Intent intent = new Intent();
 						intent.setClass(ActivitySearchLocalKeywords.this,
@@ -183,6 +208,9 @@ public class ActivitySearchLocalKeywords extends Activity {
 						bundle.putString("telephone", telephone);
 						bundle.putString("category", category);
 						bundle.putString("content", content);
+
+                        bundle.putString("longitude", longitude);
+                        bundle.putString("latitude", latitude);
 
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
@@ -282,7 +310,7 @@ public class ActivitySearchLocalKeywords extends Activity {
         Traveler p = Travelers.get(id);
 
         Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
-                p.getTelephone(), p.getContent());
+                p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
 
         int rows_num = cursor.getCount();
 
@@ -290,7 +318,7 @@ public class ActivitySearchLocalKeywords extends Activity {
             Toast.makeText(this, "您已經新增過了", Toast.LENGTH_SHORT)
                     .show();
         } else {
-            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getContent());
+            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
             Toast.makeText(this, "新增至我的最愛", Toast.LENGTH_SHORT)
                     .show();
         }
@@ -362,14 +390,19 @@ public class ActivitySearchLocalKeywords extends Activity {
 			map.put("address", p.getAddress());
 			map.put("telephone", p.getTelephone());
 			map.put("content", p.getContent());
+            map.put("longitude", p.getLongitude());
+            map.put("latitude", p.getLatitude());
+
+            String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
+            map.put("distance", formatStr+" KM");
 
 			lists.add(map);
 		}
 
 		// HashMap<String, String>中的key
-		String[] from = { "name", "address" ,"category"};
+		String[] from = { "name", "address","category","distance"};
 
-		int[] to = { R.id.listTextView1, R.id.listTextView2 ,R.id.listTextView3};
+		int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
 
 		adapterHTTP = new SimpleAdapter(this, lists, R.layout.activity_list,
 				from, to);
@@ -397,8 +430,24 @@ public class ActivitySearchLocalKeywords extends Activity {
 				Traveler.setAddress(obj.getString("address"));
 				Traveler.setTelephone(obj.getString("telephone"));
 				Traveler.setContent(obj.getString("content"));
+                Traveler.setLongitude(obj.getString("longitude"));
+                Traveler.setLatitude(obj.getString("latitude"));
 
-				list.add(Traveler);
+                if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
+
+                    double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
+                    double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
+
+                    double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
+                            ValueLatitude,ValueLongitude);
+
+                    String ss_t = Double.toString(value_dist_d);
+
+                    Traveler.setDistance(ss_t);
+
+                    list.add(Traveler);
+
+                }
 			}
 
 			return list;
@@ -449,5 +498,37 @@ public class ActivitySearchLocalKeywords extends Activity {
 		overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 		return;
 	}
+
+    public double distance(double lat1, double lon1, double lat2, double lon2) {
+
+        double theta = lon1 - lon2;
+
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+
+                + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+
+                * Math.cos(deg2rad(theta));
+
+        dist = Math.acos(dist);
+
+        dist = rad2deg(dist);
+
+        double miles = dist * 60 * 1.1515;
+
+        return miles*1.609344;
+
+    }
+
+    public double deg2rad(double degree) {
+
+        return degree / 180 * Math.PI;
+
+    }
+
+    public double rad2deg(double radian) {
+
+        return radian * 180 / Math.PI;
+
+    }
 
 }

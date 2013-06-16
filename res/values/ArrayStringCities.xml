@@ -21,9 +21,9 @@
         <item>宜蘭縣</item>
         <item>花蓮縣</item>
         <item>台東縣</item>
-        <item>連江縣</item>
-        <item>金門縣</item>
         <item>澎湖縣</item>
+        <item>金門縣</item>
+        <item>連江縣</item>
     </string-array>
 
     <string-array name="cities_init_2">
@@ -483,6 +483,38 @@
         <item>北竿鄉</item>
         <item>莒光鄉</item>
         <item>東引鄉</item>
+    </string-array>
+
+    <string-array name="city_coordinate">
+
+        <item>121.708145,25.108981</item>
+        <item>121.559834,25.091075</item>
+        <item>121.673937,24.915712</item>
+        <item>121.216847,24.937587</item>
+
+        <item>120.964687,24.803946</item>
+        <item>121.125214,24.703281</item>
+        <item>120.941737,24.489269</item>
+        <item>120.941737,24.233208</item>
+
+        <item>120.481845,23.992974</item>
+        <item>120.987632,23.838760</item>
+        <item>120.389665,23.755852</item>
+        <item>120.447285,23.475449</item>
+
+        <item>120.573958,23.458895</item>
+        <item>120.251273,23.141699</item>
+        <item>120.666004,23.010871</item>
+        <item>120.619990,22.549506</item>
+
+        <item>121.719546,24.692947</item>
+        <item>121.354163,23.756899</item>
+        <item>120.987632,22.984612</item>
+        <item>119.615143,23.565479</item>
+
+        <item>118.357883,24.451968</item>
+        <item>119.923137,26.156280</item>
+
     </string-array>
 
 </resources>

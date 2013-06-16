@@ -11,9 +11,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
@@ -58,6 +58,15 @@
         </activity>
         <activity android:name="ActivityWeatherDetail"
                   android:label="@string/title_weather" >
+        </activity>
+        <activity android:name="ActivityMap"
+                  android:label="@string/title_map" >
+        </activity>
+        <activity android:name="ActivitySearchAround"
+                  android:label="@string/title_around">
+        </activity>
+        <activity android:name="ActivitySearchAroundMap"
+                  android:label="@string/title_map">
         </activity>
 
     </application>

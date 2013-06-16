@@ -1,6 +1,8 @@
 package com.project2.travelman;
 
-public class Traveler {
+import java.io.Serializable;
+
+public class Traveler implements Serializable {
 	private String _id;
 	private String category;
 	private String name;
@@ -9,8 +11,12 @@ public class Traveler {
 	private String address;
 	private String telephone;
 
+    private String longitude;
+    private String latitude;
+
 	private String content;
-	
+    private String distance;
+
 	void setId(String id_) {
 		_id = id_; 
 	}
@@ -39,12 +45,24 @@ public class Traveler {
 		telephone = new String(telephone_);
 	}
 
-	void setContent(String content_) {
-		content = new String(content_);
+	void setLongitude(String longitude_) {
+        longitude = new String(longitude_);
 	}
-	
 
-	String getId() {
+    void setLatitude(String latitude_) {
+        latitude = new String(latitude_);
+    }
+
+    void setContent(String content_) {
+        content = new String(content_);
+    }
+
+    void setDistance(String distance_) {
+        distance = new String(distance_);
+    }
+
+
+    String getId() {
 		return _id; 
 	}
 
@@ -71,10 +89,21 @@ public class Traveler {
 	String getTelephone() {
 		return telephone;
 	}
-	
+
+    String getLongitude() {
+        return longitude;
+    }
+
+    String getLatitude() {
+        return latitude;
+    }
 
 	String getContent() {
 		return content;
 	}
-	
+
+    String getDistance() {
+        return distance;
+    }
+
 }

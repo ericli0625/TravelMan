@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-	private Button myButtonSearchLocal, myButtonSearchKeyword, myButton_favor, myButton_weather;
+	private Button myButtonSearchLocal, myButtonSearchKeyword, myButton_favor, myButton_weather,myButton_round_search;
     private ProgressDialog dialog;
 
 	@Override
@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
 		myButtonSearchKeyword = (Button) findViewById(R.id.button_Search_Keyword);
 		myButton_favor = (Button) findViewById(R.id.button_favor);
 		myButton_weather = (Button) findViewById(R.id.button_weather);
+        myButton_round_search = (Button) findViewById(R.id.button_around);
 
 		myButtonSearchLocal.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -74,7 +75,19 @@ public class MainActivity extends Activity {
 
 			}
 		});
-		
+
+        myButton_round_search.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this,ActivitySearchAround.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
+
+            }
+        });
+
 	}
 
 	@Override

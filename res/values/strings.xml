@@ -9,7 +9,8 @@
     <string name="button_Search_Keyword">關鍵字搜尋</string>
     <string name="button_weather">天氣預報</string>
     <string name="button_favor">我的最愛</string>
-    
+    <string name="button_around">鄰近搜尋</string>
+
     <string name="str_no">取消</string>
     <string name="str_ok">確定</string>
     
@@ -49,13 +50,16 @@
     <string name="app_no_context">提示</string>
     <string name="app_no_context_msg">請輸入搜尋內容</string>
 
-    <string name="title_keyword">關鍵字查詢</string>
+    <string name="title_keyword">關鍵字搜尋</string>
     <string name="title_content">景點詳情</string>
     <string name="title_category_1">選擇縣市</string>
     <string name="title_category_2">選擇鄉鎮市區</string>
     <string name="title_category_3">相關景點</string>
 	<string name="title_weather">天氣預報</string>
-    
+
+    <string name="title_map">景點位置</string>
+    <string name="title_around">附近景點查詢</string>
+
     <string name="title_dialog">請稍後片刻</string>
     <string name="dialog_body">正在搜尋景點</string>
 

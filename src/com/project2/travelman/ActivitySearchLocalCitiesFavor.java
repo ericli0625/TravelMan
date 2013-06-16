@@ -21,7 +21,7 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
     private SimpleCursorAdapter adapter;
 
 	private int _id;
-	private String flag = "1",name, address, telephone, category, content;
+	private String flag = "1",name, address, telephone, category, content,latitude,longitude;
 
 	private static final int DELETE_ID = 0;
 	private static final int CAN_DELETE_ID = 1;
@@ -38,7 +38,7 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
 		DH = new DBHelper(this);
 		myCursor = DH.select();
 
-		adapter = new SimpleCursorAdapter(this, R.layout.activity_list,
+		adapter = new SimpleCursorAdapter(this, R.layout.activity_list_favor,
 				myCursor, new String[] { DH.FIELD_Name, DH.FIELD_Address ,DH.FIELD_Category},
 				new int[] { R.id.listTextView1, R.id.listTextView2 , R.id.listTextView3 }, 0);
 
@@ -59,7 +59,9 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
 						category = myCursor.getString(2);
 						address = myCursor.getString(3);
 						telephone = myCursor.getString(4);
-						content = myCursor.getString(5);
+                        longitude = myCursor.getString(5);
+                        latitude = myCursor.getString(6);
+						content = myCursor.getString(7);
 
 						Intent intent = new Intent();
 						intent.setClass(ActivitySearchLocalCitiesFavor.this,
@@ -73,6 +75,9 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
 						bundle.putString("telephone", telephone);
 						bundle.putString("category", category);
 						bundle.putString("content", content);
+
+                        bundle.putString("longitude", longitude);
+                        bundle.putString("latitude", latitude);
 
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
@@ -127,7 +132,7 @@ public class ActivitySearchLocalCitiesFavor extends Activity {
         DH = new DBHelper(this);
         myCursor = DH.select();
 
-        SimpleCursorAdapter adapter_t = new SimpleCursorAdapter(this, R.layout.activity_list,
+        SimpleCursorAdapter adapter_t = new SimpleCursorAdapter(this, R.layout.activity_list_favor,
 				myCursor, new String[] { DH.FIELD_Name, DH.FIELD_Address ,DH.FIELD_Category},
 				new int[] { R.id.listTextView1, R.id.listTextView2 ,R.id.listTextView3}, 0);
 

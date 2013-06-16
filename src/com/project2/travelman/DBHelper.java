@@ -18,6 +18,9 @@ public class DBHelper extends SQLiteOpenHelper {
 	public final static String FIELD_Telephone = "telephone";
 	public final static String FIELD_Content = "content";
 
+    public final static String FIELD_Longitude = "longitude";
+    public final static String FIELD_Latitude = "latitude";
+
 	public DBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -29,7 +32,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		String sql = "CREATE TABLE " + TABLE_NAME + " ( " + FIELD_Id
 				+ " INTEGER primary key autoincrement, " + FIELD_Name
 				+ " text," + FIELD_Category + " text," + FIELD_Address
-				+ " text," + FIELD_Telephone + " text," + FIELD_Content
+				+ " text," + FIELD_Telephone + " text," + FIELD_Longitude
+                + " text," + FIELD_Latitude + " text," + FIELD_Content
 				+ " text)";
 		db.execSQL(sql);
 	}
@@ -44,8 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	public Cursor select() {
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db
-				.query(TABLE_NAME, null, null, null, null, null, null);
+		Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
 		return cursor;
 	}
 
@@ -55,7 +58,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	 * 该参数可以设置为null。带占位符参数的select语句使用例子如下：
 	 */
 	public Cursor matchData(String name_t, String category_t, String address_t,
-			String telephone_t, String content_t) {
+			String telephone_t, String longitude_t, String latitude_t, String content_t) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		String sql = "select * from " + TABLE_NAME + " where " + FIELD_Name
@@ -63,8 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
 				+ FIELD_Address + " like ? and " + FIELD_Telephone
 				+ " like ? and " + FIELD_Content + " like ? ";
 
-		Cursor cursor = db.rawQuery(sql, new String[] { name_t, category_t,
-				address_t, telephone_t, content_t });
+		Cursor cursor = db.rawQuery(sql, new String[] { name_t, category_t, address_t, telephone_t, content_t});
 
 		// 注意：不寫會出錯
 		if (cursor != null) {
@@ -81,7 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	public long insert(String name_t, String category_t, String address_t,
-			String telephone_t, String content_t) {
+			String telephone_t,String longitude_t, String latitude_t, String content_t) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues cv = new ContentValues();
 
@@ -89,6 +91,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		cv.put(FIELD_Category, category_t);
 		cv.put(FIELD_Address, address_t);
 		cv.put(FIELD_Telephone, telephone_t);
+        cv.put(FIELD_Longitude, longitude_t);
+        cv.put(FIELD_Latitude, latitude_t);
 		cv.put(FIELD_Content, content_t);
 
 		long row = db.insert(TABLE_NAME, null, cv);

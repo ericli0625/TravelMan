@@ -1,21 +1,17 @@
 package com.project2.travelman;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,19 +19,29 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 	private ListView myListView;
 	private TextView myTextView;
+    private ImageButton myButton;
 	private Spinner mySpinner;
 	private SimpleAdapter adapterHTTP;
-	protected List<Traveler> Travelers;
+	protected ArrayList<Traveler> Travelers = new ArrayList<Traveler>();
 	private Traveler Traveler;
     private String[] spotCategoryArray;
     private Resources res;
@@ -48,6 +54,9 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 	private String result = new String();
 	private ArrayAdapter<CharSequence> adapterTemp;
 
+    private LocationManager status;
+    private Location mostRecentLocation;
+
     private static final int ADD_ID = 0;
     private static final int CAN_ADD_ID = 1;
 
@@ -57,6 +66,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 		setContentView(R.layout.activity_menu_category);
 
 		// myTextView = (TextView) findViewById(R.id.myTextView);
+        myButton = (ImageButton) findViewById(R.id.mapButton_1);
 		myListView = (ListView) findViewById(R.id.myListView);
 		mySpinner = (Spinner) findViewById(R.id.spinner1);
 
@@ -108,7 +118,21 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						result = DBConnector.executeQuery(sql);
 					}
 
-					ShowListView(result);
+                    status = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+                    if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+
+                        Criteria criteria = new Criteria();
+                        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+                        String best = status.getBestProvider(criteria, true);
+                        mostRecentLocation = status.getLastKnownLocation(best);
+
+					    ShowListView(result);
+
+                    } else {
+                        Toast.makeText(ActivitySearchLocalCitiesSpotCategory.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//開啟設定頁面
+                    }
 				}
 
 				@Override
@@ -117,7 +141,22 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 				}
 			});
 
-			// myTextView.setText(result + "?");
+            myButton.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    Intent intent = new Intent();
+                    intent.setClass(ActivitySearchLocalCitiesSpotCategory.this, ActivityMap.class);
+                    intent.putExtra("list",  Travelers);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.my_scale_action,
+                            R.anim.my_alpha_action);
+                }
+
+            });
+
+            // myTextView.setText(result + "?");
 
 		} else {
 			openOptionsDialogIsNetworkAvailable();
@@ -143,7 +182,6 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 	private void ShowListView(String result) {
 
-        // 判斷是否有搜尋到診所
 		if (result.length() > 5) {
 			Travelers = JsonToList(result);
 			setInAdapter();
@@ -174,13 +212,15 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						// SimpleAdapter返回Map
 						HashMap<String, String> traveler = (HashMap<String, String>) lv.getItemAtPosition(arg2);
 
-                        String telephone, address, name, category, content;
+                        String telephone, address, name, category, content,longitude,latitude;
 
 						name = traveler.get("name");
 						address = traveler.get("address");
 						telephone = traveler.get("telephone");
 						category = traveler.get("category");
 						content = traveler.get("content");
+                        longitude = traveler.get("longitude");
+                        latitude = traveler.get("latitude");
 
 						Intent intent = new Intent();
 						intent.setClass(
@@ -195,6 +235,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						bundle.putString("telephone", telephone);
 						bundle.putString("category", category);
 						bundle.putString("content", content);
+                        bundle.putString("longitude", longitude);
+                        bundle.putString("latitude", latitude);
 
 						// 把bundle物件指派給Intent
 						intent.putExtras(bundle);
@@ -241,7 +283,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
         Traveler p = Travelers.get(id);
 
         Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
-                p.getTelephone(), p.getContent());
+                p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
 
         int rows_num = cursor.getCount();
 
@@ -249,7 +291,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
             Toast.makeText(this, "您已經新增過了", Toast.LENGTH_SHORT)
                     .show();
         } else {
-            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getContent());
+            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
             Toast.makeText(this, "新增至我的最愛", Toast.LENGTH_SHORT)
                     .show();
         }
@@ -288,51 +330,72 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 			map.put("address", p.getAddress());
 			map.put("telephone", p.getTelephone());
 			map.put("content", p.getContent());
+            map.put("longitude", p.getLongitude());
+            map.put("latitude", p.getLatitude());
+
+            String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
+            map.put("distance", formatStr+" KM");
 
 			lists.add(map);
 		}
 
-		// HashMap<String, String>中的key
-		String[] from = { "name", "address","category"};
+        // HashMap<String, String>中的key
+        String[] from = { "name", "address","category","distance"};
 
-		int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3 };
+        int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
 
-		adapterHTTP = new SimpleAdapter(this, lists, R.layout.activity_list,
-				from, to);
+        adapterHTTP = new SimpleAdapter(this, lists, R.layout.activity_list,
+                from, to);
 
 	}
 
-	protected List<Traveler> JsonToList(String response) {
-		List<Traveler> list = new ArrayList<Traveler>();
+    protected ArrayList<Traveler> JsonToList(String response) {
+        ArrayList<Traveler> list = new ArrayList<Traveler>();
 
-		try {
-			// 將字符串轉換為Json數組
-			JSONArray array = new JSONArray(response);
+        try {
+            // 將字符串轉換為Json數組
+            JSONArray array = new JSONArray(response);
 
-			int length = array.length();
-			for (int i = 0; i < length; i++) {
-				// 將每一個數組再轉換成Json對象
-				JSONObject obj = array.getJSONObject(i);
+            int length = array.length();
+            for (int i = 0; i < length; i++) {
+                // 將每一個數組再轉換成Json對象
+                JSONObject obj = array.getJSONObject(i);
 
-				Traveler = new Traveler();
-				Traveler.setId(obj.getString("_id"));
-				Traveler.setName(obj.getString("name"));
-				Traveler.setCategory(obj.getString("category"));
-				Traveler.setCities(obj.getString("cities"));
-				Traveler.setCity(obj.getString("city"));
-				Traveler.setAddress(obj.getString("address"));
-				Traveler.setTelephone(obj.getString("telephone"));
-				Traveler.setContent(obj.getString("content"));
+                Traveler = new Traveler();
+                Traveler.setId(obj.getString("_id"));
+                Traveler.setName(obj.getString("name"));
+                Traveler.setCategory(obj.getString("category"));
+                Traveler.setCities(obj.getString("cities"));
+                Traveler.setCity(obj.getString("city"));
+                Traveler.setAddress(obj.getString("address"));
+                Traveler.setTelephone(obj.getString("telephone"));
+                Traveler.setContent(obj.getString("content"));
+                Traveler.setLongitude(obj.getString("longitude"));
+                Traveler.setLatitude(obj.getString("latitude"));
 
-				list.add(Traveler);
-			}
+                if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
 
-			return list;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+                    double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
+                    double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
+
+                    double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
+                            ValueLatitude,ValueLongitude);
+
+                    String ss_t = Double.toString(value_dist_d);
+
+                    Traveler.setDistance(ss_t);
+
+                    list.add(Traveler);
+
+                }
+            }
+
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -374,6 +437,38 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         return;
+    }
+
+    public double distance(double lat1, double lon1, double lat2, double lon2) {
+
+        double theta = lon1 - lon2;
+
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+
+                + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+
+                * Math.cos(deg2rad(theta));
+
+        dist = Math.acos(dist);
+
+        dist = rad2deg(dist);
+
+        double miles = dist * 60 * 1.1515;
+
+        return miles*1.609344;
+
+    }
+
+    public double deg2rad(double degree) {
+
+        return degree / 180 * Math.PI;
+
+    }
+
+    public double rad2deg(double radian) {
+
+        return radian * 180 / Math.PI;
+
     }
 
 }
