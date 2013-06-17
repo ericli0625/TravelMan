@@ -2,6 +2,7 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -9,8 +10,8 @@ import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
@@ -18,11 +19,9 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
@@ -31,9 +30,15 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -41,21 +46,18 @@ import java.util.Map;
 
 public class ActivitySearchAround extends Activity {
 
-    private String spottable = "total_spot";
-    private SimpleAdapter adapterHTTP;
-
     private TextView mytextView;
     private ListView myListView;
-    private String result = new String();
-    private Button myButtonSubmit;
+
+    private ImageButton myButtonSubmit;
     private Spinner mySpinner;
     private String spotCategory = new String("所有類型");
 
     private ArrayList<Traveler> Travelers;
-    private Traveler Traveler;
 
     private LocationManager status;
     private Location mostRecentLocation;
+
     private String[] spotCategoryArray;
     private String[] cityAroundArry;
 
@@ -73,63 +75,45 @@ public class ActivitySearchAround extends Activity {
         DH = new DBHelper(this);
 
         spotCategoryArray = getResources().getStringArray(R.array.spot_category);
-
         mySpinner = (Spinner) findViewById(R.id.spinner_cate);
-        myButtonSubmit = (Button) findViewById(R.id.button_Search_submit);
+        myButtonSubmit = (ImageButton) findViewById(R.id.button_Search_submit);
         myListView = (ListView) findViewById(R.id.myListView);
 
         if (AppStatus.getInstance(this).isOnline(this)) {
 
-        adapterTemp = ArrayAdapter.createFromResource(this, R.array.spot_category, R.layout.item2);
-        adapterTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mySpinner.setAdapter(adapterTemp);
+            adapterTemp = ArrayAdapter.createFromResource(ActivitySearchAround.this, R.array.spot_category, R.layout.item2);
+            adapterTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            mySpinner.setAdapter(adapterTemp);
 
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View v,
-                                       int position, long id) {
-                spotCategory = spotCategoryArray[position];
+            mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-                status = (LocationManager) getSystemService(LOCATION_SERVICE);
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View v,
+                                           int position, long id) {
+                    spotCategory = spotCategoryArray[position];
 
-                if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                    status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-                    Criteria criteria = new Criteria();
-                    criteria.setAccuracy(Criteria.ACCURACY_FINE);
-                    String best = status.getBestProvider(criteria, true);
-                    mostRecentLocation = status.getLastKnownLocation(best);
+                    if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 
-//                    cityAroundDetect(getAddressByLocation(mostRecentLocation));
+                        Criteria criteria = new Criteria();
+                        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+                        String best = status.getBestProvider(criteria, true);
+                        mostRecentLocation = status.getLastKnownLocation(best);
 
-                    if (!spotCategory.equals("") && !spotCategory.equals("所有類型")) {
-                        String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) +" where category like '" + spotCategory + "'";
-                        result = DBConnector.executeQuery(sql);
-                    }else {
-                        String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + " ";
-                        result = DBConnector.executeQuery(sql);
+                        AsyncTask task = new MyTask(ActivitySearchAround.this).execute(spotCategory);
+
+                    } else {
+                        Toast.makeText(ActivitySearchAround.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//??????
                     }
 
-                    ShowListView(result);
-
-                } else {
-                    Toast.makeText(ActivitySearchAround.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//??????
                 }
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-
-            }
-        });
-
-            visitExternalLinks();
-
-            myButtonSubmit.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
 
                 }
             });
@@ -138,6 +122,108 @@ public class ActivitySearchAround extends Activity {
             openOptionsDialogIsNetworkAvailable();
         }
 
+        myButtonSubmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent();
+                intent.setClass(ActivitySearchAround.this, ActivityMap.class);
+                intent.putExtra("list",  Travelers);
+                startActivity(intent);
+                overridePendingTransition(R.anim.my_scale_action,
+                        R.anim.my_alpha_action);
+
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.item_favor:
+                Intent intent = new Intent();
+                intent.setClass(ActivitySearchAround.this, ActivitySearchLocalCitiesFavor.class);
+                startActivity(intent);
+                return true;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case ADD_ID:
+                AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+                        .getMenuInfo();
+                addFavor(menuInfo.position);
+                break;
+
+            case CAN_ADD_ID:
+                break;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_search, menu);
+        return true;
+    }
+
+    private void addFavor(int id) {
+
+        Traveler p = Travelers.get(id);
+
+        Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
+                p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
+
+        int rows_num = cursor.getCount();
+
+        if (rows_num == 1) {
+            Toast.makeText(ActivitySearchAround.this, "您已經新增過了", Toast.LENGTH_SHORT)
+                    .show();
+        } else {
+            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
+            Toast.makeText(ActivitySearchAround.this, "新增至我的最愛", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+    }
+
+    private void openOptionsDialogIsNetworkAvailable() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_connect)
+                .setMessage(R.string.app_connect_msg)
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+                                finish();
+                            }
+                        }).show();
+
+    }
+
+    public void visitExternalLinks() {
+        // 發送Http請求
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads().detectDiskWrites().detectNetwork()
+                .penaltyLog().build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects().penaltyLog().penaltyDeath()
+                .build());
     }
 
     public String cityAroundDetect(String valueCity){
@@ -190,14 +276,7 @@ public class ActivitySearchAround extends Activity {
             cityAroundArry = getResources().getStringArray(R.array.lianjiang_county_around);
         }
 
-//         SELECT * FROM " + spottable + " where category like '" + spotCategory + "'
-//        where cities like "台北市"
-//        or
-//        cities like "新北市"
-//        or
-//        cities like "桃園縣"
-
-        String sqlContent = new String(" where");
+        String sqlContent = new String(" where (");
         String sqlLeft = new String(" cities like '");
         String sqlRight = new String("'");
         String sqlTail = new String(" or");
@@ -222,7 +301,7 @@ public class ActivitySearchAround extends Activity {
                 double longitude = location.getLongitude();	//取得經度
                 double latitude = location.getLatitude();	//取得緯度
 
-                Geocoder gc = new Geocoder(this, Locale.TRADITIONAL_CHINESE); 	//地區:台灣
+                Geocoder gc = new Geocoder(ActivitySearchAround.this, Locale.TRADITIONAL_CHINESE); 	//地區:台灣
                 //自經緯度取得地址
                 List<Address> lstAddress = gc.getFromLocation(latitude, longitude, 1);
 
@@ -239,266 +318,265 @@ public class ActivitySearchAround extends Activity {
         return returnAddress;
     }
 
+    private class MyTask extends AsyncTask<String, Void, String> {
 
-    private void ShowListView(String result) {
+        /** progress dialog to show user that the backup is processing. */
+        private ProgressDialog dialog;
+        /** application context. */
+        private Activity activity;
 
-        if (result.length() > 5) {
-            Travelers = JsonToList(result);
-            setInAdapter();
-            Toast.makeText(this, spotCategory, Toast.LENGTH_SHORT).show();
+        public MyTask(Activity activity) {
+            this.activity = activity;
+            Activity context = activity;
+            dialog = new ProgressDialog(context);
+        }
 
+        protected void onPreExecute() {
+            this.dialog.setTitle("搜尋中");
+            this.dialog.setMessage("請稍後......");
+            this.dialog.show();
+        }
 
-        } else {
+        private String result = new String();
+        private String spottable = "total_spot";
+        private SimpleAdapter adapterHTTP;
 
-            List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
-            String[] from = { "name", "address" };
-            int[] to = { R.id.listTextView1, R.id.listTextView2 };
-            adapterHTTP = new SimpleAdapter(this, lists,
-                    R.layout.activity_list, from, to);
-            adapterHTTP.notifyDataSetChanged();
-            openOptionsDialogIsNoneResult();
+        @Override
+        protected String doInBackground(String... params) {
+            //第二個執行方法會在onPreExecute()執行完後立刻執行 ，
+            // 並運行在背景執行緒中。主要負責運行耗時的背景處理工作。
+            // 本方法是抽象方法，必須實現。注意不能在這裡更新//UI元件//.
+
+            if (!params[0].equals("") && !params[0].equals("所有類型")) {
+                String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + ") and category like '" + spotCategory + "'";
+                result = DBConnector.executeQuery(sql);
+            }else {
+                String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + ") ";
+                result = DBConnector.executeQuery(sql);
+            }
+
+            if (result.length() > 5) {
+                Travelers = JsonToList(result);
+                setInAdapter();
+
+            } else {
+
+                List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+                String[] from = { "name", "address" };
+                int[] to = { R.id.listTextView1, R.id.listTextView2 };
+                adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists,
+                        R.layout.activity_list, from, to);
+                adapterHTTP.notifyDataSetChanged();
+
+            }
+
+            visitExternalLinks();
+
+            return params[0];
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //doInBackground全部執行完後觸發
+
+            ShowListView(result);
+
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
 
         }
 
-        myListView.setAdapter(adapterHTTP);
+        protected ArrayList<Traveler> JsonToList(String response) {
+            ArrayList<Traveler> list = new ArrayList<Traveler>();
+            Traveler Traveler;
 
-        registerForContextMenu(myListView);//將ContextMenu註冊到視圖上
+            try {
+                // 將字符串轉換為Json數組
+                JSONArray array = new JSONArray(response);
 
-        myListView
-                .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-                    @Override
-                    public void onCreateContextMenu(ContextMenu menu, View v,
-                                                    ContextMenu.ContextMenuInfo menuInfo) {
-                        menu.setHeaderTitle("加入我的最愛");
-                        menu.add(0, ADD_ID, 0, "確定");
-                        menu.add(0, CAN_ADD_ID, 0, "取消");
-                    }
-                });
+                int length = array.length();
+                int distance_max = 10;
+                for (int i = 0; i < length; i++) {
+                    // 將每一個數組再轉換成Json對象
+                    JSONObject obj = array.getJSONObject(i);
 
-    }
+                    Traveler = new Traveler();
+                    Traveler.setId(obj.getString("_id"));
+                    Traveler.setName(obj.getString("name"));
+                    Traveler.setCategory(obj.getString("category"));
+                    Traveler.setCities(obj.getString("cities"));
+                    Traveler.setCity(obj.getString("city"));
+                    Traveler.setAddress(obj.getString("address"));
+                    Traveler.setTelephone(obj.getString("telephone"));
+                    Traveler.setContent(obj.getString("content"));
+                    Traveler.setLongitude(obj.getString("longitude"));
+                    Traveler.setLatitude(obj.getString("latitude"));
 
-    private void openOptionsDialogIsNoneResult() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_none_result)
-                .setMessage(R.string.app_none_result_msg)
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
+                    if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
 
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
+                        double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
+                        double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
 
-                            }
-                        }).show();
+                        double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
+                                ValueLatitude,ValueLongitude);
 
-    }
+                        String ss_t = Double.toString(value_dist_d);
 
-    private void openOptionsDialogIsNetworkAvailable() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.app_connect)
-                .setMessage(R.string.app_connect_msg)
-                .setPositiveButton(R.string.str_ok,
-                        new DialogInterface.OnClickListener() {
+                        Traveler.setDistance(ss_t);
 
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                // TODO Auto-generated method stub
-                                finish();
-                            }
-                        }).show();
+                        if ((int)value_dist_d < distance_max){
+                            list.add(Traveler);
+                        }
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_search, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        super.onOptionsItemSelected(item);
-
-        switch (item.getItemId()) {
-            case R.id.item_favor:
-                Intent intent = new Intent();
-                intent.setClass(ActivitySearchAround.this, ActivitySearchLocalCitiesFavor.class);
-                startActivity(intent);
-                return true;
-            default:
-                break;
-        }
-
-        return true;
-    }
-
-    protected ArrayList<Traveler> JsonToList(String response) {
-        ArrayList<Traveler> list = new ArrayList<Traveler>();
-
-        try {
-            // 將字符串轉換為Json數組
-            JSONArray array = new JSONArray(response);
-
-            int length = array.length();
-            int distance_max = 10;
-            for (int i = 0; i < length; i++) {
-                // 將每一個數組再轉換成Json對象
-                JSONObject obj = array.getJSONObject(i);
-
-                Traveler = new Traveler();
-                Traveler.setId(obj.getString("_id"));
-                Traveler.setName(obj.getString("name"));
-                Traveler.setCategory(obj.getString("category"));
-                Traveler.setCities(obj.getString("cities"));
-                Traveler.setCity(obj.getString("city"));
-                Traveler.setAddress(obj.getString("address"));
-                Traveler.setTelephone(obj.getString("telephone"));
-                Traveler.setContent(obj.getString("content"));
-                Traveler.setLongitude(obj.getString("longitude"));
-                Traveler.setLatitude(obj.getString("latitude"));
-
-                if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
-
-                    double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
-                    double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
-
-                    double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
-                            ValueLatitude,ValueLongitude);
-
-                    String ss_t = Double.toString(value_dist_d);
-
-                    Traveler.setDistance(ss_t);
-
-                    if ((int)value_dist_d < distance_max){
-                        list.add(Traveler);
                     }
 
                 }
 
+                return list;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        protected void setInAdapter() {
+            List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+
+            Map<String, String> map;
+            for (Traveler p : Travelers) {
+                map = new HashMap<String, String>();
+
+                map.put("_id", p.getId());
+                map.put("name", p.getName());
+                map.put("category", p.getCategory());
+                map.put("cities", p.getCities());
+                map.put("city", p.getCity());
+                map.put("address", p.getAddress());
+                map.put("telephone", p.getTelephone());
+                map.put("content", p.getContent());
+                map.put("longitude", p.getLongitude());
+                map.put("latitude", p.getLatitude());
+
+                String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
+                map.put("distance", formatStr+" KM");
+
+                lists.add(map);
             }
 
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+            // HashMap<String, String>中的key
+            String[] from = { "name", "address","category","distance"};
 
-    public double distance(double lat1, double lon1, double lat2, double lon2) {
+            int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
 
-        double theta = lon1 - lon2;
+            adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
 
-        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
-
-        + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
-
-        * Math.cos(deg2rad(theta));
-
-        dist = Math.acos(dist);
-
-        dist = rad2deg(dist);
-
-        double miles = dist * 60 * 1.1515;
-
-       return miles*1.609344;
-
-     }
-
-    public double deg2rad(double degree) {
-
-        return degree / 180 * Math.PI;
-
-    }
-
-    public double rad2deg(double radian) {
-
-       return radian * 180 / Math.PI;
-
-    }
-
-    public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case ADD_ID:
-                AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
-                        .getMenuInfo();
-                addFavor(menuInfo.position);
-                break;
-
-            case CAN_ADD_ID:
-                break;
-
-            default:
-                return super.onContextItemSelected(item);
-        }
-        return true;
-    }
-
-    private void addFavor(int id) {
-
-        Traveler p = Travelers.get(id);
-
-        Cursor cursor = DH.matchData(p.getName(), p.getCategory(), p.getAddress(),
-                p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
-
-        int rows_num = cursor.getCount();
-
-        if (rows_num == 1) {
-            Toast.makeText(this, "您已經新增過了", Toast.LENGTH_SHORT)
-                    .show();
-        } else {
-            DH.insert(p.getName(), p.getCategory(), p.getAddress(), p.getTelephone(), p.getLongitude(),p.getLatitude(), p.getContent());
-            Toast.makeText(this, "新增至我的最愛", Toast.LENGTH_SHORT)
-                    .show();
         }
 
-    }
+        private void ShowListView(String xx) {
 
-    protected void setInAdapter() {
-        List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+            if (result.length() > 5) {
+                Toast.makeText(ActivitySearchAround.this, spotCategory, Toast.LENGTH_SHORT).show();
+            }
 
-        Map<String, String> map;
-        for (Traveler p : Travelers) {
-            map = new HashMap<String, String>();
+            myListView.setAdapter(adapterHTTP);
 
-            map.put("_id", p.getId());
-            map.put("name", p.getName());
-            map.put("category", p.getCategory());
-            map.put("cities", p.getCities());
-            map.put("city", p.getCity());
-            map.put("address", p.getAddress());
-            map.put("telephone", p.getTelephone());
-            map.put("content", p.getContent());
-            map.put("longitude", p.getLongitude());
-            map.put("latitude", p.getLatitude());
+            registerForContextMenu(myListView);//將ContextMenu註冊到視圖上
 
-            String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
-            map.put("distance", formatStr+" KM");
+            myListView
+                    .setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            lists.add(map);
+                        @SuppressWarnings("unchecked")
+                        @Override
+                        public void onItemClick(AdapterView<?> arg0, View arg1,
+                                                int arg2, long arg3) {
+                            // arg0就是ListView，arg1表示Item視圖，arg2表示資料index
+
+                            ListView lv = (ListView) arg0;
+                            // SimpleAdapter返回Map
+                            HashMap<String, String> traveler = (HashMap<String, String>) lv.getItemAtPosition(arg2);
+
+                            String telephone, address, name, category, content,longitude,latitude;
+
+                            name = traveler.get("name");
+                            address = traveler.get("address");
+                            telephone = traveler.get("telephone");
+                            category = traveler.get("category");
+                            content = traveler.get("content");
+                            longitude = traveler.get("longitude");
+                            latitude = traveler.get("latitude");
+
+                            Intent intent = new Intent();
+                            intent.setClass(
+                                    ActivitySearchAround.this,
+                                    ActivitySearchLocalCitiesSpotDetail.class);
+
+                            Bundle bundle = new Bundle();
+
+                            bundle.putString("flag", "0");// 標記搜尋頁進入
+                            bundle.putString("name", name);
+                            bundle.putString("address", address);
+                            bundle.putString("telephone", telephone);
+                            bundle.putString("category", category);
+                            bundle.putString("content", content);
+                            bundle.putString("longitude", longitude);
+                            bundle.putString("latitude", latitude);
+
+                            // 把bundle物件指派給Intent
+                            intent.putExtras(bundle);
+
+                            // Activity (ActivityMenu)
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.my_scale_action,
+                                    R.anim.my_alpha_action);
+                        }
+
+                    });
+
+            myListView
+                    .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                        @Override
+                        public void onCreateContextMenu(ContextMenu menu, View v,
+                                                        ContextMenu.ContextMenuInfo menuInfo) {
+                            menu.setHeaderTitle("加入我的最愛");
+                            menu.add(0, ADD_ID, 0, "確定");
+                            menu.add(0, CAN_ADD_ID, 0, "取消");
+                        }
+                    });
+
         }
 
-        // HashMap<String, String>中的key
-        String[] from = { "name", "address","category","distance"};
+        public double distance(double lat1, double lon1, double lat2, double lon2) {
 
-        int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
+            double theta = lon1 - lon2;
 
-        adapterHTTP = new SimpleAdapter(this, lists, R.layout.activity_list,
-                from, to);
+            double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+
+                    + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+
+                    * Math.cos(deg2rad(theta));
+
+            dist = Math.acos(dist);
+
+            dist = rad2deg(dist);
+
+            double miles = dist * 60 * 1.1515;
+
+            return miles*1.609344;
+
+        }
+
+        public double deg2rad(double degree) {
+
+            return degree / 180 * Math.PI;
+
+        }
+
+        public double rad2deg(double radian) {
+
+            return radian * 180 / Math.PI;
+
+        }
 
     }
-
-    public void visitExternalLinks() {
-        // 發送Http請求
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
-                .detectDiskReads().detectDiskWrites().detectNetwork()
-                .penaltyLog().build());
-        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-                .detectLeakedSqlLiteObjects().penaltyLog().penaltyDeath()
-                .build());
-    }
-
 }

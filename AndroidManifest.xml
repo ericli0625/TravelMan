@@ -65,9 +65,6 @@
         <activity android:name="ActivitySearchAround"
                   android:label="@string/title_around">
         </activity>
-        <activity android:name="ActivitySearchAroundMap"
-                  android:label="@string/title_map">
-        </activity>
 
     </application>
 
