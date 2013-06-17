@@ -6,7 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -32,6 +34,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class ActivitySearchLocalCitiesSpotCategory extends Activity {
@@ -69,6 +72,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
         myButton = (ImageButton) findViewById(R.id.mapButton_1);
 		myListView = (ListView) findViewById(R.id.myListView);
 		mySpinner = (Spinner) findViewById(R.id.spinner1);
+
+//        myTextView = (TextView) findViewById(R.id.textView_test);
 
         DH = new DBHelper(this);
 
@@ -129,6 +134,8 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 
 					    ShowListView(result);
 
+//                        myTextView.setText();
+
                     } else {
                         Toast.makeText(ActivitySearchLocalCitiesSpotCategory.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//開啟設定頁面
@@ -155,8 +162,6 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
                 }
 
             });
-
-            // myTextView.setText(result + "?");
 
 		} else {
 			openOptionsDialogIsNetworkAvailable();

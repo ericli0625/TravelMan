@@ -5,7 +5,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -33,6 +35,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -54,6 +57,8 @@ public class ActivitySearchAround extends Activity {
     private LocationManager status;
     private Location mostRecentLocation;
     private String[] spotCategoryArray;
+    private String[] cityAroundArry;
+
     private ArrayAdapter<CharSequence> adapterTemp;
 
     private static final int ADD_ID = 0;
@@ -87,14 +92,6 @@ public class ActivitySearchAround extends Activity {
                                        int position, long id) {
                 spotCategory = spotCategoryArray[position];
 
-                if (!spotCategory.equals("") && !spotCategory.equals("所有類型")) {
-                    String sql = "SELECT * FROM " + spottable + " where category like '" + spotCategory + "'";
-                    result = DBConnector.executeQuery(sql);
-                }else {
-                    String sql = "SELECT * FROM " + spottable + " ";
-                    result = DBConnector.executeQuery(sql);
-                }
-
                 status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
                 if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
@@ -103,6 +100,16 @@ public class ActivitySearchAround extends Activity {
                     criteria.setAccuracy(Criteria.ACCURACY_FINE);
                     String best = status.getBestProvider(criteria, true);
                     mostRecentLocation = status.getLastKnownLocation(best);
+
+//                    cityAroundDetect(getAddressByLocation(mostRecentLocation));
+
+                    if (!spotCategory.equals("") && !spotCategory.equals("所有類型")) {
+                        String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) +" where category like '" + spotCategory + "'";
+                        result = DBConnector.executeQuery(sql);
+                    }else {
+                        String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + " ";
+                        result = DBConnector.executeQuery(sql);
+                    }
 
                     ShowListView(result);
 
@@ -132,6 +139,106 @@ public class ActivitySearchAround extends Activity {
         }
 
     }
+
+    public String cityAroundDetect(String valueCity){
+
+        String[] cities = getResources().getStringArray(R.array.cities_init);
+
+        if (cities[0].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.keelung_city_around);
+        } else if (cities[1].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.taipei_city_around);
+        } else if (cities[2].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.xinbei_city_around);
+        } else if (cities[3].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.taoyuan_county_around);
+        } else if (cities[4].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.hsinchu_city_around);
+        } else if (cities[5].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.hsinchu_county_around);
+        } else if (cities[6].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.miaoli_county_around);
+        } else if (cities[7].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.taichung_city_around);
+        } else if (cities[8].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.changhua_county_around);
+        } else if (cities[9].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.nantou_county_around);
+        } else if (cities[10].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.yunlin_county_around);
+        } else if (cities[11].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.chiayi_city_around);
+        } else if (cities[12].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.chiayi_county_around);
+        } else if (cities[13].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.tainan_city_around);
+        } else if (cities[14].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.kaohsiung_city_around);
+        } else if (cities[15].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.pingtung_county_around);
+        } else if (cities[16].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.yilan_county_around);
+        } else if (cities[17].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.hualien_county_around);
+        } else if (cities[18].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.taitung_county_around);
+        } else if (cities[19].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.penghu_county_around);
+        } else if (cities[20].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.kinmen_county_around);
+        } else if (cities[21].equals(valueCity)) {
+            cityAroundArry = getResources().getStringArray(R.array.lianjiang_county_around);
+        }
+
+//         SELECT * FROM " + spottable + " where category like '" + spotCategory + "'
+//        where cities like "台北市"
+//        or
+//        cities like "新北市"
+//        or
+//        cities like "桃園縣"
+
+        String sqlContent = new String(" where");
+        String sqlLeft = new String(" cities like '");
+        String sqlRight = new String("'");
+        String sqlTail = new String(" or");
+        int count=0;
+        for (String aroundCity:cityAroundArry){
+
+            if (count==0){
+                sqlContent = sqlContent + sqlLeft + aroundCity + sqlRight;
+            }else{
+                sqlContent = sqlContent + sqlTail + sqlLeft + aroundCity + sqlRight;
+            }
+            count++;
+        }
+
+        return sqlContent;
+    }
+
+    public String getAddressByLocation(Location location) {
+        String returnAddress = "";
+        try {
+            if (location != null) {
+                double longitude = location.getLongitude();	//取得經度
+                double latitude = location.getLatitude();	//取得緯度
+
+                Geocoder gc = new Geocoder(this, Locale.TRADITIONAL_CHINESE); 	//地區:台灣
+                //自經緯度取得地址
+                List<Address> lstAddress = gc.getFromLocation(latitude, longitude, 1);
+
+                if (!Geocoder.isPresent()){ //Since: API Level 9
+                    returnAddress = "Sorry! Geocoder service not Present.";
+                }
+                returnAddress = lstAddress.get(0).getAdminArea();
+
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return returnAddress;
+    }
+
 
     private void ShowListView(String result) {
 

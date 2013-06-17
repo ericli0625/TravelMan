@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="keelung_city_around">
+        <item>基隆市</item>
+        <item>台北市</item>
+        <item>新北市</item>
+    </string-array>
+
+    <string-array name="taipei_city_around">
+        <item>台北市</item>
+        <item>基隆市</item>
+        <item>新北市</item>
+        <item>桃園縣</item>
+    </string-array>
+
+    <string-array name="xinbei_city_around">
+        <item>新北市</item>
+        <item>台北市</item>
+        <item>基隆市</item>
+        <item>宜蘭縣</item>
+        <item>桃園縣</item>
+    </string-array>
+
+    <string-array name="taoyuan_county_around">
+        <item>桃園縣</item>
+        <item>台北市</item>
+        <item>新北市</item>
+        <item>新竹縣</item>
+        <item>宜蘭縣</item>
+    </string-array>
+
+    <string-array name="hsinchu_city_around">
+        <item>新竹市</item>
+        <item>新竹縣</item>
+        <item>苗栗縣</item>
+    </string-array>
+
+    <string-array name="hsinchu_county_around">
+        <item>新竹縣</item>
+        <item>新竹市</item>
+        <item>苗栗縣</item>
+        <item>桃園縣</item>
+        <item>台中市</item>
+    </string-array>
+
+    <string-array name="miaoli_county_around">
+        <item>苗栗縣</item>
+        <item>新竹市</item>
+        <item>新竹縣</item>
+        <item>台中市</item>
+    </string-array>
+
+    <string-array name="taichung_city_around">
+        <item>台中市</item>
+        <item>苗栗縣</item>
+        <item>新竹縣</item>
+        <item>花蓮縣</item>
+        <item>彰化縣</item>
+        <item>南投縣</item>
+    </string-array>
+
+    <string-array name="changhua_county_around">
+        <item>彰化縣</item>
+        <item>台中市</item>
+        <item>南投縣</item>
+        <item>雲林縣</item>
+    </string-array>
+
+    <string-array name="nantou_county_around">
+        <item>南投縣</item>
+        <item>台中市</item>
+        <item>彰化縣</item>
+        <item>雲林縣</item>
+        <item>嘉義縣</item>
+    </string-array>
+
+    <string-array name="yunlin_county_around">
+        <item>雲林縣</item>
+        <item>彰化縣</item>
+        <item>南投縣</item>
+        <item>嘉義縣</item>
+    </string-array>
+
+    <string-array name="chiayi_city_around">
+        <item>嘉義市</item>
+        <item>嘉義縣</item>
+        <item>台南市</item>
+    </string-array>
+
+    <string-array name="chiayi_county_around">
+        <item>嘉義縣</item>
+        <item>嘉義市</item>
+        <item>雲林縣</item>
+        <item>南投縣</item>
+        <item>台南市</item>
+        <item>高雄市</item>
+    </string-array>
+
+    <string-array name="tainan_city_around">
+        <item>台南市</item>
+        <item>嘉義市</item>
+        <item>嘉義縣</item>
+        <item>高雄市</item>
+    </string-array>
+
+    <string-array name="kaohsiung_city_around">
+        <item>高雄市</item>
+        <item>台南市</item>
+        <item>嘉義縣</item>
+        <item>屏東縣</item>
+    </string-array>
+
+    <string-array name="pingtung_county_around">
+        <item>屏東縣</item>
+        <item>高雄市</item>
+        <item>台東縣</item>
+    </string-array>
+
+    <string-array name="yilan_county_around">
+        <item>宜蘭縣</item>
+        <item>新北市</item>
+        <item>桃園縣</item>
+        <item>花蓮縣</item>
+    </string-array>
+
+    <string-array name="hualien_county_around">
+        <item>花蓮縣</item>
+        <item>宜蘭縣</item>
+        <item>台東縣</item>
+    </string-array>
+
+    <string-array name="taitung_county_around">
+        <item>台東縣</item>
+        <item>花蓮縣</item>
+        <item>屏東縣</item>
+    </string-array>
+
+    <string-array name="penghu_county_around">
+        <item>澎湖縣</item>
+    </string-array>
+
+    <string-array name="kinmen_county_around">
+        <item>金門縣</item>
+    </string-array>
+
+    <string-array name="lianjiang_county_around">
+        <item>連江縣</item>
+    </string-array>
+
+</resources>
