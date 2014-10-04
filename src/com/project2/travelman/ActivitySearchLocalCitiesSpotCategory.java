@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,6 +36,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ActivitySearchLocalCitiesSpotCategory extends Activity {
+
+    private static final String TAG = "ActivitySearchLocalCitiesSpotCategory";
 
 	private ListView myListView;
 	private TextView myTextView;
@@ -105,38 +108,69 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 								+ " where city like '" + spotname
 								+ "' and category like '" + spotCategory + "'";
 						result = DBConnector.executeQuery(sql);
-					} else if (!spotCategory.equals("")) {
-						String sql = "SELECT * FROM " + spotengname
-								+ " where city like '" + spotname + "'";
-						result = DBConnector.executeQuery(sql);
-					}
+					} else {
+                        if (!spotCategory.equals("")) {
+                            String sql = "SELECT * FROM " + spotengname
+                                    + " where city like '" + spotname + "'";
+                            result = DBConnector.executeQuery(sql);
+                        }
+                    }
 
                     if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
 						String sql = "SELECT * FROM " + spotengname
 								+ " where category like '" + spotCategory + "'";
 						result = DBConnector.executeQuery(sql);
-					} else if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
-						String sql = "SELECT * FROM " + spotengname + " ";
-						result = DBConnector.executeQuery(sql);
-					}
+					} else {
+                        if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
+                            String sql = "SELECT * FROM " + spotengname + " ";
+                            result = DBConnector.executeQuery(sql);
+                        }
+                    }
 
                     status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-                    if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                    boolean isGPSEnabled = status.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                    boolean isNetworkEnabled = status.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-                        Criteria criteria = new Criteria();
-                        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-                        String best = status.getBestProvider(criteria, true);
-                        mostRecentLocation = status.getLastKnownLocation(best);
-
-					    ShowListView(result);
-
-//                        myTextView.setText();
-
-                    } else {
+                    if (!isGPSEnabled && !isNetworkEnabled) {
                         Toast.makeText(ActivitySearchLocalCitiesSpotCategory.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//開啟設定頁面
+                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//??????
+                    } else {
+
+                        double longitude;
+                        double latitude;
+
+                        if (isNetworkEnabled) {
+
+                            Log.d("Network", "Network Enabled");
+                            if (status != null) {
+                                mostRecentLocation = status.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                                if (mostRecentLocation != null) {
+                                    latitude = mostRecentLocation.getLatitude();
+                                    longitude = mostRecentLocation.getLongitude();
+                                    Log.v(TAG, "Network "+ latitude +","+ longitude);
+                                }
+                            }
+                        }
+
+                        if (isGPSEnabled) {
+                            if (mostRecentLocation == null) {
+                                Log.d("GPS", "GPS Enabled");
+                                if (status != null) {
+                                    mostRecentLocation = status.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                                    if (mostRecentLocation != null) {
+                                        latitude = mostRecentLocation.getLatitude();
+                                        longitude = mostRecentLocation.getLongitude();
+                                        Log.v(TAG, "GPS "+ latitude +","+ longitude);
+                                    }
+                                }
+                            }
+                        }
+
+                        ShowListView(result);
+
                     }
+
 				}
 
 				@Override

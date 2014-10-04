@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,15 +31,9 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -46,20 +41,21 @@ import java.util.Map;
 
 public class ActivitySearchAround extends Activity {
 
-    private TextView mytextView;
     private ListView myListView;
+
+    private static final String TAG = "ActivitySearchAround";
 
     private ImageButton myButtonSubmit;
     private Spinner mySpinner;
     private String spotCategory = new String("所有類型");
 
-    private ArrayList<Traveler> Travelers;
+    private ArrayList<Traveler> Travelers = null;
 
     private LocationManager status;
-    private Location mostRecentLocation;
+    private Location mostRecentLocation = null;
 
     private String[] spotCategoryArray;
-    private String[] cityAroundArry;
+    private String[] cityAroundArry = null;
 
     private ArrayAdapter<CharSequence> adapterTemp;
 
@@ -81,7 +77,6 @@ public class ActivitySearchAround extends Activity {
 
         if (AppStatus.getInstance(this).isOnline(this)) {
 
-
             adapterTemp = ArrayAdapter.createFromResource(ActivitySearchAround.this, R.array.spot_category, R.layout.item2);
             adapterTemp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -96,18 +91,52 @@ public class ActivitySearchAround extends Activity {
 
                     status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-                    if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                    boolean isGPSEnabled = status.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                    boolean isNetworkEnabled = status.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-                        Criteria criteria = new Criteria();
-                        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-                        String best = status.getBestProvider(criteria, true);
-                        mostRecentLocation = status.getLastKnownLocation(best);
-
-                        AsyncTask task = new MyTask(ActivitySearchAround.this).execute(spotCategory);
-
-                    } else {
+                    if (!isGPSEnabled && !isNetworkEnabled) {
                         Toast.makeText(ActivitySearchAround.this, "請開啟定位服務", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//??????
+                    } else {
+
+                        double longitude;
+                        double latitude;
+
+                        if (isNetworkEnabled) {
+
+                            Log.d("Network", "Network Enabled");
+                            if (status != null) {
+                                mostRecentLocation = status.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                                if (mostRecentLocation != null) {
+                                    latitude = mostRecentLocation.getLatitude();
+                                    longitude = mostRecentLocation.getLongitude();
+                                    Log.v(TAG, "Network "+ latitude +","+ longitude);
+                                }
+                            }
+                        }
+
+                        if (isGPSEnabled) {
+                            if (mostRecentLocation == null) {
+                                Log.d("GPS", "GPS Enabled");
+                                if (status != null) {
+                                    mostRecentLocation = status.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                                    if (mostRecentLocation != null) {
+                                        latitude = mostRecentLocation.getLatitude();
+                                        longitude = mostRecentLocation.getLongitude();
+                                        Log.v(TAG, "GPS "+ latitude +","+ longitude);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (mostRecentLocation == null){
+                            Toast.makeText(ActivitySearchAround.this, "It can't find RecentLocation.", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent();
+                            intent.setClass(ActivitySearchAround.this, MainActivity.class);
+                            startActivity(intent);
+                        } else{
+                            new MyTask(ActivitySearchAround.this).execute(spotCategory);
+                        }
                     }
 
                 }
@@ -125,12 +154,16 @@ public class ActivitySearchAround extends Activity {
         myButtonSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Intent intent = new Intent();
-                intent.setClass(ActivitySearchAround.this, ActivityMap.class);
-                intent.putExtra("list",  Travelers);
-                startActivity(intent);
-                overridePendingTransition(R.anim.my_scale_action,
-                        R.anim.my_alpha_action);
+
+                    Intent intent = new Intent();
+                    intent.setClass(ActivitySearchAround.this, ActivityMap.class);
+                    intent.putExtra("list",  Travelers);
+                    if (Travelers != null) {
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.my_scale_action,R.anim.my_alpha_action);
+                    } else{
+                        Toast.makeText(ActivitySearchAround.this, "Travelers.isEmpty()", Toast.LENGTH_LONG).show();
+                    }
 
             }
         });
@@ -274,21 +307,29 @@ public class ActivitySearchAround extends Activity {
             cityAroundArry = getResources().getStringArray(R.array.kinmen_county_around);
         } else if (cities[21].equals(valueCity)) {
             cityAroundArry = getResources().getStringArray(R.array.lianjiang_county_around);
+        } else {
+            //default location
+//            cityAroundArry = getResources().getStringArray(R.array.taipei_city_around);
         }
 
         String sqlContent = new String(" where (");
         String sqlLeft = new String(" cities like '");
         String sqlRight = new String("'");
         String sqlTail = new String(" or");
-        int count=0;
-        for (String aroundCity:cityAroundArry){
 
-            if (count==0){
-                sqlContent = sqlContent + sqlLeft + aroundCity + sqlRight;
-            }else{
-                sqlContent = sqlContent + sqlTail + sqlLeft + aroundCity + sqlRight;
+        int count=0;
+        if (cityAroundArry!=null) {
+            for (String aroundCity : cityAroundArry) {
+
+                if (count == 0) {
+                    sqlContent = sqlContent + sqlLeft + aroundCity + sqlRight;
+                } else {
+                    sqlContent = sqlContent + sqlTail + sqlLeft + aroundCity + sqlRight;
+                }
+                count++;
             }
-            count++;
+        } else {
+            Log.v(TAG, "cityAroundArry = "+ cityAroundArry);
         }
 
         return sqlContent;
@@ -309,7 +350,6 @@ public class ActivitySearchAround extends Activity {
                     returnAddress = "Sorry! Geocoder service not Present.";
                 }
                 returnAddress = lstAddress.get(0).getAdminArea();
-
             }
         }
         catch(Exception e) {
@@ -347,27 +387,43 @@ public class ActivitySearchAround extends Activity {
             // 並運行在背景執行緒中。主要負責運行耗時的背景處理工作。
             // 本方法是抽象方法，必須實現。注意不能在這裡更新//UI元件//.
 
-            if (!params[0].equals("") && !params[0].equals("所有類型")) {
-                String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + ") and category like '" + spotCategory + "'";
-                result = DBConnector.executeQuery(sql);
-            }else {
-                String sql = "SELECT * FROM " + spottable + cityAroundDetect(getAddressByLocation(mostRecentLocation)) + ") ";
-                result = DBConnector.executeQuery(sql);
-            }
+            if (mostRecentLocation != null) {
 
-            if (result.length() > 5) {
-                Travelers = JsonToList(result);
-                setInAdapter();
+                String mAddress = getAddressByLocation(mostRecentLocation);
 
-            } else {
+                if (mAddress != null) {
+                    Log.v(TAG, "mAddress = " + mAddress);
+                } else {
+                    Log.v(TAG, "mAddress = " + mAddress);
+                }
 
-                List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
-                String[] from = { "name", "address" };
-                int[] to = { R.id.listTextView1, R.id.listTextView2 };
-                adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists,
-                        R.layout.activity_list, from, to);
-                adapterHTTP.notifyDataSetChanged();
+                if (!params[0].equals("") && !params[0].equals("所有類型")) {
+                    String sql = "SELECT * FROM " + spottable + cityAroundDetect(mAddress) + ") and category like '" + spotCategory + "'";
+                    result = DBConnector.executeQuery(sql);
+                } else {
+                    String sql = "SELECT * FROM " + spottable + cityAroundDetect(mAddress) + ") ";
+                    result = DBConnector.executeQuery(sql);
+                }
 
+                if (result.length() > 5) {
+                    Travelers = JsonToList(result);
+
+                    if (Travelers != null) {
+                        setInAdapter();
+                    }
+
+                } else {
+
+                    List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+                    String[] from = {"name", "address"};
+                    int[] to = {R.id.listTextView1, R.id.listTextView2};
+                    adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
+                    adapterHTTP.notifyDataSetChanged();
+
+                }
+
+            } else{
+                Log.v(TAG, "mostRecentLocation = " + mostRecentLocation);
             }
 
             visitExternalLinks();
@@ -473,7 +529,7 @@ public class ActivitySearchAround extends Activity {
 
         }
 
-        private void ShowListView(String xx) {
+        private void ShowListView(String result) {
 
             if (result.length() > 5) {
                 Toast.makeText(ActivitySearchAround.this, spotCategory, Toast.LENGTH_SHORT).show();
