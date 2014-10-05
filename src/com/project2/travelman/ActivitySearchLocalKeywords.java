@@ -233,7 +233,6 @@ public class ActivitySearchLocalKeywords extends Activity {
 
 	private void ShowListView(String result) {
 
-		// 判斷是否有搜尋到診所
 		if (result.length() > 5) {
 			Travelers = JsonToList(result);
 			setInAdapter();

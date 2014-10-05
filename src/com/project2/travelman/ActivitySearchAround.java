@@ -405,23 +405,6 @@ public class ActivitySearchAround extends Activity {
                     result = DBConnector.executeQuery(sql);
                 }
 
-                if (result.length() > 5) {
-                    Travelers = JsonToList(result);
-
-                    if (Travelers != null) {
-                        setInAdapter();
-                    }
-
-                } else {
-
-                    List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
-                    String[] from = {"name", "address"};
-                    int[] to = {R.id.listTextView1, R.id.listTextView2};
-                    adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
-                    adapterHTTP.notifyDataSetChanged();
-
-                }
-
             } else{
                 Log.v(TAG, "mostRecentLocation = " + mostRecentLocation);
             }
@@ -432,7 +415,7 @@ public class ActivitySearchAround extends Activity {
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(String results) {
             //doInBackground全部執行完後觸發
 
             ShowListView(result);
@@ -523,6 +506,10 @@ public class ActivitySearchAround extends Activity {
             lists.add(map);
         }
 
+        if (lists.isEmpty()){
+            openOptionsDialogIsNoneResult();
+        }
+
         // HashMap<String, String>中的key
         String[] from = { "name", "address","category","distance"};
 
@@ -535,8 +522,19 @@ public class ActivitySearchAround extends Activity {
     private void ShowListView(String result) {
 
         if (result.length() > 5) {
-            Toast.makeText(ActivitySearchAround.this, spotCategory, Toast.LENGTH_SHORT).show();
+            Travelers = JsonToList(result);
+            setInAdapter();
+            Toast.makeText(this, "搜尋完成", Toast.LENGTH_SHORT).show();
+        } else {
+
+            List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
+            String[] from = {"name", "address"};
+            int[] to = {R.id.listTextView1, R.id.listTextView2};
+            adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
+            adapterHTTP.notifyDataSetChanged();
+            openOptionsDialogIsNoneResult();
         }
+
 
         myListView.setAdapter(adapterHTTP);
 
@@ -602,6 +600,23 @@ public class ActivitySearchAround extends Activity {
                         menu.add(0, CAN_ADD_ID, 0, "取消");
                     }
                 });
+
+    }
+
+    private void openOptionsDialogIsNoneResult() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_none_result)
+                .setMessage(R.string.app_none_result_msg)
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        }).show();
 
     }
 

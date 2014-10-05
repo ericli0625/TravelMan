@@ -35,14 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/index.html" afterPath="$PROJECT_DIR$/assets/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TravelMan.iws" />
@@ -102,8 +96,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -114,28 +108,64 @@
       <file leaf-file-name="ActivitySearchAround.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67527676" vertical-offset="7344" max-vertical-offset="9420">
-              <caret line="521" column="0" selection-start-line="521" selection-start-column="0" selection-end-line="521" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.23815967" vertical-offset="6754" max-vertical-offset="9150">
+              <caret line="513" column="45" selection-start-line="513" selection-start-column="45" selection-end-line="513" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#16613#16634#0" expanded="true" />
-                <element signature="e#17513#17523#0" expanded="true" />
-                <element signature="e#19476#19497#0" expanded="true" />
+                <element signature="e#5874#6567#0" expanded="true" />
+                <element signature="e#6556#6557#0" expanded="true" />
+                <element signature="e#8642#8662#0" expanded="true" />
+                <element signature="e#8692#8716#0" expanded="true" />
+                <element signature="e#8753#8768#0" expanded="true" />
+                <element signature="e#8794#9170#0" expanded="true" />
+                <element signature="e#9143#9144#0" expanded="true" />
+                <element signature="method#JsonToList#0;class#ActivitySearchAround#0" expanded="false" />
+                <element signature="e#16865#16875#0" expanded="true" />
+                <element signature="e#18828#18849#0" expanded="true" />
+                <element signature="e#20341#20362#0" expanded="true" />
+                <element signature="e#20867#23091#0" expanded="true" />
+                <element signature="e#20928#20958#0" expanded="true" />
+                <element signature="e#23071#23072#0" expanded="true" />
+                <element signature="e#23162#23609#0" expanded="true" />
+                <element signature="e#23590#23591#0" expanded="true" />
+                <element signature="e#23735#23759#0" expanded="true" />
+                <element signature="e#23789#23817#0" expanded="true" />
+                <element signature="e#23854#23869#0" expanded="true" />
+                <element signature="e#23895#24230#0" expanded="true" />
+                <element signature="e#24203#24204#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_list.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+      <file leaf-file-name="ActivitySearchLocalKeywords.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="945">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-5.576923" vertical-offset="2810" max-vertical-offset="5040">
+              <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+              <folding>
+                <element signature="method#selectCity#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="e#14438#14628#0" expanded="true" />
+                <element signature="e#14619#14620#0" expanded="true" />
+                <element signature="e#14737#14761#0" expanded="true" />
+                <element signature="e#14779#14807#0" expanded="true" />
+                <element signature="e#14832#14847#0" expanded="true" />
+                <element signature="e#14855#15046#0" expanded="true" />
+                <element signature="e#15037#15038#0" expanded="true" />
+                <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#onCreateOptionsMenu#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#onOptionsItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#onBackPressed#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#distance#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#deg2rad#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+                <element signature="method#rad2deg#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+              </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -179,12 +209,12 @@
         <option value="$PROJECT_DIR$/assets/index_test.html" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/assets/index.html" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_list.xml" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" />
       </list>
     </option>
   </component>
@@ -247,20 +277,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,13 +366,26 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="All">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -429,6 +459,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -454,19 +497,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -629,7 +659,6 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23743922" sideWeight="0.7905983" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2682334" sideWeight="0.7905983" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995037" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -646,12 +675,13 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23819743" sideWeight="0.7905983" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24441688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24441688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -668,18 +698,18 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20940171" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2382496" sideWeight="0.2037037" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24554294" sideWeight="0.2997159" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24554294" sideWeight="0.2997159" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32193732" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48005697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24797407" sideWeight="0.77492875" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.77350426" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.77350426" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2382496" sideWeight="0.7905983" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20940171" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20940171" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -702,6 +732,17 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="945">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2775">
@@ -757,8 +798,13 @@
             <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#openOptionsDialogIsNotContext#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="e#14438#14628#0" expanded="true" />
+            <element signature="e#14619#14620#0" expanded="true" />
+            <element signature="e#14737#14761#0" expanded="true" />
+            <element signature="e#14779#14807#0" expanded="true" />
+            <element signature="e#14832#14847#0" expanded="true" />
+            <element signature="e#14855#15046#0" expanded="true" />
+            <element signature="e#15037#15038#0" expanded="true" />
             <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
@@ -883,14 +929,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3605313" vertical-offset="275" max-vertical-offset="1065">
-          <caret line="31" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/DBHelper.java">
@@ -1044,30 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2145" max-vertical-offset="4620">
-          <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
-          <folding>
-            <element signature="method#selectCity#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#openOptionsDialogIsNotContext#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#distance#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#deg2rad#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="method#rad2deg#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="7470">
@@ -1107,10 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19642857" vertical-offset="682" max-vertical-offset="3840">
           <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,7 +1207,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="945">
+        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="945">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
@@ -1206,15 +1216,70 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33290488" vertical-offset="191" max-vertical-offset="1065">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.576923" vertical-offset="2810" max-vertical-offset="5040">
+          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+          <folding>
+            <element signature="method#selectCity#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="e#14438#14628#0" expanded="true" />
+            <element signature="e#14619#14620#0" expanded="true" />
+            <element signature="e#14737#14761#0" expanded="true" />
+            <element signature="e#14779#14807#0" expanded="true" />
+            <element signature="e#14832#14847#0" expanded="true" />
+            <element signature="e#14855#15046#0" expanded="true" />
+            <element signature="e#15037#15038#0" expanded="true" />
+            <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#distance#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#deg2rad#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#rad2deg#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67527676" vertical-offset="7344" max-vertical-offset="9420">
-          <caret line="521" column="0" selection-start-line="521" selection-start-column="0" selection-end-line="521" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.23815967" vertical-offset="6754" max-vertical-offset="9150">
+          <caret line="513" column="45" selection-start-line="513" selection-start-column="45" selection-end-line="513" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16613#16634#0" expanded="true" />
-            <element signature="e#17513#17523#0" expanded="true" />
-            <element signature="e#19476#19497#0" expanded="true" />
+            <element signature="e#5874#6567#0" expanded="true" />
+            <element signature="e#6556#6557#0" expanded="true" />
+            <element signature="e#8642#8662#0" expanded="true" />
+            <element signature="e#8692#8716#0" expanded="true" />
+            <element signature="e#8753#8768#0" expanded="true" />
+            <element signature="e#8794#9170#0" expanded="true" />
+            <element signature="e#9143#9144#0" expanded="true" />
+            <element signature="method#JsonToList#0;class#ActivitySearchAround#0" expanded="false" />
+            <element signature="e#16865#16875#0" expanded="true" />
+            <element signature="e#18828#18849#0" expanded="true" />
+            <element signature="e#20341#20362#0" expanded="true" />
+            <element signature="e#20867#23091#0" expanded="true" />
+            <element signature="e#20928#20958#0" expanded="true" />
+            <element signature="e#23071#23072#0" expanded="true" />
+            <element signature="e#23162#23609#0" expanded="true" />
+            <element signature="e#23590#23591#0" expanded="true" />
+            <element signature="e#23735#23759#0" expanded="true" />
+            <element signature="e#23789#23817#0" expanded="true" />
+            <element signature="e#23854#23869#0" expanded="true" />
+            <element signature="e#23895#24230#0" expanded="true" />
+            <element signature="e#24203#24204#0" expanded="true" />
           </folding>
         </state>
       </provider>
