@@ -2,6 +2,7 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,6 +10,7 @@ import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
@@ -103,30 +105,6 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 						int position, long id) {
 					spotCategory = spotCategoryArray[position];
 
-					if (!spotCategory.equals("所有類型") && !spotCategory.equals("")) {
-						String sql = "SELECT * FROM " + spotengname
-								+ " where city like '" + spotname
-								+ "' and category like '" + spotCategory + "'";
-						result = DBConnector.executeQuery(sql);
-					} else {
-                        if (!spotCategory.equals("")) {
-                            String sql = "SELECT * FROM " + spotengname
-                                    + " where city like '" + spotname + "'";
-                            result = DBConnector.executeQuery(sql);
-                        }
-                    }
-
-                    if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
-						String sql = "SELECT * FROM " + spotengname
-								+ " where category like '" + spotCategory + "'";
-						result = DBConnector.executeQuery(sql);
-					} else {
-                        if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
-                            String sql = "SELECT * FROM " + spotengname + " ";
-                            result = DBConnector.executeQuery(sql);
-                        }
-                    }
-
                     status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
                     boolean isGPSEnabled = status.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -167,7 +145,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
                             }
                         }
 
-                        ShowListView(result);
+                        new MyTask(ActivitySearchLocalCitiesSpotCategory.this).execute();
 
                     }
 
@@ -198,6 +176,74 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
 			openOptionsDialogIsNetworkAvailable();
 		}
 	}
+
+    private class MyTask extends AsyncTask<String, Void, String> {
+
+        /**
+         * progress dialog to show user that the backup is processing.
+         */
+        private ProgressDialog dialog;
+        /**
+         * application context.
+         */
+        private Activity activity;
+
+        public MyTask(Activity activity) {
+            this.activity = activity;
+            Activity context = activity;
+            dialog = new ProgressDialog(context);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            if (!spotCategory.equals("所有類型") && !spotCategory.equals("")) {
+                String sql = "SELECT * FROM " + spotengname
+                        + " where city like '" + spotname
+                        + "' and category like '" + spotCategory + "'";
+                result = DBConnector.executeQuery(sql);
+            } else {
+                if (!spotCategory.equals("")) {
+                    String sql = "SELECT * FROM " + spotengname
+                            + " where city like '" + spotname + "'";
+                    result = DBConnector.executeQuery(sql);
+                }
+            }
+
+            if (spotname.equals(strText) && !spotCategory.equals("所有類型")) {
+                String sql = "SELECT * FROM " + spotengname
+                        + " where category like '" + spotCategory + "'";
+                result = DBConnector.executeQuery(sql);
+            } else {
+                if (spotname.equals(strText) && spotCategory.equals("所有類型")) {
+                    String sql = "SELECT * FROM " + spotengname + " ";
+                    result = DBConnector.executeQuery(sql);
+                }
+            }
+
+            return null;
+        }
+
+        protected void onPreExecute() {
+            this.dialog.setTitle("搜尋中");
+            this.dialog.setMessage("請稍後......");
+            this.dialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(String results) {
+            //doInBackground全部執行完後觸發
+
+            ShowListView(result);
+
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+
+        }
+
+
+    }
 
 	private void openOptionsDialogIsNetworkAvailable() {
 		new AlertDialog.Builder(this)

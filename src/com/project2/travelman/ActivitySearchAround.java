@@ -54,6 +54,8 @@ public class ActivitySearchAround extends Activity {
     private LocationManager status;
     private Location mostRecentLocation = null;
 
+    private SimpleAdapter adapterHTTP;
+
     private String[] spotCategoryArray;
     private String[] cityAroundArry = null;
 
@@ -379,7 +381,6 @@ public class ActivitySearchAround extends Activity {
 
         private String result = new String();
         private String spottable = "total_spot";
-        private SimpleAdapter adapterHTTP;
 
         @Override
         protected String doInBackground(String... params) {
@@ -443,196 +444,199 @@ public class ActivitySearchAround extends Activity {
 
         }
 
-        protected ArrayList<Traveler> JsonToList(String response) {
-            ArrayList<Traveler> list = new ArrayList<Traveler>();
-            Traveler Traveler;
+    }
 
-            try {
-                // 將字符串轉換為Json數組
-                JSONArray array = new JSONArray(response);
 
-                int length = array.length();
-                int distance_max = 10;
-                for (int i = 0; i < length; i++) {
-                    // 將每一個數組再轉換成Json對象
-                    JSONObject obj = array.getJSONObject(i);
+    protected ArrayList<Traveler> JsonToList(String response) {
+        ArrayList<Traveler> list = new ArrayList<Traveler>();
+        Traveler Traveler;
 
-                    Traveler = new Traveler();
-                    Traveler.setId(obj.getString("_id"));
-                    Traveler.setName(obj.getString("name"));
-                    Traveler.setCategory(obj.getString("category"));
-                    Traveler.setCities(obj.getString("cities"));
-                    Traveler.setCity(obj.getString("city"));
-                    Traveler.setAddress(obj.getString("address"));
-                    Traveler.setTelephone(obj.getString("telephone"));
-                    Traveler.setContent(obj.getString("content"));
-                    Traveler.setLongitude(obj.getString("longitude"));
-                    Traveler.setLatitude(obj.getString("latitude"));
+        try {
+            // 將字符串轉換為Json數組
+            JSONArray array = new JSONArray(response);
 
-                    if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
+            int length = array.length();
+            int distance_max = 10;
+            for (int i = 0; i < length; i++) {
+                // 將每一個數組再轉換成Json對象
+                JSONObject obj = array.getJSONObject(i);
 
-                        double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
-                        double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
+                Traveler = new Traveler();
+                Traveler.setId(obj.getString("_id"));
+                Traveler.setName(obj.getString("name"));
+                Traveler.setCategory(obj.getString("category"));
+                Traveler.setCities(obj.getString("cities"));
+                Traveler.setCity(obj.getString("city"));
+                Traveler.setAddress(obj.getString("address"));
+                Traveler.setTelephone(obj.getString("telephone"));
+                Traveler.setContent(obj.getString("content"));
+                Traveler.setLongitude(obj.getString("longitude"));
+                Traveler.setLatitude(obj.getString("latitude"));
 
-                        double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
-                                ValueLatitude,ValueLongitude);
+                if(!Traveler.getLatitude().equals("") || !Traveler.getLongitude().equals("")){
 
-                        String ss_t = Double.toString(value_dist_d);
+                    double ValueLatitude=Double.parseDouble(Traveler.getLatitude());
+                    double ValueLongitude=Double.parseDouble(Traveler.getLongitude());
 
-                        Traveler.setDistance(ss_t);
+                    double value_dist_d = distance(mostRecentLocation.getLatitude(),mostRecentLocation.getLongitude(),
+                            ValueLatitude,ValueLongitude);
 
-                        if ((int)value_dist_d < distance_max){
-                            list.add(Traveler);
-                        }
+                    String ss_t = Double.toString(value_dist_d);
 
+                    Traveler.setDistance(ss_t);
+
+                    if ((int)value_dist_d < distance_max){
+                        list.add(Traveler);
                     }
 
                 }
 
-                return list;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        protected void setInAdapter() {
-            List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
-
-            Map<String, String> map;
-            for (Traveler p : Travelers) {
-                map = new HashMap<String, String>();
-
-                map.put("_id", p.getId());
-                map.put("name", p.getName());
-                map.put("category", p.getCategory());
-                map.put("cities", p.getCities());
-                map.put("city", p.getCity());
-                map.put("address", p.getAddress());
-                map.put("telephone", p.getTelephone());
-                map.put("content", p.getContent());
-                map.put("longitude", p.getLongitude());
-                map.put("latitude", p.getLatitude());
-
-                String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
-                map.put("distance", formatStr+" KM");
-
-                lists.add(map);
             }
 
-            // HashMap<String, String>中的key
-            String[] from = { "name", "address","category","distance"};
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-            int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
+    protected void setInAdapter() {
+        List<Map<String, String>> lists = new ArrayList<Map<String, String>>();
 
-            adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
+        Map<String, String> map;
+        for (Traveler p : Travelers) {
+            map = new HashMap<String, String>();
 
+            map.put("_id", p.getId());
+            map.put("name", p.getName());
+            map.put("category", p.getCategory());
+            map.put("cities", p.getCities());
+            map.put("city", p.getCity());
+            map.put("address", p.getAddress());
+            map.put("telephone", p.getTelephone());
+            map.put("content", p.getContent());
+            map.put("longitude", p.getLongitude());
+            map.put("latitude", p.getLatitude());
+
+            String formatStr = String.format("%.1f", Double.parseDouble(p.getDistance()));
+            map.put("distance", formatStr+" KM");
+
+            lists.add(map);
         }
 
-        private void ShowListView(String result) {
+        // HashMap<String, String>中的key
+        String[] from = { "name", "address","category","distance"};
 
-            if (result.length() > 5) {
-                Toast.makeText(ActivitySearchAround.this, spotCategory, Toast.LENGTH_SHORT).show();
-            }
+        int[] to = { R.id.listTextView1, R.id.listTextView2,R.id.listTextView3,R.id.listTextView4};
 
-            myListView.setAdapter(adapterHTTP);
-
-            registerForContextMenu(myListView);//將ContextMenu註冊到視圖上
-
-            myListView
-                    .setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                        @SuppressWarnings("unchecked")
-                        @Override
-                        public void onItemClick(AdapterView<?> arg0, View arg1,
-                                                int arg2, long arg3) {
-                            // arg0就是ListView，arg1表示Item視圖，arg2表示資料index
-
-                            ListView lv = (ListView) arg0;
-                            // SimpleAdapter返回Map
-                            HashMap<String, String> traveler = (HashMap<String, String>) lv.getItemAtPosition(arg2);
-
-                            String telephone, address, name, category, content,longitude,latitude;
-
-                            name = traveler.get("name");
-                            address = traveler.get("address");
-                            telephone = traveler.get("telephone");
-                            category = traveler.get("category");
-                            content = traveler.get("content");
-                            longitude = traveler.get("longitude");
-                            latitude = traveler.get("latitude");
-
-                            Intent intent = new Intent();
-                            intent.setClass(
-                                    ActivitySearchAround.this,
-                                    ActivitySearchLocalCitiesSpotDetail.class);
-
-                            Bundle bundle = new Bundle();
-
-                            bundle.putString("flag", "0");// 標記搜尋頁進入
-                            bundle.putString("name", name);
-                            bundle.putString("address", address);
-                            bundle.putString("telephone", telephone);
-                            bundle.putString("category", category);
-                            bundle.putString("content", content);
-                            bundle.putString("longitude", longitude);
-                            bundle.putString("latitude", latitude);
-
-                            // 把bundle物件指派給Intent
-                            intent.putExtras(bundle);
-
-                            // Activity (ActivityMenu)
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.my_scale_action,
-                                    R.anim.my_alpha_action);
-                        }
-
-                    });
-
-            myListView
-                    .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-                        @Override
-                        public void onCreateContextMenu(ContextMenu menu, View v,
-                                                        ContextMenu.ContextMenuInfo menuInfo) {
-                            menu.setHeaderTitle("加入我的最愛");
-                            menu.add(0, ADD_ID, 0, "確定");
-                            menu.add(0, CAN_ADD_ID, 0, "取消");
-                        }
-                    });
-
-        }
-
-        public double distance(double lat1, double lon1, double lat2, double lon2) {
-
-            double theta = lon1 - lon2;
-
-            double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
-
-                    + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
-
-                    * Math.cos(deg2rad(theta));
-
-            dist = Math.acos(dist);
-
-            dist = rad2deg(dist);
-
-            double miles = dist * 60 * 1.1515;
-
-            return miles*1.609344;
-
-        }
-
-        public double deg2rad(double degree) {
-
-            return degree / 180 * Math.PI;
-
-        }
-
-        public double rad2deg(double radian) {
-
-            return radian * 180 / Math.PI;
-
-        }
+        adapterHTTP = new SimpleAdapter(ActivitySearchAround.this, lists, R.layout.activity_list, from, to);
 
     }
+
+    private void ShowListView(String result) {
+
+        if (result.length() > 5) {
+            Toast.makeText(ActivitySearchAround.this, spotCategory, Toast.LENGTH_SHORT).show();
+        }
+
+        myListView.setAdapter(adapterHTTP);
+
+        registerForContextMenu(myListView);//將ContextMenu註冊到視圖上
+
+        myListView
+                .setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @SuppressWarnings("unchecked")
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1,
+                                            int arg2, long arg3) {
+                        // arg0就是ListView，arg1表示Item視圖，arg2表示資料index
+
+                        ListView lv = (ListView) arg0;
+                        // SimpleAdapter返回Map
+                        HashMap<String, String> traveler = (HashMap<String, String>) lv.getItemAtPosition(arg2);
+
+                        String telephone, address, name, category, content,longitude,latitude;
+
+                        name = traveler.get("name");
+                        address = traveler.get("address");
+                        telephone = traveler.get("telephone");
+                        category = traveler.get("category");
+                        content = traveler.get("content");
+                        longitude = traveler.get("longitude");
+                        latitude = traveler.get("latitude");
+
+                        Intent intent = new Intent();
+                        intent.setClass(
+                                ActivitySearchAround.this,
+                                ActivitySearchLocalCitiesSpotDetail.class);
+
+                        Bundle bundle = new Bundle();
+
+                        bundle.putString("flag", "0");// 標記搜尋頁進入
+                        bundle.putString("name", name);
+                        bundle.putString("address", address);
+                        bundle.putString("telephone", telephone);
+                        bundle.putString("category", category);
+                        bundle.putString("content", content);
+                        bundle.putString("longitude", longitude);
+                        bundle.putString("latitude", latitude);
+
+                        // 把bundle物件指派給Intent
+                        intent.putExtras(bundle);
+
+                        // Activity (ActivityMenu)
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.my_scale_action,
+                                R.anim.my_alpha_action);
+                    }
+
+                });
+
+        myListView
+                .setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v,
+                                                    ContextMenu.ContextMenuInfo menuInfo) {
+                        menu.setHeaderTitle("加入我的最愛");
+                        menu.add(0, ADD_ID, 0, "確定");
+                        menu.add(0, CAN_ADD_ID, 0, "取消");
+                    }
+                });
+
+    }
+
+    public double distance(double lat1, double lon1, double lat2, double lon2) {
+
+        double theta = lon1 - lon2;
+
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2))
+
+                + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2))
+
+                * Math.cos(deg2rad(theta));
+
+        dist = Math.acos(dist);
+
+        dist = rad2deg(dist);
+
+        double miles = dist * 60 * 1.1515;
+
+        return miles*1.609344;
+
+    }
+
+    public double deg2rad(double degree) {
+
+        return degree / 180 * Math.PI;
+
+    }
+
+    public double rad2deg(double radian) {
+
+        return radian * 180 / Math.PI;
+
+    }
+
+
 }

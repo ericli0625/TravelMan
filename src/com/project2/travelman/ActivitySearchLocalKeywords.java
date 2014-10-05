@@ -2,6 +2,7 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,6 +10,7 @@ import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.Settings;
@@ -50,6 +52,8 @@ public class ActivitySearchLocalKeywords extends Activity {
 
 	protected List<Traveler> Travelers;
 	private String result = new String();
+
+    private String str1;
 
 	private SimpleAdapter adapterHTTP;
 
@@ -105,20 +109,10 @@ public class ActivitySearchLocalKeywords extends Activity {
 			myButtonSubmit.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					// Perform action on click
-					String str1 = editText_Search.getText().toString();
+					str1 = editText_Search.getText().toString();
 
 					if (!str1.equals("")) {
 
-                        if(selectedCity.equals("所有區域")){
-                            String sql = "SELECT * FROM " + spottable
-                                    + " where name like '%" + str1 + "%'";
-                            result = DBConnector.executeQuery(sql);
-                        }else{
-
-                            String sql = "SELECT * FROM " + selectCity(selectedCity)
-                                    + " where name like '%" + str1 + "%'";
-                            result = DBConnector.executeQuery(sql);
-                        }
 
                         status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -160,7 +154,7 @@ public class ActivitySearchLocalKeywords extends Activity {
                                 }
                             }
 
-                            ShowListView(result);
+                            new MyTask(ActivitySearchLocalKeywords.this).execute();
 
                         }
 
@@ -181,6 +175,61 @@ public class ActivitySearchLocalKeywords extends Activity {
 			openOptionsDialogIsNetworkAvailable();
 		}
 	}
+
+
+    private class MyTask extends AsyncTask<String, Void, String> {
+
+        /**
+         * progress dialog to show user that the backup is processing.
+         */
+        private ProgressDialog dialog;
+        /**
+         * application context.
+         */
+        private Activity activity;
+
+        public MyTask(Activity activity) {
+            this.activity = activity;
+            Activity context = activity;
+            dialog = new ProgressDialog(context);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            if(selectedCity.equals("所有區域")){
+                String sql = "SELECT * FROM " + spottable
+                        + " where name like '%" + str1 + "%'";
+                result = DBConnector.executeQuery(sql);
+            }else{
+
+                String sql = "SELECT * FROM " + selectCity(selectedCity)
+                        + " where name like '%" + str1 + "%'";
+                result = DBConnector.executeQuery(sql);
+            }
+
+            return null;
+        }
+
+    protected void onPreExecute() {
+        this.dialog.setTitle("搜尋中");
+        this.dialog.setMessage("請稍後......");
+        this.dialog.show();
+    }
+
+    @Override
+    protected void onPostExecute(String results) {
+        //doInBackground全部執行完後觸發
+
+        ShowListView(result);
+
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
+
+    }
+
+    }
 
 	private void ShowListView(String result) {
 
