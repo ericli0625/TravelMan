@@ -13,13 +13,13 @@ public class dataWeather implements Cloneable {
 	String a6 = new String();
 	String a7 = new String();
 
-	String image1 = new String();
-	String image2 = new String();
-	String image3 = new String();
-	String image4 = new String();
-	String image5 = new String();
-	String image6 = new String();
-	String image7 = new String();
+	Integer image1 ;
+    Integer image2 ;
+    Integer image3 ;
+    Integer image4 ;
+    Integer image5 ;
+    Integer image6 ;
+    Integer image7 ;
 
 	dataWeather() {
 
@@ -89,59 +89,59 @@ public class dataWeather implements Cloneable {
 		return this.a7;
 	}
 
-	public void v1Set(String value) {
+	public void v1Set(Integer value) {
 		this.image1 = value;
 	}
 
-	public void v2Set(String value) {
+	public void v2Set(Integer value) {
 		this.image2 = value;
 	}
 
-	public void v3Set(String value) {
+	public void v3Set(Integer value) {
 		this.image3 = value;
 	}
 
-	public void v4Set(String value) {
+	public void v4Set(Integer value) {
 		this.image4 = value;
 	}
 
-	public void v5Set(String value) {
+	public void v5Set(Integer value) {
 		this.image5 = value;
 	}
 
-	public void v6Set(String value) {
+	public void v6Set(Integer value) {
 		this.image6 = value;
 	}
 
-	public void v7Set(String value) {
+	public void v7Set(Integer value) {
 		this.image7 = value;
 	}
 
-	public String v1Get() {
+	public Integer v1Get() {
 		return this.image1;
 	}
 
-	public String v2Get() {
+	public Integer v2Get() {
 		return this.image2;
 	}
 
-	public String v3Get() {
+	public Integer v3Get() {
 		return this.image3;
 	}
 
-	public String v4Get() {
+	public Integer v4Get() {
 		return this.image4;
 	}
 
-	public String v5Get() {
+	public Integer v5Get() {
 		return this.image5;
 	}
 
-	public String v6Get() {
+	public Integer v6Get() {
 		return this.image6;
 	}
 
-	public String v7Get() {
+	public Integer v7Get() {
 		return this.image7;
 	}
 
@@ -174,7 +174,7 @@ public class dataWeather implements Cloneable {
 
 	}
 
-	public void weatherDayNight(ArrayList<String> temp) {
+	public void weatherDayNight(ArrayList<Integer> temp) {
 
 		this.v1Set(temp.get(0));
 		this.v2Set(temp.get(1));

@@ -98,27 +98,30 @@ public class ActivityWeather extends Activity {
 				Elements strTexts = doc.select("table.BoxTableInside");
 				Elements pngs = doc.select("img[src$=.gif]");
 
-				pngs.remove(pngs.first());
-
 				String w1 = "d";
 				String w2 = "n";
 
 				List<doubleWeather> doubleWeatherListWeathers = new ArrayList<doubleWeather>();
 				dataWeather imageWeather1 = new dataWeather(), imageWeather2 = new dataWeather();
 				doubleWeather doubleWeatherImage = new doubleWeather();
-				ArrayList<String> test1 = new ArrayList<String>();
-				ArrayList<String> test2 = new ArrayList<String>();
+				ArrayList<Integer> test1 = new ArrayList<Integer>();
+				ArrayList<Integer> test2 = new ArrayList<Integer>();
 
 				int countImage = 0;
 				int countImage2 = 0;
 				for (Element element : pngs) {
-					String weather_name = element.toString().substring(35,
-							element.toString().length());
+					String weather_name = element.toString().substring(35,element.toString().length());
+
+//                    System.out.println("element="+element.toString());
 
 					if (weather_name.substring(0, 1).equals(w1)) {
 						String wee1 = weather_name.substring(4, 6);
-						// System.out.println(weather_name);
-						test1.add(wee1);
+//						    System.out.println("wee1="+weather_name);
+
+                        int image_view_1= Integer.parseInt(wee1);
+//                        System.out.println("wee1="+image_view_1);
+
+						test1.add(image_view_1);
 						if (countImage == 6) {
 							imageWeather1.weatherDayNight(test1);
 							countImage = 0;
@@ -126,11 +129,15 @@ public class ActivityWeather extends Activity {
 							continue;
 						}
 						countImage++;
-						// System.out.println(wee1);
+
 					} else {
 						String wee2 = weather_name.substring(6, 8);
-						// System.out.println(weather_name);
-						test2.add(wee2);
+//						    System.out.println("wee2="+weather_name);
+
+                        int image_view_2= Integer.parseInt(wee2);
+//                        System.out.println("wee2="+image_view_2);
+
+						test2.add(image_view_2);
 						if (countImage2 == 6) {
 							imageWeather2.weatherDayNight(test2);
 							countImage2 = 0;
@@ -145,7 +152,7 @@ public class ActivityWeather extends Activity {
 							continue;
 						}
 						countImage2++;
-						// System.out.println(wee2);
+
 					}
 
 				}
@@ -207,10 +214,9 @@ public class ActivityWeather extends Activity {
 							.get(i).data1.clone();
 					doubleWeatherTermanal1.data2 = (dataWeather) doubleWeatherList
 							.get(i).data2.clone();
-					doubleWeatherTermanal1.weather1 = (dataWeather) doubleWeatherListWeathers
-							.get(i).weather1.clone();
-					doubleWeatherTermanal1.weather2 = (dataWeather) doubleWeatherListWeathers
-							.get(i).weather2.clone();
+					doubleWeatherTermanal1.weather1 = (dataWeather) doubleWeatherListWeathers.get(i).weather1.clone();
+					doubleWeatherTermanal1.weather2 = (dataWeather) doubleWeatherListWeathers.get(i).weather2.clone();
+
 					doubleWeatherListTermanal
 							.add((doubleWeather) doubleWeatherTermanal1.clone());
 
@@ -234,18 +240,19 @@ public class ActivityWeather extends Activity {
 
 			    map.put("Day_temp", p.data1.a1Get());
 			    map.put("Night_temp", p.data2.a1Get());
-			    map.put("Day_image",Integer.toString(flags[Integer.parseInt(p.weather1.v1Get())]));
-			    map.put("Night_image",Integer.toString(flags2[Integer.parseInt(p.weather2.v1Get())]));
+
+			    map.put("Day_image",Integer.toString(flags[p.weather1.v1Get()]));
+			    map.put("Night_image",Integer.toString(flags2[p.weather2.v1Get()]));
 
                 map.put("Day_temp_2", p.data1.a2Get());
                 map.put("Night_temp_2", p.data2.a2Get());
-                map.put("Day_image_2",Integer.toString(flags[Integer.parseInt(p.weather1.v2Get())]));
-                map.put("Night_image_2",Integer.toString(flags2[Integer.parseInt(p.weather2.v2Get())]));
+                map.put("Day_image_2",Integer.toString(flags[p.weather1.v2Get()]));
+                map.put("Night_image_2",Integer.toString(flags2[p.weather2.v2Get()]));
 
                 map.put("Day_temp_3", p.data1.a3Get());
                 map.put("Night_temp_3", p.data2.a3Get());
-                map.put("Day_image_3",Integer.toString(flags[Integer.parseInt(p.weather1.v3Get())]));
-                map.put("Night_image_3",Integer.toString(flags2[Integer.parseInt(p.weather2.v3Get())]));
+                map.put("Day_image_3",Integer.toString(flags[p.weather1.v3Get()]));
+                map.put("Night_image_3",Integer.toString(flags2[p.weather2.v3Get()]));
 
 			    lists.add(map);
 			}

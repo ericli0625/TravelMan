@@ -12,24 +12,24 @@
   function initialize() {
     var latitude = 0;
     var longitude = 0;
-	
+
 	var centerAtlatitude = 0;
-	    var centerAtlongitude = 0;
-	
+	var centerAtlongitude = 0;
+
     if (window.MapDataFunction){
-      latitude = window.MapDataFunction.getLatitude();
-      longitude = window.MapDataFunction.getLongitude();
+        latitude = window.MapDataFunction.getLatitude();
+        longitude = window.MapDataFunction.getLongitude();
 	 	centerAtlatitude = window.MapDataFunction.centerAtLatitude();
-	 	   centerAtlongitude = window.MapDataFunction.centerAtLongitude();
+	 	centerAtlongitude = window.MapDataFunction.centerAtLongitude();
     }
 
     var myLatlng = new google.maps.LatLng(latitude,longitude);
-   var centerAt = new google.maps.LatLng(centerAtlatitude,centerAtlongitude);
+    var centerAt = new google.maps.LatLng(centerAtlatitude,centerAtlongitude);
 
     var myOptions = {
-      zoom: 10,
-      center: centerAt,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoom: 10,
+        center: centerAt,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
 	mapTypeControl: true,
 	    mapTypeControlOptions: {
 	      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -40,27 +40,27 @@
 	    }
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	
+
 	var	myDataSize = window.MapDataFunction.getDataSize();
 	var bounds = new google.maps.LatLngBounds();
-	
+
 	for(var i=0 ;i<myDataSize;i++){
-		
+
 		var	lat = parseFloat(window.MapDataFunction.getData1(i));
 		var	lng = parseFloat(window.MapDataFunction.getData2(i));
 		var local = window.MapDataFunction.getData3(i);
 		var	category = window.MapDataFunction.getData4(i);
 		var LatLng = new google.maps.LatLng(lat, lng);
-		
+
 		addSite(map,lat,lng,local,category);
 		bounds.extend(LatLng);
 	}
 	map.fitBounds(bounds);
-	
+
 	addSiteNowLocal(map,myLatlng);
 
 
-	// Create the DIV to hold the control and
+	  // Create the DIV to hold the control and
 	  // call the HomeControl() constructor passing
 	  // in this DIV.
 	  var homeControlDiv = document.createElement('div');
@@ -77,7 +77,7 @@ function addSite(map, lat, lng, local, category) {
 	var pt = new google.maps.LatLng(lat,lng);
 	var image;
 	var image1;
-	
+
 	switch(category){
 		case "公園休憩":
 			image = 'arrow/blue-dot.png';
@@ -86,7 +86,7 @@ function addSite(map, lat, lng, local, category) {
 		case "主題農場":
 			image = 'arrow/blue.png';
 			image1 = 'arrow/shadow.png';
-			break;	
+			break;
 		case "主題樂園":
 			image = 'arrow/green-dot.png';
 			image1 = 'arrow/shadow.png';
@@ -99,7 +99,7 @@ function addSite(map, lat, lng, local, category) {
 			image = 'arrow/lightblue.png';
 			image1 = 'arrow/shadow.png';
 			break;
-			
+
 		case "自然景觀":
 			image = 'arrow/ltblue-dot.png';
 			image1 = 'arrow/shadow.png';
@@ -111,7 +111,7 @@ function addSite(map, lat, lng, local, category) {
 		case "林場森林":
 			image = 'arrow/orange.png';
 			image1 = 'arrow/shadow.png';
-			break;	
+			break;
 		case "美食購物":
 			image = 'arrow/pink-dot.png';
 			image1 = 'arrow/shadow.png';
@@ -119,8 +119,8 @@ function addSite(map, lat, lng, local, category) {
 		case "風景休憩":
 			image = 'arrow/pink.png';
 			image1 = 'arrow/shadow.png';
-			break;	
-			
+			break;
+
 			case "展示中心":
 				image = 'arrow/purple-dot.png';
 				image1 = 'arrow/shadow.png';
@@ -132,7 +132,7 @@ function addSite(map, lat, lng, local, category) {
 			case "都會人文":
 				image = 'arrow/red-dot.png';
 				image1 = 'arrow/shadow.png';
-				break;	
+				break;
 			case "港口濱海":
 				image = 'arrow/red.png';
 				image1 = 'arrow/shadow.png';
@@ -140,25 +140,25 @@ function addSite(map, lat, lng, local, category) {
 			case "溫泉冷泉":
 				image = 'arrow/yellow-dot.png';
 				image1 = 'arrow/shadow.png';
-				break;		
+				break;
 			case "藝術人文":
 				image = 'arrow/yellow.png';
 				image1 = 'arrow/shadow.png';
 				break;
-					
+
 		default:
 			image = 'arrow/arrow.png';
 			image1 = 'arrow/arrowshadow.png';
 			break;
-		
+
 	}
-	
+
 	var image_now = {
 	    url: image,
 	    size: new google.maps.Size(32, 32),
 	    origin: new google.maps.Point(0,0)
 	  };
-	
+
 	var shadow = {
 	    url: image1,
 	    // The shadow image is larger in the horizontal dimension
@@ -167,7 +167,7 @@ function addSite(map, lat, lng, local, category) {
 	    origin: new google.maps.Point(0,0),
 	    anchor: new google.maps.Point(15,32)
 	  };
-	
+
 	var marker = new google.maps.Marker({
 				icon: image_now,
                 map: map,

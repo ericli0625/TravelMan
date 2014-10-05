@@ -2,14 +2,16 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.location.Criteria;
+
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -19,8 +21,10 @@ import java.util.ArrayList;
 
 public class ActivityMap extends Activity implements LocationListener {
 
+    private static final String TAG = "ActivityMap";
+
     private static final String MAP_URL = "file:///android_asset/index.html";
-    private WebView webView;
+
     private TextView textView_map;
 
     private Location mostRecentLocation;
@@ -56,34 +60,63 @@ public class ActivityMap extends Activity implements LocationListener {
 
         status = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        if (status.isProviderEnabled(LocationManager.GPS_PROVIDER) || status.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+        boolean isGPSEnabled = status.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean isNetworkEnabled = status.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            Criteria criteria = new Criteria();
-            criteria.setAccuracy(Criteria.ACCURACY_FINE);
-            String best = status.getBestProvider(criteria, true);
-            mostRecentLocation = status.getLastKnownLocation(best);
-
-            setupWebView();//載入Webview
-
-        } else {
+        if (!isGPSEnabled && !isNetworkEnabled) {
             Toast.makeText(this, "請開啟定位服務", Toast.LENGTH_LONG).show();
             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//開啟設定頁面
+        } else {
+
+            double longitude;
+            double latitude;
+
+            if (isNetworkEnabled) {
+
+                Log.d("Network", "Network Enabled");
+                if (status != null) {
+                    mostRecentLocation = status.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    if (mostRecentLocation != null) {
+                        latitude = mostRecentLocation.getLatitude();
+                        longitude = mostRecentLocation.getLongitude();
+                        Log.v(TAG, "Network " + latitude + "," + longitude);
+                    }
+                }
+            }
+
+            if (isGPSEnabled) {
+                if (mostRecentLocation == null) {
+                    Log.d("GPS", "GPS Enabled");
+                    if (status != null) {
+                        mostRecentLocation = status.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                        if (mostRecentLocation != null) {
+                            latitude = mostRecentLocation.getLatitude();
+                            longitude = mostRecentLocation.getLongitude();
+                            Log.v(TAG, "GPS " + latitude + "," + longitude);
+                        }
+                    }
+                }
+            }
+
+            setupWebView(mostRecentLocation);//載入Webview
+
         }
 
     }
 
-    private void setupWebView(){
+    private void setupWebView(Location mRecentLocation){
 
-        webView = (WebView) findViewById(R.id.webview);
+        WebView webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);//啟用Webview的JavaScript功能
-        webView.addJavascriptInterface(new JavaScriptInterface(), "MapDataFunction");
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageFinished(WebView view, String url) {
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setBuiltInZoomControls(true);       //是否支持手指縮放
+        webView.getSettings().setDisplayZoomControls(true);      //是否顯示縮放按鈕(內置縮放+/-按鈕)
+        webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        webView.addJavascriptInterface(new JavaScriptInterface(mRecentLocation), "MapDataFunction");
 
-            }
+//        Log.v(TAG, "coordinate_array[0]  " + coordinate_array[0] + " coordinate_array[1]  " + coordinate_array[1]);
 
-        });
+        webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(MAP_URL);  //載入URL
 
 //        textView_map.setText(data[0][0]);
@@ -92,11 +125,17 @@ public class ActivityMap extends Activity implements LocationListener {
 
     private class JavaScriptInterface{
 
+        private Location mmRecentLocation;
+
+        public JavaScriptInterface(Location mRecentLocation) {
+            mmRecentLocation = mRecentLocation;
+        }
+
         public double getLatitude(){
-            return mostRecentLocation.getLatitude();
+            return mmRecentLocation.getLatitude();
         }
         public double getLongitude(){
-            return mostRecentLocation.getLongitude();
+            return mmRecentLocation.getLongitude();
         }
 
         public String centerAtLatitude(){
