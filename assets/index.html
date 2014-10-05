@@ -30,7 +30,7 @@
         zoom: 10,
         center: centerAt,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-	mapTypeControl: true,
+	    mapTypeControl: true,
 	    mapTypeControlOptions: {
 	      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
 	    },
@@ -68,6 +68,9 @@
 
 	  homeControlDiv.index = 1;
 	  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
+
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
 
   }
 
@@ -193,7 +196,11 @@ function addSiteNowLocal(map,myLatlng) {
 var prev_infowindow = null;
 function attachSecretMessage(marker, local,category,lat,lng) {
   var infowindow = new google.maps.InfoWindow({
-    content: "景點名稱："+local+"<br />景點類型："+category +"<br />緯度："+ lat+"<br />經度："+lng
+    content:
+            "景點名稱：" + local
+    + "<br />景點類型：" + category
+    + "<br />緯度：" + lat
+    + "<br />經度：" + lng
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -232,6 +239,7 @@ function HomeControl(controlDiv, map, myLatlng) {
   google.maps.event.addDomListener(controlUI, 'click', function() {
     map.setCenter(myLatlng)
   });
+
 }
 
 </script>

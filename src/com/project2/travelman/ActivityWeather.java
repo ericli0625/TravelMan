@@ -83,6 +83,7 @@ public class ActivityWeather extends Activity {
 			this.dialog.setTitle("載入中");
 			this.dialog.setMessage("請稍後......");
 			this.dialog.show();
+            this.dialog.setCancelable(false);
 		}
 
 		private SimpleAdapter adapterHTTP;

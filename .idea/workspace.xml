@@ -30,13 +30,19 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.project2.travelman" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd317a66-82d2-48ec-9d5d-8b0d27f33a33" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" afterPath="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/index.html" afterPath="$PROJECT_DIR$/assets/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TravelMan.iws" />
@@ -96,8 +102,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -108,27 +114,28 @@
       <file leaf-file-name="ActivitySearchAround.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61705005" vertical-offset="5244" max-vertical-offset="9705">
-              <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67527676" vertical-offset="7344" max-vertical-offset="9420">
+              <caret line="521" column="0" selection-start-line="521" selection-start-column="0" selection-end-line="521" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5940#6633#0" expanded="true" />
-                <element signature="e#6622#6623#0" expanded="true" />
-                <element signature="e#8708#8728#0" expanded="true" />
-                <element signature="e#8758#8782#0" expanded="true" />
-                <element signature="e#8819#8834#0" expanded="true" />
-                <element signature="e#8860#9236#0" expanded="true" />
-                <element signature="e#9209#9210#0" expanded="true" />
-                <element signature="e#16633#16654#0" expanded="true" />
-                <element signature="e#17533#17543#0" expanded="true" />
-                <element signature="e#19496#19517#0" expanded="true" />
-                <element signature="e#20981#23205#0" expanded="true" />
-                <element signature="e#21042#21072#0" expanded="true" />
-                <element signature="e#23185#23186#0" expanded="true" />
-                <element signature="e#23276#23723#0" expanded="true" />
-                <element signature="e#23704#23705#0" expanded="true" />
+                <element signature="e#16613#16634#0" expanded="true" />
+                <element signature="e#17513#17523#0" expanded="true" />
+                <element signature="e#19476#19497#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_list.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="945">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -163,20 +170,21 @@
         <option value="$PROJECT_DIR$/res/layout/activity_list_favor.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_search.xml" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesFavor.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_list.xml" />
         <option value="$PROJECT_DIR$/res/layout/activity_menu_category.xml" />
         <option value="$PROJECT_DIR$/res/values/ArrayStringCitiesAround.xml" />
         <option value="$PROJECT_DIR$/res/layout/map_display_around.xml" />
         <option value="$PROJECT_DIR$/project.properties" />
         <option value="$PROJECT_DIR$/res/layout/map_display.xml" />
-        <option value="$PROJECT_DIR$/assets/index.html" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/dataWeather.java" />
-        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
+        <option value="$PROJECT_DIR$/assets/index_test.html" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java" />
+        <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/assets/index.html" />
         <option value="$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_list.xml" />
       </list>
     </option>
   </component>
@@ -239,7 +247,20 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,32 +325,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelMan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="All">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TravelMan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -347,12 +373,12 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/sdk/jsoup-1.7.3-sources.jar!/" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="LayoutCode.rearrangeEntries" value="false" />
@@ -364,9 +390,13 @@
       <recent name="com.project2.travelman" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/arrow" />
       <recent name="$PROJECT_DIR$/res/values" />
       <recent name="$PROJECT_DIR$/res/layout" />
       <recent name="$PROJECT_DIR$/res/menu" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.TravelMan">
@@ -399,19 +429,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -437,6 +454,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -603,20 +633,20 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329602" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3995037" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58830845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24441688" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2382496" sideWeight="0.2037037" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32711443" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24554294" sideWeight="0.2997159" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32009926" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34615386" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37220845" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24749643" sideWeight="0.77492875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32832617" sideWeight="0.77350426" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23819743" sideWeight="0.7905983" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3126551" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24441688" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -638,18 +668,18 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20940171" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2382496" sideWeight="0.2037037" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24554294" sideWeight="0.2997159" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32193732" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48005697" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24797407" sideWeight="0.77492875" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.77350426" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2382496" sideWeight="0.7905983" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20940171" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -672,6 +702,44 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2775">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4485#4486#0" expanded="true" />
+            <element signature="e#4548#4549#0" expanded="true" />
+            <element signature="e#4616#4617#0" expanded="true" />
+            <element signature="e#4680#4681#0" expanded="true" />
+            <element signature="e#4752#4753#0" expanded="true" />
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
+            <element signature="e#4925#4926#0" expanded="true" />
+            <element signature="e#4994#4995#0" expanded="true" />
+            <element signature="e#5035#5036#0" expanded="true" />
+            <element signature="e#5104#5105#0" expanded="true" />
+            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="e#5214#5215#0" expanded="true" />
+            <element signature="e#5255#5256#0" expanded="true" />
+            <element signature="e#5324#5325#0" expanded="true" />
+            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="method#onLocationChanged#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5700#5708#0" expanded="false" />
+            <element signature="method#onProviderDisabled#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5862#5878#0" expanded="false" />
+            <element signature="method#onProviderEnabled#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5993#6008#0" expanded="false" />
+            <element signature="method#onStatusChanged#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#choeseCities#0;class#ActivityMap#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3060">
@@ -684,7 +752,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="8070">
           <caret line="124" column="68" selection-start-line="124" selection-start-column="68" selection-end-line="124" selection-end-column="68" />
-          <folding />
+          <folding>
+            <element signature="method#selectCity#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#openOptionsDialogIsNotContext#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#onBackPressed#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#distance#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#deg2rad#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+            <element signature="method#rad2deg#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -700,9 +784,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1140">
           <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding>
-            <element signature="e#793#811#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,9 +800,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1140">
           <caret line="21" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#793#811#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -744,9 +824,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
           <caret line="10" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#793#811#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -770,7 +848,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3405" max-vertical-offset="5700">
           <caret line="227" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2441#2456#0" expanded="true" />
+            <element signature="e#2816#2831#0" expanded="true" />
+            <element signature="e#3025#3034#0" expanded="true" />
+            <element signature="e#3082#3091#0" expanded="true" />
+            <element signature="e#4629#4644#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -788,16 +873,6 @@
           <caret line="13" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/map_display_around.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61" vertical-offset="55" max-vertical-offset="825">
-          <caret line="24" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_menu_category.xml">
@@ -926,7 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.7058823" vertical-offset="0" max-vertical-offset="5850">
           <caret line="190" column="16" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,18 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="75" max-vertical-offset="945">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43269232" vertical-offset="45" max-vertical-offset="3720">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -953,7 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33290488" vertical-offset="131" max-vertical-offset="945">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,91 +1029,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7894737" vertical-offset="60" max-vertical-offset="1185">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#793#811#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85310733" vertical-offset="1423" max-vertical-offset="2790">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4551#4552#0" expanded="true" />
-            <element signature="e#4609#4610#0" expanded="true" />
-            <element signature="method#onLocationChanged#0;class#ActivityMap#0" expanded="false" />
-            <element signature="e#5625#5633#0" expanded="false" />
-            <element signature="method#onProviderDisabled#0;class#ActivityMap#0" expanded="false" />
-            <element signature="e#5787#5803#0" expanded="false" />
-            <element signature="method#onProviderEnabled#0;class#ActivityMap#0" expanded="false" />
-            <element signature="e#5918#5933#0" expanded="false" />
-            <element signature="method#onStatusChanged#0;class#ActivityMap#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#ActivityMap#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#ActivityMap#0" expanded="false" />
-            <element signature="method#choeseCities#0;class#ActivityMap#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityWeather.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.103267975" vertical-offset="386" max-vertical-offset="5625">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="791" max-vertical-offset="5640">
+          <caret line="85" column="45" selection-start-line="85" selection-start-column="45" selection-end-line="85" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2395#2410#0" expanded="true" />
-            <element signature="e#2770#2785#0" expanded="true" />
-            <element signature="e#2979#2988#0" expanded="true" />
-            <element signature="e#3036#3045#0" expanded="true" />
-            <element signature="e#4583#4598#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39893618" vertical-offset="2415" max-vertical-offset="7455">
-          <caret line="221" column="13" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="13" />
-          <folding>
-            <element signature="e#8640#8660#0" expanded="true" />
-            <element signature="e#8678#8702#0" expanded="true" />
-            <element signature="e#8727#8742#0" expanded="true" />
-            <element signature="e#9237#9258#0" expanded="true" />
-            <element signature="e#9720#9750#0" expanded="true" />
-            <element signature="e#13119#13143#0" expanded="true" />
-            <element signature="e#13161#13189#0" expanded="true" />
-            <element signature="e#13214#13229#0" expanded="true" />
+            <element signature="e#2441#2456#0" expanded="true" />
+            <element signature="e#2816#2831#0" expanded="true" />
+            <element signature="e#3025#3034#0" expanded="true" />
+            <element signature="e#3082#3091#0" expanded="true" />
+            <element signature="e#4629#4644#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalKeywords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53984576" vertical-offset="2145" max-vertical-offset="4605">
-          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2145" max-vertical-offset="4620">
+          <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
           <folding>
-            <element signature="e#8448#8478#0" expanded="true" />
             <element signature="method#selectCity#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#onContextItemSelected#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#addFavor#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#openOptionsDialogIsNetworkAvailable#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="e#13903#13923#0" expanded="true" />
-            <element signature="e#13941#13965#0" expanded="true" />
-            <element signature="e#13990#14005#0" expanded="true" />
             <element signature="method#openOptionsDialogIsNotContext#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="e#14330#14353#0" expanded="true" />
-            <element signature="e#14371#14398#0" expanded="true" />
-            <element signature="e#14423#14438#0" expanded="true" />
             <element signature="method#openOptionsDialogIsNoneResult#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
-            <element signature="e#14745#14769#0" expanded="true" />
-            <element signature="e#14787#14815#0" expanded="true" />
-            <element signature="e#14840#14855#0" expanded="true" />
             <element signature="method#setInAdapter#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#JsonToList#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
             <element signature="method#visitExternalLinks#0;class#ActivitySearchLocalKeywords#0" expanded="false" />
@@ -1066,27 +1068,153 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="7470">
+          <caret line="210" column="13" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
+          <folding>
+            <element signature="e#9249#9270#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/arrow/orange-dot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/arrow/purple-dot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/arrow/arrow.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/arrow/yellow-dot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/arrow/blue-dot.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19642857" vertical-offset="682" max-vertical-offset="3840">
+          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73007715" vertical-offset="377" max-vertical-offset="1155">
+          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchLocalCitiesSpotDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4460155" vertical-offset="0" max-vertical-offset="2910">
+          <caret line="91" column="24" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+          <folding>
+            <element signature="e#3172#3449#0" expanded="true" />
+            <element signature="e#3444#3445#0" expanded="true" />
+            <element signature="e#3484#3621#0" expanded="true" />
+            <element signature="e#3616#3617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivityMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.076923" vertical-offset="1046" max-vertical-offset="3150">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4485#4486#0" expanded="true" />
+            <element signature="e#4548#4549#0" expanded="true" />
+            <element signature="e#4616#4617#0" expanded="true" />
+            <element signature="e#4680#4681#0" expanded="true" />
+            <element signature="e#4752#4753#0" expanded="true" />
+            <element signature="e#4802#4803#0" expanded="true" />
+            <element signature="e#4875#4876#0" expanded="true" />
+            <element signature="e#4925#4926#0" expanded="true" />
+            <element signature="e#4994#4995#0" expanded="true" />
+            <element signature="e#5035#5036#0" expanded="true" />
+            <element signature="e#5104#5105#0" expanded="true" />
+            <element signature="e#5145#5146#0" expanded="true" />
+            <element signature="e#5214#5215#0" expanded="true" />
+            <element signature="e#5255#5256#0" expanded="true" />
+            <element signature="e#5324#5325#0" expanded="true" />
+            <element signature="e#5365#5366#0" expanded="true" />
+            <element signature="e#5429#5430#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="method#onLocationChanged#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5700#5708#0" expanded="false" />
+            <element signature="method#onProviderDisabled#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5862#5878#0" expanded="false" />
+            <element signature="method#onProviderEnabled#0;class#ActivityMap#0" expanded="false" />
+            <element signature="e#5993#6008#0" expanded="false" />
+            <element signature="method#onStatusChanged#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#ActivityMap#0" expanded="false" />
+            <element signature="method#choeseCities#0;class#ActivityMap#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/map_display_around.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38082558" vertical-offset="74" max-vertical-offset="825">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="31" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="945">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/travelman/ActivitySearchAround.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61705005" vertical-offset="5244" max-vertical-offset="9705">
-          <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.67527676" vertical-offset="7344" max-vertical-offset="9420">
+          <caret line="521" column="0" selection-start-line="521" selection-start-column="0" selection-end-line="521" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5940#6633#0" expanded="true" />
-            <element signature="e#6622#6623#0" expanded="true" />
-            <element signature="e#8708#8728#0" expanded="true" />
-            <element signature="e#8758#8782#0" expanded="true" />
-            <element signature="e#8819#8834#0" expanded="true" />
-            <element signature="e#8860#9236#0" expanded="true" />
-            <element signature="e#9209#9210#0" expanded="true" />
-            <element signature="e#16633#16654#0" expanded="true" />
-            <element signature="e#17533#17543#0" expanded="true" />
-            <element signature="e#19496#19517#0" expanded="true" />
-            <element signature="e#20981#23205#0" expanded="true" />
-            <element signature="e#21042#21072#0" expanded="true" />
-            <element signature="e#23185#23186#0" expanded="true" />
-            <element signature="e#23276#23723#0" expanded="true" />
-            <element signature="e#23704#23705#0" expanded="true" />
+            <element signature="e#16613#16634#0" expanded="true" />
+            <element signature="e#17513#17523#0" expanded="true" />
+            <element signature="e#19476#19497#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1108,7 +1236,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Android</last-edited>
+          <last-edited>Android (TravelMan)|Android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

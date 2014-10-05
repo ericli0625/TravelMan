@@ -2,7 +2,6 @@ package com.project2.travelman;
 
 import android.app.Activity;
 import android.content.Intent;
-
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,7 +10,7 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -24,6 +23,7 @@ public class ActivityMap extends Activity implements LocationListener {
     private static final String TAG = "ActivityMap";
 
     private static final String MAP_URL = "file:///android_asset/index.html";
+//    private static final String MAP_URL = "http://gmaps-samples.googlecode.com/svn/trunk/articles-android-webmap/simple-android-map.html";
 
     private TextView textView_map;
 
@@ -98,70 +98,73 @@ public class ActivityMap extends Activity implements LocationListener {
                 }
             }
 
-            setupWebView(mostRecentLocation);//載入Webview
+            setupWebView();//載入Webview
 
         }
 
     }
 
-    private void setupWebView(Location mRecentLocation){
+    private void setupWebView(){
 
         WebView webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);//啟用Webview的JavaScript功能
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setBuiltInZoomControls(true);       //是否支持手指縮放
         webView.getSettings().setDisplayZoomControls(true);      //是否顯示縮放按鈕(內置縮放+/-按鈕)
-        webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        webView.addJavascriptInterface(new JavaScriptInterface(mRecentLocation), "MapDataFunction");
-
-//        Log.v(TAG, "coordinate_array[0]  " + coordinate_array[0] + " coordinate_array[1]  " + coordinate_array[1]);
+//        webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        webView.addJavascriptInterface(new MapDataFunction(), "MapDataFunction");
 
         webView.setWebViewClient(new WebViewClient());
+
         webView.loadUrl(MAP_URL);  //載入URL
 
 //        textView_map.setText(data[0][0]);
 
     }
 
-    private class JavaScriptInterface{
+    public class MapDataFunction{
 
-        private Location mmRecentLocation;
-
-        public JavaScriptInterface(Location mRecentLocation) {
-            mmRecentLocation = mRecentLocation;
-        }
-
+        @JavascriptInterface
         public double getLatitude(){
-            return mmRecentLocation.getLatitude();
-        }
-        public double getLongitude(){
-            return mmRecentLocation.getLongitude();
+            return mostRecentLocation.getLatitude();
         }
 
+        @JavascriptInterface
+        public double getLongitude(){
+            return mostRecentLocation.getLongitude();
+        }
+
+        @JavascriptInterface
         public String centerAtLatitude(){
             return coordinate_array[1];
         }
 
+        @JavascriptInterface
         public String centerAtLongitude(){
             return coordinate_array[0];
         }
 
+        @JavascriptInterface
         public String getData1(int x){
             return data[x][0];
         }
 
+        @JavascriptInterface
         public String getData2(int x){
             return data[x][1];
         }
 
+        @JavascriptInterface
         public String getData3(int x){
             return data[x][2];
         }
 
+        @JavascriptInterface
         public String getData4(int x){
             return data[x][3];
         }
 
+        @JavascriptInterface
         public int getDataSize(){
             return count;
         }

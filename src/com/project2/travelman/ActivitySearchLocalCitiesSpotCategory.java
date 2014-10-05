@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -228,6 +227,7 @@ public class ActivitySearchLocalCitiesSpotCategory extends Activity {
             this.dialog.setTitle("搜尋中");
             this.dialog.setMessage("請稍後......");
             this.dialog.show();
+            this.dialog.setCancelable(false);
         }
 
         @Override

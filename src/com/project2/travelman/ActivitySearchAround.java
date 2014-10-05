@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.location.Address;
-import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
@@ -26,7 +25,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -377,6 +375,7 @@ public class ActivitySearchAround extends Activity {
             this.dialog.setTitle("搜尋中");
             this.dialog.setMessage("請稍後......");
             this.dialog.show();
+            this.dialog.setCancelable(false);
         }
 
         private String result = new String();
