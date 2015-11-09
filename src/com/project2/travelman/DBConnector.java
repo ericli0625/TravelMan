@@ -27,7 +27,7 @@ public class DBConnector {
 		try {
 			HttpClient httpClient = new DefaultHttpClient();
 			
-			HttpPost httpPost = new HttpPost("http://traveler.ap01.aws.af.cm");
+			HttpPost httpPost = new HttpPost("http://travel-spotsearch.rhcloud.com/");
 
 			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 			params.add(new BasicNameValuePair("query_string", query_string));
